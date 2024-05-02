@@ -12,12 +12,10 @@ const config: Config = {
       spacing: {
         "26": "6.5rem",
       },
-      colors: {
-
-      },
+      colors: {},
       fontFamily: {
         poppins: ["var(--font-Poppins)"],
-        inter: ["var(--font-Inter)"],
+        // inter: ["var(--font-Inter)"],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -33,23 +31,19 @@ const config: Config = {
   ],
   daisyui: {
     themes: [
-    {
-      mytheme: {
-        ...require("daisyui/src/theming/themes")["light"],
-      
-        "primary": "#000080",
-        "--primary_dark":"#00002B",
-        "--primary_mid":"#000055",
-        "--primary_light":"#AAAAD5",
-        "--primary_superlight":"#CCCCE6",
-        "--fore_dark":"#1A201F",
-        "secondary": "#005bff",
-        "--nav-bg":"#FAFAFA" ,  
-        "--fore_light":"#85818E"         
+      {
+        mytheme: {
+          ...require("daisyui/src/theming/themes")["light"],
 
+          "--background_light_base": "#fff",
+          "--background_dark_base": "#00171F",
+          "--background_light_blue": "#F5FDFF",
+          "--foreground_dark_blue": "#181E4B",
+          "--foreground_neutral_base": "#404040",
+          primary: "#0097C7",
+        },
       },
-    },
-  ],
+    ],
   },
 };
 export default config;

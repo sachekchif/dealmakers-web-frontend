@@ -33,7 +33,7 @@ export default function Home() {
       <Hero />
       {/* Property Listing Section */}
       <PropertyFilters />
-      <PropListing />
+      {/* <PropListing /> */}
       {/* Why Sectio*/}
       <Why />
       {/* RecentlySold Sectio*/}

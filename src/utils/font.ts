@@ -1,4 +1,4 @@
-import { Poppins,Inter } from "next/font/google";
+import { Poppins, Inter } from "next/font/google";
 
 export const PoppinsFont = Poppins({
   weight: ["200", "400", "500", "700"],
@@ -7,10 +7,10 @@ export const PoppinsFont = Poppins({
   display: "swap",
   variable: "--font-Poppins",
 });
-export const InterFont = Inter({
-  weight: ["200", "400", "500", "700"],
-  style: ["normal"],
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-Inter",
-});
+// export const InterFont = Inter({
+//   weight: ["200", "400", "500", "700"],
+//   style: ["normal"],
+//   subsets: ["latin"],
+//   display: "swap",
+//   variable: "--font-Inter",
+// });

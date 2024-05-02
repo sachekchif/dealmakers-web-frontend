@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { InterFont, PoppinsFont } from "@/utils/font";
+import { PoppinsFont } from "@/utils/font";
 import Drawer from "@/components/Drawer";
 
 export const metadata: Metadata = {
@@ -15,13 +15,9 @@ export default function RootLayout({
 }) {
   //
   return (
-    <html
-      lang="en"
-      data-theme="mytheme"
-      className={`${InterFont.variable} ${PoppinsFont.variable} `}
-    >
+    <html lang="en" data-theme="mytheme" className={`${PoppinsFont.variable} `}>
       <body>
-        <main className="font-inter">
+        <main className="font-poppins">
           <Drawer>{children}</Drawer>
         </main>
       </body>
