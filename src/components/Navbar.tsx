@@ -8,9 +8,9 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <div className="navbar bg-[--nav-bg] py-4">
-      <div className="max-w-7xl w-full mx-auto px-2 ">
-        <div className="navbar-start">
+    <div className="navbar bg-[--nav-bg] py-4 md:py-6">
+      <div className="max-w-7xl w-full mx-auto px-2 flex flex-row-reverse md:flex-row">
+        <div className="flex basis-1 justify-end md:justify-start">
           <label
             htmlFor="my-drawer-3"
             aria-label="open sidebar"
@@ -18,23 +18,21 @@ export default function Navbar() {
           >
             <div tabIndex={0} role="button" className="btn btn-ghost px-0 mx-0">
               <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
+                width="37"
+                height="37"
+                viewBox="0 0 37 37"
                 fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h8m-8 6h16"
+                  d="M32.375 27.75H13.875V24.6667H32.375V27.75ZM32.375 20.0417H4.625V16.9583H32.375V20.0417ZM32.375 12.3333H13.875V9.25H32.375V12.3333Z"
+                  fill="#0097C7"
                 />
               </svg>
             </div>
           </label>
           <Link href="/" className="items-center hidden md:flex">
-            <div className="w-8 h-8 relative my-0 ">
+            <div className="w-40 h-12 relative my-0 ">
               <Image
                 src={logo}
                 alt={"logo"}
@@ -42,14 +40,11 @@ export default function Navbar() {
                 className="object-contain"
               ></Image>
             </div>
-            <span className="mx-2 text-base md:text-2xl font-medium ">
-              Domingo
-            </span>
           </Link>
         </div>
-        <div className="navbar-center ">
+        <div className="flex flex-1 md:flex-[3] justify-start">
           <Link href="/" className="flex md:hidden">
-            <div className="w-8 h-8 relative my-0 flex md:hidden ">
+            <div className="w-36 h-12 relative my-0 flex md:hidden ">
               <Image
                 src={logo}
                 alt={"logo"}
@@ -58,53 +53,72 @@ export default function Navbar() {
               ></Image>
             </div>
           </Link>
-          <ul className="menu menu-horizontal px-1 hidden md:flex">
+          <ul className="hidden md:menu md:menu-horizontal px-1 w-full justify-center ">
             <li
-              className={`font-medium  *:active:bg-transparent  ${
-                pathname === "/" ? "text-[--fore_dark]" : "text-[--fore_light] "
+              className={`tracking-wider	antialiased font-semibold  *:active:bg-transparent  ${
+                pathname === "/"
+                  ? "text-[--foreground_dark_blue]"
+                  : "text-gray-400 "
               }`}
             >
               <Link
-                className="active:bg-transparent hover:bg-transparent hover:text-[--fore_dark]"
+                className="active:bg-transparent hover:bg-transparent hover:text-[--foreground_dark_blue]"
                 href={"/"}
               >
                 Home
               </Link>
             </li>
             <li
-              className={`font-medium  *:active:bg-transparent ${
+              className={`tracking-wider	antialiased font-semibold  *:active:bg-transparent ${
                 pathname === "/about"
-                  ? "text-[--fore_dark]"
-                  : "text-[--fore_light] "
+                  ? "text-[--foreground_dark_blue]"
+                  : "text-gray-400 "
               }`}
             >
               <Link
-                className="active:bg-transparent hover:bg-transparent hover:text-[--fore_dark]"
-                href={"#"}
+                className="active:bg-transparent hover:bg-transparent hover:text-[--foreground_dark_blue]"
+                href={"/about"}
               >
                 About Us
               </Link>
             </li>
 
             <li
-              className={`font-medium  *:active:bg-transparent ${
-                pathname === "/properties"
-                  ? "text-[--fore_dark]"
-                  : "text-[--fore_light] "
+              className={`tracking-wider	antialiased font-semibold  *:active:bg-transparent ${
+                pathname === "/beta"
+                  ? "text-[--foreground_dark_blue]"
+                  : "text-gray-400 "
               }`}
             >
               <Link
-                className="active:bg-transparent hover:bg-transparent hover:text-[--fore_dark]"
-                href={"/properties"}
+                className="active:bg-transparent hover:bg-transparent hover:text-[--foreground_dark_blue]"
+                href={"/beta"}
               >
-                Properties
+                Join Beta
+              </Link>
+            </li>
+            <li
+              className={`tracking-wider	antialiased font-semibold  *:active:bg-transparent ${
+                pathname === "/explore"
+                  ? "text-[--foreground_dark_blue]"
+                  : "text-gray-400 "
+              }`}
+            >
+              <Link
+                className="active:bg-transparent hover:bg-transparent hover:text-[--foreground_dark_blue]"
+                href={"/explore"}
+              >
+                Explore
               </Link>
             </li>
           </ul>
         </div>
-        <div className="navbar-end flex">
-          <a className="btn btn-primary rounded-full justify-end text-white">
-            Contact Us
+        <div className="hidden max-md:flex-1 basis-56 md:flex justify-between">
+          <a className="btn btn-primary shadow-md rounded-md justify-end text-white">
+            Download App
+          </a>
+          <a className="btn btn-link justify-end no-underline text-primary/65 hover:text-primary hover:no-underline ">
+            Sign In
           </a>
         </div>
       </div>
@@ -124,45 +138,71 @@ export function SideDrawer() {
       <ul className="menu p-4 w-60 min-h-full bg-base-200">
         {/* Sidebar content here */}
         <li
-          className={`font-medium  *:active:bg-transparent ${
-            pathname === "/" ? "text-[--fore_dark]" : "text-[--fore_light] "
+          className={`tracking-wider	antialiased font-semibold  *:active:bg-transparent  ${
+            pathname === "/"
+              ? "text-[--foreground_dark_blue]"
+              : "text-gray-400 "
           }`}
         >
           <Link
-            className="active:bg-transparent hover:bg-transparent hover:text-[--fore_dark]"
+            className="active:bg-transparent hover:bg-transparent hover:text-[--foreground_dark_blue]"
             href={"/"}
           >
             Home
           </Link>
         </li>
         <li
-          className={`font-medium  *:active:bg-transparent ${
+          className={`tracking-wider	antialiased font-semibold  *:active:bg-transparent ${
             pathname === "/about"
-              ? "text-[--fore_dark]"
-              : "text-[--fore_light] "
+              ? "text-[--foreground_dark_blue]"
+              : "text-gray-400 "
           }`}
         >
           <Link
-            className="active:bg-transparent hover:bg-transparent hover:text-[--fore_dark]"
-            href={"#"}
+            className="active:bg-transparent hover:bg-transparent hover:text-[--foreground_dark_blue]"
+            href={"/about"}
           >
             About Us
           </Link>
         </li>
 
         <li
-          className={`font-medium  *:active:bg-transparent ${
-            pathname === "/properties"
-              ? "text-[--fore_dark]"
-              : "text-[--fore_light] "
+          className={`tracking-wider	antialiased font-semibold  *:active:bg-transparent ${
+            pathname === "/beta"
+              ? "text-[--foreground_dark_blue]"
+              : "text-gray-400 "
           }`}
         >
           <Link
-            className="active:bg-transparent hover:bg-transparent hover:text-[--fore_dark]"
-            href={"/properties"}
+            className="active:bg-transparent hover:bg-transparent hover:text-[--foreground_dark_blue]"
+            href={"/beta"}
           >
-            Properties
+            Join Beta
           </Link>
+        </li>
+        <li
+          className={`tracking-wider	antialiased font-semibold  *:active:bg-transparent ${
+            pathname === "/explore"
+              ? "text-[--foreground_dark_blue]"
+              : "text-gray-400 "
+          }`}
+        >
+          <Link
+            className="active:bg-transparent hover:bg-transparent hover:text-[--foreground_dark_blue]"
+            href={"/explore"}
+          >
+            Explore
+          </Link>
+        </li>
+        <li>
+          <a className="btn w-fit btn-primary shadow-md rounded-md text-white">
+            Download App
+          </a>
+        </li>
+        <li>
+          <a className="btn btn-link w-fit no-underline text-primary/65 hover:text-primary hover:no-underline ">
+            Sign In
+          </a>
         </li>
       </ul>
     </div>
