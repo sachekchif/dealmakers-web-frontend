@@ -6,26 +6,32 @@ import hero1 from "../../public/images/hero-1.png";
 import hero2 from "../../public/images/hero-2.png";
 import hero3 from "../../public/images/hero-3.png";
 import { useState } from "react";
+import { GoShieldCheck } from "react-icons/go";
 
 const heroContent = [
   {
     title: (
-      <h1 className="text-3xl my-2 font-medium md:text-5xl lg:text-6xl md:leading-[1.35] lg:leading-[1.35]">
-        Safeguard Your Transactions, Every Step of the Way
+      <h1 className="capitalize text-left text-3xl my-2 font-medium md:text-5xl lg:text-6xl md:leading-[1.35] lg:leading-[1.35]">
+        <span className="text-primary">Safeguard Your Transactions, </span>
+        Every Step of the Way
       </h1>
     ),
   },
   {
     title: (
-      <h1 className="text-3xl my-2 font-medium md:text-5xl lg:text-6xl md:leading-[1.35] lg:leading-[1.35]">
-        Now you can buy what you really want without being scammed
+      <h1 className="capitalize text-left text-3xl my-2 font-medium md:text-5xl lg:text-6xl md:leading-[1.35] lg:leading-[1.35]">
+        Now you can buy
+        <span className="text-primary"> what you really want </span> without
+        being
+        <span className="text-primary"> scammed</span>
       </h1>
     ),
   },
   {
     title: (
-      <h1 className="text-3xl my-2 font-medium md:text-5xl lg:text-6xl md:leading-[1.35] lg:leading-[1.35]">
-        Overcome Distance barrier; you can buy products across boundaries{" "}
+      <h1 className="capitalize text-left text-3xl my-2 font-medium md:text-5xl lg:text-6xl md:leading-[1.35] lg:leading-[1.35]">
+        <span className="text-primary">Overcome Distance barrier</span>; you can
+        buy products across boundaries{" "}
       </h1>
     ),
   },
@@ -37,43 +43,22 @@ export default function HeroSection() {
 
   return (
     <section>
-      <div className="w-full max-w-7xl mx-auto px-4  py-8">
+      <div className="w-full max-w-7xl mx-auto px-4 py-8">
         <article className="my-2">
-          <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-16">
-            <div className={clsx(" overflow-hidden  lg:h-full lg:order-last")}>
-              <HeroImgSlider thumbsSwiper={thumbsSwiper} heroImgs={heroImgs} />
-            </div>
-
+          <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-8">
             <div className="lg:py-2">
+              <span className="inline-flex items-center sm:text-lg font-medium capitalize text-primary my-2">
+                SECURE TRADING
+                <GoShieldCheck className="text-xl sm:text-3xl text-primary mx-2" />
+              </span>
               {/* Heading 1 carousel */}
               <TitleSlider
                 heroContent={heroContent}
                 setThumbsSwiper={setThumbsSwiper}
               />
-              {/* <h1 className="text-3xl my-2 font-medium md:text-5xl lg:text-6xl md:leading-[1.35] lg:leading-[1.35]">
-                Overcome Distance barrier; you can buy products across
-                boundaries{" "}
-              </h1> */}
-              <p className=" my-2 text-[--foreground_neutral_base] md:text-lg lg:text-xl lg:leading-relaxed">
-                Ready to experience hassle-free transactions? Download Trusted
-                Payer now and take the first step towards secure deals. Your
-                peace of mind is just a click away!
-              </p>
-
-              <div className="flex items-center justify-start my-2 gap-6">
-                <Link
-                  href={"#"}
-                  className="btn btn-primary shadow-md rounded-md justify-end text-white"
-                >
-                  Get Started
-                </Link>
-                <Link
-                  href={"#"}
-                  className="btn btn-primary btn-outline shadow-md rounded-md justify-end"
-                >
-                  Learn More
-                </Link>
-              </div>
+            </div>
+            <div className={"overflow-hidden lg:h-full"}>
+              <HeroImgSlider thumbsSwiper={thumbsSwiper} heroImgs={heroImgs} />
             </div>
           </div>
         </article>

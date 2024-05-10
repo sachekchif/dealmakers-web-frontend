@@ -154,7 +154,7 @@ function RecognizedBy() {
           title="TDM is trusted and
           recognized"
         />
-        <ul className=" my-4 grid grid-cols-2  md:grid-cols-3 lg:grid-cols-6 gap-4 ">
+        <ul className=" my-4 grid grid-cols-2  sm:grid-cols-3 lg:grid-cols-6 gap-4 ">
           {RecognizedByImgs.map((el, i) => (
             <RecognizedByItem imgsrc={el} key={i} />
           ))}
@@ -166,9 +166,9 @@ function RecognizedBy() {
 
 function RecognizedByItem({ imgsrc }: { imgsrc: StaticImageData | string }) {
   return (
-    <li className="md:p-2 ">
+    <li className="md:p-2 grid items-center justify-items-center">
       {/* <div className={"relative w-full h-20"}> */}
-      <div className="flex flex-col h-20 items-center justify-center">
+      <div className="flex flex-col h-20 w-32 items-center justify-center">
         <Image
           alt="Hero Image"
           // Importing an image will
@@ -197,7 +197,7 @@ function HowitWorks() {
             <HowitWorksItem item={el} key={i} />
           ))}
         </ul>
-        <div className="flex items-center justify-center my-2 gap-6">
+        <div className="flex items-center justify-center my-8 gap-6">
           <Link
             href={"#"}
             className="btn btn-primary shadow-md rounded-md justify-end text-white"
@@ -306,13 +306,8 @@ function FeatureItem({ item }: { item: IfeaturesItem }) {
   return (
     <article className="my-4">
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-16">
-        <div
-          className={clsx(
-            "relative h-64 overflow-hidden sm:h-80  lg:h-full",
-            item.imgSide == "r" && "lg:order-last"
-          )}
-        >
-          <div className="flex flex-col">
+        <div className={clsx(item.imgSide == "r" && "lg:order-last")}>
+          <div className="flex flex-col sm:max-w-md md:max-w-lg lg:w-auto mx-auto">
             <Image
               alt="Hero Image"
               // Importing an image will
@@ -365,24 +360,26 @@ function GetApp() {
     <section className="bg-[--background_light_blue]">
       <div className="w-full max-w-7xl mx-auto px-4  py-8">
         <article className="my-2">
-          <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-16">
-            <div
-              className={clsx(
-                "flex flex-col overflow-hidden sm:h-80 lg:h-4/5 lg:order-last"
-              )}
-            >
-              <Image
-                alt="Hero Image"
-                // Importing an image will
-                // automatically set the width and height
-                src={getApp}
-                sizes="100vw"
-                // Make the image display full width
-                style={{
-                  width: "100%",
-                  height: "auto",
-                }}
-              />
+          <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-16 ">
+            <div className={"lg:order-last"}>
+              <div
+                className={
+                  "flex flex-col sm:max-w-md md:max-w-lg lg:w-auto mx-auto"
+                }
+              >
+                <Image
+                  alt="Hero Image"
+                  // Importing an image will
+                  // automatically set the width and height
+                  src={getApp}
+                  sizes="100vw"
+                  // Make the image display full width
+                  style={{
+                    width: "100%",
+                    height: "auto",
+                  }}
+                />
+              </div>
             </div>
 
             <div className="lg:py-24">
