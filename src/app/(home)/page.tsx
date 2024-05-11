@@ -1,6 +1,3 @@
-import hero1 from "../../../public/images/hero-1.png";
-import hero2 from "../../../public/images/hero-2.png";
-import hero3 from "../../../public/images/hero-3.png";
 import re1 from "../../../public/images/r1.png";
 import re2 from "../../../public/images/r2.png";
 import re3 from "../../../public/images/r3.png";
@@ -121,7 +118,7 @@ const GetAppItem = {
 
 export default function Home() {
   return (
-    <section className="w-full">
+    <main className="w-full">
       {/* Hero Section */}
       <HeroSection />
 
@@ -142,7 +139,7 @@ export default function Home() {
 
       {/* FAQs */}
       <FAQs />
-    </section>
+    </main>
   );
 }
 

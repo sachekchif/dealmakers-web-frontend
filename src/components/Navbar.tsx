@@ -8,7 +8,7 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <div className="navbar bg-[--nav-bg] py-4 md:py-6">
+    <div className="navbar bg-[--nav-bg] py-4 md:py-6 border-b border-gray-300">
       <div className="max-w-7xl w-full mx-auto px-2 flex flex-row-reverse md:flex-row">
         <div className="flex basis-1 justify-end md:justify-start">
           <label
@@ -114,12 +114,18 @@ export default function Navbar() {
           </ul>
         </div>
         <div className="hidden max-md:flex-1 basis-56 md:flex justify-between">
-          <a className="btn btn-primary shadow-md rounded-md justify-end text-white">
+          <Link
+            href={"#"}
+            className="btn btn-primary shadow-md rounded-md justify-end text-white"
+          >
             Download App
-          </a>
-          <a className="btn btn-link justify-end no-underline text-primary/65 hover:text-primary hover:no-underline ">
+          </Link>
+          <Link
+            href={"/signin"}
+            className="btn btn-link justify-end no-underline text-primary/65 hover:text-primary hover:no-underline "
+          >
             Sign In
-          </a>
+          </Link>
         </div>
       </div>
     </div>
@@ -195,14 +201,20 @@ export function SideDrawer() {
           </Link>
         </li>
         <li>
-          <a className="btn w-fit btn-primary shadow-md rounded-md text-white">
+          <Link
+            href={"#"}
+            className="btn w-fit btn-primary shadow-md rounded-md text-white"
+          >
             Download App
-          </a>
+          </Link>
         </li>
         <li>
-          <a className="btn btn-link w-fit no-underline text-primary/65 hover:text-primary hover:no-underline ">
+          <Link
+            href={"#"}
+            className="btn btn-link w-fit no-underline text-primary/65 hover:text-primary hover:no-underline "
+          >
             Sign In
-          </a>
+          </Link>
         </li>
       </ul>
     </div>
