@@ -18,7 +18,7 @@ export default function DashboardLayout({
     <main>
       <section className="my-8 md:my-16">
         <div className="w-full max-w-7xl mx-auto px-4 py-8">
-          <div className="flex flex-col md:flex-row gap-8 my-4 md:my-8 justify-stretch">
+          <div className="flex flex-col-reverse md:flex-row gap-8 my-4 md:my-8 justify-stretch">
             <div className="sm:max-w-md md:max-w-lg mx-auto flex-1">
               <h1 className="capitalize text-center text-3xl my-2 font-medium  md:leading-[1.35] lg:leading-[1.35]">
                 <span className="text-primary">

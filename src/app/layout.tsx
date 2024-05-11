@@ -17,9 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="mytheme" className={`${PoppinsFont.variable} `}>
       <body>
-        <main className="font-poppins">
-          <Drawer>{children}</Drawer>
-        </main>
+        <main className="font-poppins">{children}</main>
       </body>
     </html>
   );

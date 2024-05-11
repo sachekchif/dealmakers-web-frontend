@@ -210,7 +210,7 @@ export function SideDrawer() {
         </li>
         <li>
           <Link
-            href={"#"}
+            href={"/signin"}
             className="btn btn-link w-fit no-underline text-primary/65 hover:text-primary hover:no-underline "
           >
             Sign In

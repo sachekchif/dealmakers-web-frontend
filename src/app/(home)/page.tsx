@@ -143,7 +143,7 @@ export default function Home() {
   );
 }
 
-function RecognizedBy() {
+export function RecognizedBy() {
   return (
     <section className="bg-[--background_light_blue]">
       <div className="w-full max-w-7xl mx-auto px-4  py-8">
@@ -351,7 +351,7 @@ function FeatureItem({ item }: { item: IfeaturesItem }) {
   );
 }
 
-function GetApp() {
+export function GetApp() {
   getApp;
   return (
     <section className="bg-[--background_light_blue]">
@@ -418,7 +418,7 @@ function GetApp() {
   );
 }
 
-function FAQs() {
+export function FAQs() {
   return (
     <section className="my-2">
       <div className="w-full max-w-7xl mx-auto px-4 py-8">
