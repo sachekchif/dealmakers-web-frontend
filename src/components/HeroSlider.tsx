@@ -26,14 +26,14 @@ export function HeroImgSlider({
         effect={"fade"}
         thumbs={{ swiper: thumbsSwiper }}
         // install Swiper modules Autoplay,
-        modules={[A11y, Thumbs, EffectFade]}
+        modules={[A11y, Autoplay, Thumbs, EffectFade]}
         spaceBetween={50}
         slidesPerView={1}
         speed={500}
-        // autoplay={{
-        //   delay: 2500,
-        //   disableOnInteraction: false,
-        // }}
+        autoplay={{
+          delay: 3500,
+          disableOnInteraction: false,
+        }}
         loop={true}
         onSwiper={(swiper) => console.log(swiper)}
         onSlideChange={() => console.log("slide change")}
@@ -76,13 +76,13 @@ export function TitleSlider({
         grabCursor={true}
         effect={"fade"}
         // install Swiper modules Autoplay,
-        modules={[A11y, Thumbs, EffectFade]}
+        modules={[A11y, Autoplay, Thumbs, EffectFade]}
         slidesPerView={1}
         speed={500}
-        // autoplay={{
-        //   delay: 2500,
-        //   disableOnInteraction: false,
-        // }}
+        autoplay={{
+          delay: 3500,
+          disableOnInteraction: false,
+        }}
         loop={true}
         watchSlidesProgress
         onSwiper={setThumbsSwiper}
@@ -93,10 +93,10 @@ export function TitleSlider({
             <div className=" bg-[url('../../public/images/Hero_bg_1.png')] bg-[length:200px_100px] md:bg-auto  bg-no-repeat bg-right-top">
               {el.title}
             </div>
-            <p className="text-left  my-2 text-[--foreground_neutral_base] md:text-lg lg:text-xl lg:leading-relaxed">
+            <p className="text-left my-4 text-[--foreground_neutral_base] md:text-lg lg:text-xl lg:leading-relaxed">
               Ready to experience hassle-free transactions? Download Trusted
-              Payer now and take the first step towards secure deals. Your peace
-              of mind is just a click away!
+              Deal Maker now and take the first step towards secure deals. Your
+              peace of mind is just a click away!
             </p>
             <div className="flex items-center justify-start my-6 gap-6">
               <Link

@@ -115,7 +115,7 @@ export default function Navbar() {
         </div>
         <div className="hidden max-md:flex-1 basis-56 md:flex justify-between">
           <Link
-            href={"#"}
+            href={"/#home-download-banner"}
             className="btn btn-primary shadow-md rounded-md justify-end text-white"
           >
             Download App
@@ -202,7 +202,7 @@ export function SideDrawer() {
         </li>
         <li>
           <Link
-            href={"#"}
+            href={"/#home-download-banner"}
             className="btn w-fit btn-primary shadow-md rounded-md text-white"
           >
             Download App

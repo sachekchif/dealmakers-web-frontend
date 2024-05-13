@@ -30,7 +30,7 @@ const heroContent = [
   {
     title: (
       <h1 className="capitalize text-left text-3xl my-2 font-medium md:text-5xl lg:text-6xl md:leading-[1.35] lg:leading-[1.35]">
-        <span className="text-primary">Overcome Distance barrier</span>; you can
+        <span className="text-primary">Overcome Distance barriers</span>, and
         buy products across boundaries{" "}
       </h1>
     ),

@@ -77,10 +77,10 @@ const HowitWorksItems = [
 
 const featuresItem: IfeaturesItem[] = [
   {
-    heading: "Create requests for free",
+    heading: "Create requests for free!",
     featurelist: [
       "Submit your request",
-      "View the list of exciting ordersfor vendors",
+      "View the list of exciting orders from vendors",
       "Choose what offer suites you",
       "Complete your order with ease",
     ],
@@ -98,7 +98,7 @@ const featuresItem: IfeaturesItem[] = [
     img: feat2,
   },
   {
-    heading: "Payments are flexible with Milestone",
+    heading: "Payments are flexible with Milestones",
     featurelist: [
       "Users can create Milestones and pay as they go on with the services",
       "Users can create different flexible options and agree with clients to work with them",
@@ -148,7 +148,7 @@ export function RecognizedBy() {
     <section className="bg-[--background_light_blue]">
       <div className="w-full max-w-7xl mx-auto px-4  py-8">
         <Title
-          title="TDM is trusted and
+          title="Deal Makers is trusted and
           recognized"
         />
         <ul className=" my-4 grid grid-cols-2  sm:grid-cols-3 lg:grid-cols-6 gap-4 ">
@@ -188,7 +188,7 @@ function HowitWorks() {
   return (
     <section className="">
       <div className="w-full max-w-7xl mx-auto px-4  py-8">
-        <Title title="How TDM works" />
+        <Title title="How Deal Makers works" />
         <ul className=" my-2 md:my-4 auto-rows-fr justify-items-center grid grid-cols-[repeat(auto-fit,_minmax(250px,_1fr))]  lg:grid-cols-5 gap-4">
           {HowitWorksItems.map((el, i) => (
             <HowitWorksItem item={el} key={i} />
@@ -286,7 +286,7 @@ function Newsletter() {
 function Features() {
   return (
     <section className="">
-      <div className="w-full max-w-[1400px] mx-auto px-4  py-8">
+      <div className="w-full max-w-[1400px] mx-auto px-4 py-8 lg:my-12">
         <Title
           title="Your all-in-one Marketplace"
           subHeading="Bridge the gap between buyers and sellers effortlessly. Your all-in-one marketplace for seamless connections."
@@ -301,8 +301,8 @@ function Features() {
 
 function FeatureItem({ item }: { item: IfeaturesItem }) {
   return (
-    <article className="my-4">
-      <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-16">
+    <article className="my-12">
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-16 lg:py-8">
         <div className={clsx(item.imgSide == "r" && "lg:order-last")}>
           <div className="flex flex-col sm:max-w-md md:max-w-lg lg:w-auto mx-auto">
             <Image
@@ -320,7 +320,7 @@ function FeatureItem({ item }: { item: IfeaturesItem }) {
           </div>
         </div>
 
-        <div className="lg:py-24">
+        <div className="">
           <h3 className="text-3xl font-medium md:text-5xl lg:text-6xl md:leading-[1.35] lg:leading-[1.35]">
             {" "}
             {item.heading}
@@ -354,16 +354,15 @@ function FeatureItem({ item }: { item: IfeaturesItem }) {
 export function GetApp() {
   getApp;
   return (
-    <section className="bg-[--background_light_blue]">
-      <div className="w-full max-w-7xl mx-auto px-4  py-8">
+    <section
+      id="home-download-banner"
+      className="bg-[--background_light_blue] mb-16"
+    >
+      <div className="w-full max-w-7xl mx-auto px-4 pt-8">
         <article className="my-2">
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-16 ">
             <div className={"lg:order-last"}>
-              <div
-                className={
-                  "flex flex-col sm:max-w-md md:max-w-lg lg:w-auto mx-auto"
-                }
-              >
+              <div className={"flex flex-col sm:max-w-md mx-auto"}>
                 <Image
                   alt="Hero Image"
                   // Importing an image will
@@ -379,15 +378,15 @@ export function GetApp() {
               </div>
             </div>
 
-            <div className="lg:py-24">
+            <div className="">
               <h3 className="text-3xl my-2 font-medium md:text-5xl lg:text-6xl md:leading-[1.35] lg:leading-[1.35]">
                 {" "}
                 {GetAppItem.heading}
               </h3>
               <p className=" my-2 text-[--foreground_neutral_base] md:text-lg lg:text-xl lg:leading-relaxed">
                 Ready to experience hassle-free transactions? Download Trusted
-                Payer now and take the first step towards secure deals. Your
-                peace of mind is just a click away!
+                Deal Maker now and take the first step towards secure deals.
+                Your peace of mind is just a click away!
               </p>
 
               <ul className="my-4">
