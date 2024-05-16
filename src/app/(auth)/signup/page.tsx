@@ -52,7 +52,7 @@ export default function SignUpPage() {
           className="w-full rounded-sm border-gray-200 py-2.5 pe-10 shadow-sm sm:text-sm"
         />
 
-        <span className="absolute top-9 end-0 grid w-10 place-content-center">
+        <span className="absolute top-10 end-0 grid w-10 place-content-center">
           <button type="button" className="text-gray-600 hover:text-gray-700">
             <span className="sr-only">Passowrd</span>
 
@@ -96,7 +96,7 @@ export default function SignUpPage() {
           className="w-full rounded-sm border-gray-200 py-2.5 pe-10 shadow-sm sm:text-sm"
         />
 
-        <span className="absolute top-9 end-0 grid w-10 place-content-center">
+        <span className="absolute top-10 end-0 grid w-10 place-content-center">
           <button type="button" className="text-gray-600 hover:text-gray-700">
             <span className="sr-only">Passowrd</span>
 

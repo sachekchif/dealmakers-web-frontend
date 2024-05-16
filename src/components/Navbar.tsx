@@ -9,7 +9,7 @@ export default function Navbar() {
 
   return (
     <div className="navbar bg-[--nav-bg] py-4 md:py-6 border-b border-gray-300">
-      <div className="max-w-7xl w-full mx-auto px-2 flex flex-row-reverse md:flex-row">
+      <div className="max-w-7xl w-full mx-auto  flex flex-row-reverse md:flex-row">
         <div className="flex basis-1 justify-end md:justify-start">
           <label
             htmlFor="my-drawer-3"
