@@ -141,7 +141,7 @@ export function SideDrawer() {
         aria-label="close sidebar"
         className="drawer-overlay"
       ></label>
-      <ul className="menu p-4 w-60 min-h-full bg-base-200">
+      <ul className="menu p-4 w-60 min-h-full bg-white">
         {/* Sidebar content here */}
         <li
           className={`tracking-wider	antialiased font-semibold  *:active:bg-transparent  ${

@@ -33,7 +33,7 @@ const config: Config = {
     themes: [
       {
         mytheme: {
-          ...require("daisyui/src/theming/themes")["light"],
+          // ...require("daisyui/src/theming/themes")["light"],
 
           "--background_light_base": "#fff",
           "--background_dark_base": "#00171F",
