@@ -1,10 +1,8 @@
 "use client";
-import Link from "next/link";
 import { HeroImgSlider, TitleSlider } from "./HeroSlider";
-import clsx from "clsx";
-import hero1 from "../../public/images/hero-1.png";
-import hero2 from "../../public/images/hero-2.png";
-import hero3 from "../../public/images/hero-3.png";
+import hero1 from "../../../public/images/hero-1.png";
+import hero2 from "../../../public/images/hero-2.png";
+import hero3 from "../../../public/images/hero-3.png";
 import { useState } from "react";
 import { GoShieldCheck } from "react-icons/go";
 

@@ -12,9 +12,6 @@ import work5 from "../../../public/images/work5.png";
 import feat1 from "../../../public/images/feat1.png";
 import feat2 from "../../../public/images/feat2.png";
 import feat3 from "../../../public/images/feat3.png";
-import appStore from "../../../public/images/app_store.png";
-import getApp from "../../../public/images/getApp.png";
-import playStore from "../../../public/images/play_store.png";
 
 import Image, { StaticImageData } from "next/image";
 import { Metadata } from "next";
@@ -22,9 +19,11 @@ import clsx from "clsx";
 import Link from "next/link";
 import { EnvelopeIcon } from "@heroicons/react/24/outline";
 import { FaRegCircleCheck } from "react-icons/fa6";
-import Cbutton from "@/components/Cbutton";
-import Title from "@/components/Title";
-import HeroSection from "@/components/HeroSection";
+import HeroSection from "@/components/home/HeroSection";
+import Title from "@/components/global/Title";
+import Cbutton from "@/components/global/Cbutton";
+import GetApp from "@/components/global/GetApp";
+import FAQs from "@/components/global/FAQS";
 
 export const metadata: Metadata = {
   title: "Home | Trusted Deal Makers",
@@ -107,14 +106,6 @@ const featuresItem: IfeaturesItem[] = [
     img: feat3,
   },
 ];
-const GetAppItem = {
-  heading: "What are you waiting for, get the app now!",
-  featurelist: [
-    "Suitable for use on any device",
-    "A simple and intuitive interface for a stress free experience.",
-  ],
-  img: "https://picsum.photos/650/350",
-};
 
 export default function Home() {
   return (
@@ -348,177 +339,5 @@ function FeatureItem({ item }: { item: IfeaturesItem }) {
         </div>
       </div>
     </article>
-  );
-}
-
-export function GetApp() {
-  getApp;
-  return (
-    <section
-      id="home-download-banner"
-      className="bg-[--background_light_blue] mb-16"
-    >
-      <div className="w-full max-w-7xl mx-auto px-4 pt-8">
-        <article className="my-2">
-          <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-16 ">
-            <div className={"lg:order-last"}>
-              <div className={"flex flex-col sm:max-w-md mx-auto"}>
-                <Image
-                  alt="Hero Image"
-                  // Importing an image will
-                  // automatically set the width and height
-                  src={getApp}
-                  sizes="100vw"
-                  // Make the image display full width
-                  style={{
-                    width: "100%",
-                    height: "auto",
-                  }}
-                />
-              </div>
-            </div>
-
-            <div className="">
-              <h3 className="text-3xl my-2 font-medium md:text-5xl lg:text-6xl md:leading-[1.35] lg:leading-[1.35]">
-                {" "}
-                {GetAppItem.heading}
-              </h3>
-              <p className=" my-2 text-[--foreground_neutral_base] md:text-lg lg:text-xl lg:leading-relaxed">
-                Ready to experience hassle-free transactions? Download Trusted
-                Deal Maker now and take the first step towards secure deals.
-                Your peace of mind is just a click away!
-              </p>
-
-              <ul className="my-4">
-                {GetAppItem.featurelist.map((el, i) => (
-                  <li key={i} className="inline-flex items-start my-2 ">
-                    <span className="mr-2 pt-1">
-                      <FaRegCircleCheck className="text-primary md:text-xl" />
-                    </span>
-                    <span className="md:text-lg lg:text-xl lg:leading-relaxed font-semibold">
-                      {el}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-              <div className="flex">
-                <Link href={"#"} className="">
-                  <Image alt="app store" src={appStore} quality={100} />
-                </Link>
-                <Link href={"#"} className="mx-2">
-                  <Image alt="app store" src={playStore} quality={100} />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-  );
-}
-
-export function FAQs() {
-  return (
-    <section className="my-2">
-      <div className="w-full max-w-7xl mx-auto px-4 py-8">
-        <h2
-          className=" 
-          mx-auto           
-            py-2
-            text-2xl
-            sm:text-4xl
-            sm:max-w-[750px]
-            text-[--foreground_dark_blue]
-            text-center
-            font-extralight 
-            capitalize"
-        >
-          Frequently Asked Questions (FAQs)
-        </h2>
-        <div className="w-full max-w-4xl divide-y divide-[--foreground_neutral_base] mx-auto px-2 my-4">
-          <details className="group py-4 [&_summary::-webkit-details-marker]:hidden">
-            <summary className="flex cursor-pointer items-center justify-between gap-1.5 text-gray-900">
-              <h3 className="">What is Trusted Deal Maker?</h3>
-              <span className="shrink-0 rounded-full bg-white p-1.5 text-gray-900 sm:p-3">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="size-5 shrink-0 transition duration-300 group-open:-rotate-45"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
-                    clipRule="evenodd"
-                  />
-                </svg>{" "}
-              </span>
-            </summary>
-
-            <p className="mt-4 leading-relaxed text-gray-700 text-sm">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic
-              veritatis molestias culpa in, recusandae laboriosam neque aliquid
-              libero nesciunt voluptate dicta quo officiis explicabo
-              consequuntur distinctio corporis earum similique!
-            </p>
-          </details>
-
-          <details className="group py-4 [&_summary::-webkit-details-marker]:hidden">
-            <summary className="flex cursor-pointer items-center justify-between gap-1.5 text-gray-900">
-              <h3 className="">
-                What is the revenue How safe is Trusted Deal Maker?
-              </h3>
-              <span className="shrink-0 rounded-full bg-white p-1.5 text-gray-900 sm:p-3">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="size-5 shrink-0 transition duration-300 group-open:-rotate-45"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
-                    clipRule="evenodd"
-                  />
-                </svg>{" "}
-              </span>
-            </summary>
-
-            <p className="mt-4 leading-relaxed text-gray-700 text-sm">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic
-              veritatis molestias culpa in, recusandae laboriosam neque aliquid
-              libero nesciunt voluptate dicta quo officiis explicabo
-              consequuntur distinctio corporis earum similique!
-            </p>
-          </details>
-          <details className="group py-4 [&_summary::-webkit-details-marker]:hidden">
-            <summary className="flex cursor-pointer items-center justify-between gap-1.5 text-gray-900">
-              <h3 className="">How can i get started?</h3>
-              <span className="shrink-0 rounded-full bg-white p-1.5 text-gray-900 sm:p-3">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="size-5 shrink-0 transition duration-300 group-open:-rotate-45"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
-                    clipRule="evenodd"
-                  />
-                </svg>{" "}
-              </span>
-            </summary>
-
-            <p className="mt-4 leading-relaxed text-gray-700 text-sm">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic
-              veritatis molestias culpa in, recusandae laboriosam neque aliquid
-              libero nesciunt voluptate dicta quo officiis explicabo
-              consequuntur distinctio corporis earum similique!
-            </p>
-          </details>
-        </div>
-      </div>
-    </section>
   );
 }
