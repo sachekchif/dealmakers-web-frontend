@@ -114,7 +114,7 @@ export default function Home() {
       <HeroSection />
 
       {/* RecognizedBy */}
-      <RecognizedBy />
+      {/* <RecognizedBy /> */}
 
       {/* HowitWorks */}
       <HowitWorks />
@@ -179,7 +179,7 @@ function HowitWorks() {
   return (
     <section className="">
       <div className="w-full max-w-7xl mx-auto px-4  py-8">
-        <Title title="How Deal Makers works" />
+        <Title title="How TrustedDealMaker  works" />
         <ul className=" my-2 md:my-4 auto-rows-fr justify-items-center grid grid-cols-[repeat(auto-fit,_minmax(250px,_1fr))]  lg:grid-cols-5 gap-4">
           {HowitWorksItems.map((el, i) => (
             <HowitWorksItem item={el} key={i} />
@@ -279,7 +279,7 @@ function Features() {
     <section className="">
       <div className="w-full max-w-[1400px] mx-auto px-4 py-8 lg:my-12">
         <Title
-          title="Your all-in-one Marketplace"
+          title="Your all-in-one Transaction ecosystem"
           subHeading="Bridge the gap between buyers and sellers effortlessly. Your all-in-one marketplace for seamless connections."
         />
         {featuresItem.map((el, i) => (
