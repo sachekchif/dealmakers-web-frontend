@@ -19,7 +19,7 @@ export default function FAQs() {
         <div className="w-full max-w-4xl divide-y divide-[--foreground_neutral_base] mx-auto px-2 my-4">
           <details className="group py-4 [&_summary::-webkit-details-marker]:hidden">
             <summary className="flex cursor-pointer items-center justify-between gap-1.5 text-gray-900">
-              <h3 className="">What is Trusted Deal Maker?</h3>
+              <h3 className="">What is TrustedDealMaker?</h3>
               <span className="shrink-0 rounded-full bg-white p-1.5 text-gray-900 sm:p-3">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -47,7 +47,7 @@ export default function FAQs() {
           <details className="group py-4 [&_summary::-webkit-details-marker]:hidden">
             <summary className="flex cursor-pointer items-center justify-between gap-1.5 text-gray-900">
               <h3 className="">
-                What is the revenue How safe is Trusted Deal Maker?
+                What is the revenue How safe is TrustedDealMaker?
               </h3>
               <span className="shrink-0 rounded-full bg-white p-1.5 text-gray-900 sm:p-3">
                 <svg

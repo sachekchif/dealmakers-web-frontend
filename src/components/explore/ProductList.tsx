@@ -200,7 +200,7 @@ const productList: IProduct[] = [
 ];
 
 const notify = () => {
-  toast.info("Product Unavailable", {});
+  toast.info("Coming Soon", {});
 };
 
 export default function ProductList() {

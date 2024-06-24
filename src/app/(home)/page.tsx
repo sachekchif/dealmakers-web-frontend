@@ -45,7 +45,7 @@ const RecognizedByImgs = [re1, re2, re3, re4, re5, re6];
 
 const HowitWorksItems = [
   {
-    heading: "Buyer and Customers agree",
+    heading: "Buyer and Customer agree",
     description:
       "The buyer and seller on the Price of the product, mode of delivery, time of delivery and other terms.",
     img: work1,
@@ -250,7 +250,7 @@ function Newsletter() {
           pill={"Newsletter"}
           subHeading="Subscribe to get 
     information, latest news and other interesting offers 
-    about Trusted Deal Maker"
+    about TrustedDealMaker"
           title="Join Us"
         />
         <label className="form-control w-full max-w-xs my-4 mx-auto">

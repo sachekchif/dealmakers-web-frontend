@@ -24,7 +24,7 @@ export default function AboutPage() {
       <Commitments />
 
       {/* RecognizedBy */}
-      <RecognizedBy />
+      {/* <RecognizedBy /> */}
 
       <TeamMembers />
 

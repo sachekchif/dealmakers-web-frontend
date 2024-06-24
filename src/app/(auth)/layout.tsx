@@ -84,14 +84,14 @@ export default function DashboardLayout({
                   </div>
                   <Link
                     href={"#"}
-                    className="btn btn-outline rounded-sm btn-block text-[--foreground_dark_blue] border-[--foreground_dark_blue] uppercase "
+                    className="btn btn-outline rounded-sm btn-block text-[--foreground_dark_blue] border-[--foreground_dark_blue] uppercase hover:text-white hover:bg-[--foreground_dark_blue]"
                   >
                     <FcGoogle className="text-xl " />
                     {pathname === "/signin" ? "Sign In" : "Sign Up"}
                   </Link>
                   <Link
                     href={"#"}
-                    className="btn btn-outline rounded-sm btn-block text-[--foreground_dark_blue] border-[--foreground_dark_blue] mt-4 uppercase"
+                    className="btn btn-outline rounded-sm btn-block text-[--foreground_dark_blue] border-[--foreground_dark_blue] mt-4 uppercase hover:text-white hover:bg-[--foreground_dark_blue]"
                   >
                     <FaApple className="text-xl " />
                     {pathname === "/signin" ? "Sign In" : "Sign Up"}

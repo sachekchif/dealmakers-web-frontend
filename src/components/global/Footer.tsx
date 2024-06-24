@@ -6,6 +6,8 @@ import { SlSocialTwitter } from "react-icons/sl";
 import { PiLinkedinLogoBold } from "react-icons/pi";
 import { RiFacebookBoxLine } from "react-icons/ri";
 
+const currentYear = new Date().getFullYear();
+
 export default function Footer() {
   return (
     <section className="bg-[--background_dark_base]">
@@ -141,7 +143,7 @@ function Copyright() {
     <div className="flex pt-4 items-center flex-wrap md:justify-between">
       <div className="pt-2 mr-4">
         <small className="text-sm pt-2">
-          Copyright ©2021 Trusted Deal Maker. All Rights Reserved.{" "}
+          &copy; {currentYear} Trustedpayer LLC. All Rights Reserved.{" "}
         </small>
       </div>
       <ul className="flex pt-2">

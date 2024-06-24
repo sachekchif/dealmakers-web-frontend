@@ -36,7 +36,7 @@ function ContactDetails() {
   return (
     <div className="flex-1 font-medium">
       <p className="mb-2">
-        <span className="block">Trusted Deal Maker,</span>
+        <span className="block">TrustedDealMaker</span>
         <span className="block">Victoria Island, Lagos, Nigeria.</span>
       </p>
 
