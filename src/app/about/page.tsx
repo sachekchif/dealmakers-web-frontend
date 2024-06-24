@@ -1,5 +1,5 @@
 import Image, { StaticImageData } from "next/image";
-import { RecognizedBy } from "../(home)/page";
+// import { RecognizedBy } from "../(home)/page";
 import aboutHero from "../../../public/images/aboutHero.png";
 import tinyLogo from "../../../public/images/tiny_logo.png";
 import aboutus from "../../../public/images/about_us.png";

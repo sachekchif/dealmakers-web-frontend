@@ -134,23 +134,23 @@ export default function Home() {
   );
 }
 
-export function RecognizedBy() {
-  return (
-    <section className="bg-[--background_light_blue]">
-      <div className="w-full max-w-7xl mx-auto px-4  py-8">
-        <Title
-          title="Deal Makers is trusted and
-          recognized"
-        />
-        <ul className=" my-4 grid grid-cols-2  sm:grid-cols-3 lg:grid-cols-6 gap-4 ">
-          {RecognizedByImgs.map((el, i) => (
-            <RecognizedByItem imgsrc={el} key={i} />
-          ))}
-        </ul>
-      </div>
-    </section>
-  );
-}
+// export function RecognizedBy() {
+//   return (
+//     <section className="bg-[--background_light_blue]">
+//       <div className="w-full max-w-7xl mx-auto px-4  py-8">
+//         <Title
+//           title="Deal Makers is trusted and
+//           recognized"
+//         />
+//         <ul className=" my-4 grid grid-cols-2  sm:grid-cols-3 lg:grid-cols-6 gap-4 ">
+//           {RecognizedByImgs.map((el, i) => (
+//             <RecognizedByItem imgsrc={el} key={i} />
+//           ))}
+//         </ul>
+//       </div>
+//     </section>
+//   );
+// }
 
 function RecognizedByItem({ imgsrc }: { imgsrc: StaticImageData | string }) {
   return (
