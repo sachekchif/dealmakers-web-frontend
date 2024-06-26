@@ -44,7 +44,7 @@ function ContactDetails() {
         <a href="tel:+2348112364568">+234 081-1236-4568</a>
       </p>
       <p className="my-2">
-        <a href="mailto:hello@info.com.ng"> hello@info.com.ng </a>
+        <a href="mailto:services@trustedpayer.co"> services@trustedpayer.co </a>
       </p>
       <SocailHandles />
       <div className="relative h-48 rounded">

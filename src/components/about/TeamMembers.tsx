@@ -1,29 +1,29 @@
 import Image, { StaticImageData } from "next/image";
 import Title from "../global/Title";
-import COO2 from "../../../public/images/member1.png";
-import COO1 from "../../../public/images/Chiso-COO.jpg";
-import CTO from "../../../public/images/iyke-CTO.png";
+import COO from "../../../public/images/blank-profile-image-1.png";
+import CTO from "../../../public/images/Chiso-COO.jpg";
+import CEO from "../../../public/images/iyke-CTO.png";
 
 const TeamMembersItems = [
   {
-    title: "CTO",
+    title: "Founder",
     name: "Iyke Idukpaye",
     description: "Seller releases product to buyer and notifies the escrow.",
-    img: CTO,
+    img: CEO,
   },
   {
-    title: "COO",
+    title: "CTO",
     name: "Chiso Onyeso",
     description:
       "The buyer and seller on the Price of the product, mode of delivery, time of delivery and other terms.",
-    img: COO1,
+    img: CTO,
   },
   {
     title: "COO",
     name: "David Ig",
     description:
       "The buyer then releases the agreed price to the escrow for delivery to commence.",
-    img: COO2,
+    img: COO,
   },
 ];
 

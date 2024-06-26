@@ -47,7 +47,10 @@ export default function ContactForm() {
           ></textarea>
         </div>
       </div>
-      <button className="btn btn-block text-white rounded btn-primary mt-4">
+      <button
+        type="button"
+        className="btn btn-block text-white rounded btn-primary mt-4"
+      >
         block
       </button>
     </form>

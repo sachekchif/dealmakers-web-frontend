@@ -12,7 +12,7 @@ const featurelist = [
   "We provide 24/7 service",
   "Qualified Escrow",
   "Fast Customer Support",
-  "35 Years Experiance",
+  "Seamless Experience",
 ];
 
 export default function AboutPage() {
