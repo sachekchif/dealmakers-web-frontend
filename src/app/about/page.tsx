@@ -55,7 +55,7 @@ function Hero() {
 
       <div
         className={
-          "flex flex-col bg-black/40 h-[520px] p-4 md:p-20  text-white justify-center items-start"
+          "flex flex-col bg-black/50 h-[520px] p-4 md:p-20  text-white justify-center items-start"
         }
       >
         <div className="mt-8 max-w-3xl mx-auto">
@@ -63,9 +63,9 @@ function Hero() {
             About Us
           </h1>
           <p className="my-4 text-center max-w-xl">
-            Your Transactions, Our Priority: Unparalleled Security and Trust. We
-            provide Your Transactions, Our Priority: Unparalleled Security and
-            Trust.
+            Trusteddealmaker is an escrow and deal-making platform owned by
+            TrustedPayer LLC, which aims to provide trust for trades in markets
+            lacking structures for secure transactions between parties.
           </p>
         </div>
       </div>

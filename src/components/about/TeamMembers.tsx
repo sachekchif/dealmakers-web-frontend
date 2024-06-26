@@ -1,27 +1,29 @@
 import Image, { StaticImageData } from "next/image";
 import Title from "../global/Title";
-import member1 from "../../../public/images/member1.png";
+import COO2 from "../../../public/images/member1.png";
+import COO1 from "../../../public/images/Chiso-COO.jpg";
+import CTO from "../../../public/images/iyke-CTO.png";
 
 const TeamMembersItems = [
   {
-    title: "CEO",
-    name: "john doe",
-    description:
-      "The buyer and seller on the Price of the product, mode of delivery, time of delivery and other terms.",
-    img: member1,
+    title: "CTO",
+    name: "Iyke Idukpaye",
+    description: "Seller releases product to buyer and notifies the escrow.",
+    img: CTO,
   },
   {
     title: "COO",
-    name: "john doe",
+    name: "Chiso Onyeso",
     description:
-      "The buyer then releases the agreed price to the escrow for delivery to commence.",
-    img: member1,
+      "The buyer and seller on the Price of the product, mode of delivery, time of delivery and other terms.",
+    img: COO1,
   },
   {
-    title: "CTO",
-    name: "john doe",
-    description: "Seller releases product to buyer and notifies the escrow.",
-    img: member1,
+    title: "COO",
+    name: "David Ig",
+    description:
+      "The buyer then releases the agreed price to the escrow for delivery to commence.",
+    img: COO2,
   },
 ];
 
@@ -51,15 +53,15 @@ export default function TeamMembers() {
 }
 function TeamMember({ item }: { item: ITeamMembers }) {
   return (
-    <li className="rounded-sm border border-gray-600  pb-2 p-4 md:pb-6">
-      <div style={{ display: "flex", flexDirection: "column" }}>
+    <li className="rounded-sm border border-gray-600  pb-2 p-4 md:pb-4">
+      <div style={{ position: "relative", height: "200px", width: "200px" }}>
         <Image
           alt="Mountains"
           src={item.img}
           sizes="100vw"
+          fill
           style={{
-            width: "100%",
-            height: "auto",
+            objectFit: "cover", // cover, contain, none
           }}
         />
       </div>
@@ -68,8 +70,8 @@ function TeamMember({ item }: { item: ITeamMembers }) {
           {item.name}
         </h3>
         <div className="w-16 bg-primary h-0.5 rounded-full mx-auto"></div>
-        <p className="text-sm text-center my-1 text-black"> {item.title}</p>
-        <p className="text-sm text-gray-600">{item.description}</p>
+        <p className="text-sm text-center mt-1 text-black"> {item.title}</p>
+        {/* <p className="text-sm text-gray-600">{item.description}</p> */}
       </div>
     </li>
   );

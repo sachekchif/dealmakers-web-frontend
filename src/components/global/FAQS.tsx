@@ -37,10 +37,11 @@ export default function FAQs() {
             </summary>
 
             <p className="mt-4 leading-relaxed text-gray-700 text-sm">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic
-              veritatis molestias culpa in, recusandae laboriosam neque aliquid
-              libero nesciunt voluptate dicta quo officiis explicabo
-              consequuntur distinctio corporis earum similique!
+              TrustedealMaker provides an excellent ecosystem where any two
+              trading parties (buyer and seller) can agree on business deals and
+              are bound to operate within the agreement. THis allows each party
+              to experience 100% guarantees that they would not lose their money
+              or be denied their services or purchases.
             </p>
           </details>
 
@@ -66,10 +67,10 @@ export default function FAQs() {
             </summary>
 
             <p className="mt-4 leading-relaxed text-gray-700 text-sm">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic
-              veritatis molestias culpa in, recusandae laboriosam neque aliquid
-              libero nesciunt voluptate dicta quo officiis explicabo
-              consequuntur distinctio corporis earum similique!
+              Trusteddealmaker is 10% safe It provides 100% no-funds-loss or
+              service delivery guarantee for each party in a transaction or
+              trade. It enforces the performance of a trade according to terms
+              agreed by both parties.
             </p>
           </details>
           <details className="group py-4 [&_summary::-webkit-details-marker]:hidden">
@@ -92,10 +93,10 @@ export default function FAQs() {
             </summary>
 
             <p className="mt-4 leading-relaxed text-gray-700 text-sm">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic
-              veritatis molestias culpa in, recusandae laboriosam neque aliquid
-              libero nesciunt voluptate dicta quo officiis explicabo
-              consequuntur distinctio corporis earum similique!
+              By downloading the app from the google or IOS app stores you can
+              start your journey to safe trading and guaranteed transactions
+              with any seller or buyer anywhere. The app is very intuitive and
+              self explanatory.
             </p>
           </details>
         </div>
