@@ -25,25 +25,25 @@ const config: Config = {
     },
   },
   plugins: [
-    require("daisyui"),
+    // require("daisyui"),
     require("@tailwindcss/forms"),
     require("tailwind-scrollbar")({ nocompatible: true }),
   ],
-  daisyui: {
-    themes: [
-      {
-        mytheme: {
-          // ...require("daisyui/src/theming/themes")["light"],
+  // daisyui: {
+  //   themes: [
+  //     {
+  //       mytheme: {
+  //         // ...require("daisyui/src/theming/themes")["light"],
 
-          "--background_light_base": "#fff",
-          "--background_dark_base": "#00171F",
-          "--background_light_blue": "#F5FDFF",
-          "--foreground_dark_blue": "#181E4B",
-          "--foreground_neutral_base": "#404040",
-          primary: "#0097C7",
-        },
-      },
-    ],
-  },
+  //         "--background_light_base": "#fff",
+  //         "--background_dark_base": "#00171F",
+  //         "--background_light_blue": "#F5FDFF",
+  //         "--foreground_dark_blue": "#181E4B",
+  //         "--foreground_neutral_base": "#404040",
+  //         primary: "#0097C7",
+  //       },
+  //     },
+  //   ],
+  // },
 };
 export default config;
