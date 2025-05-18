@@ -7,12 +7,12 @@ export default function ContactForm() {
 
       <label
         htmlFor="FullName"
-        className="relative my-4 block rounded border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
+        className="relative my-4 block rounded-sm border border-gray-200 shadow-xs focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
       >
         <input
           type="text"
           id="FullName"
-          className="peer border-none bg-transparent placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0"
+          className="peer border-none bg-transparent placeholder-transparent focus:border-transparent focus:outline-hidden focus:ring-0"
           placeholder="Full Name"
         />
 
@@ -23,12 +23,12 @@ export default function ContactForm() {
 
       <label
         htmlFor="Email"
-        className="relative my-4 block rounded border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
+        className="relative my-4 block rounded-sm border border-gray-200 shadow-xs focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
       >
         <input
           type="text"
           id="Email"
-          className="peer border-none bg-transparent placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0"
+          className="peer border-none bg-transparent placeholder-transparent focus:border-transparent focus:outline-hidden focus:ring-0"
           placeholder="Email"
         />
 
@@ -38,7 +38,7 @@ export default function ContactForm() {
       </label>
 
       <div className="my-4">
-        <div className="overflow-hidden rounded border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600">
+        <div className="overflow-hidden rounded-sm border border-gray-200 shadow-xs focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600">
           <textarea
             id="OrderNotes"
             className="w-full resize-none border-none align-top focus:ring-0 sm:text-sm"
@@ -49,7 +49,7 @@ export default function ContactForm() {
       </div>
       <button
         type="button"
-        className="btn btn-block text-white rounded btn-primary mt-4"
+        className="btn btn-block text-white rounded-sm btn-primary mt-4"
       >
         block
       </button>

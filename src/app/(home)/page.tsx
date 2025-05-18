@@ -136,7 +136,7 @@ export default function Home() {
 
 // export function RecognizedBy() {
 //   return (
-//     <section className="bg-[--background_light_blue]">
+//     <section className="bg-(--background_light_blue)">
 //       <div className="w-full max-w-7xl mx-auto px-4  py-8">
 //         <Title
 //           title="Deal Makers is trusted and
@@ -180,7 +180,7 @@ function HowitWorks() {
     <section className="">
       <div className="w-full max-w-7xl mx-auto px-4  py-8">
         <Title title="How TrustedDealMaker  works" />
-        <ul className=" my-2 md:my-4 auto-rows-fr justify-items-center grid grid-cols-[repeat(auto-fit,_minmax(250px,_1fr))]  lg:grid-cols-5 gap-4">
+        <ul className=" my-2 md:my-4 auto-rows-fr justify-items-center grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))]  lg:grid-cols-5 gap-4">
           {HowitWorksItems.map((el, i) => (
             <HowitWorksItem item={el} key={i} />
           ))}
@@ -206,7 +206,7 @@ function HowitWorks() {
 
 function HowitWorksItem({ item }: { item: IHowitWorksItems }) {
   return (
-    <li className="md:shadow pb-2 md:p-4 md:pb-6">
+    <li className="md:shadow-sm pb-2 md:p-4 md:pb-6">
       <div className={"relative w-full  h-28 "}>
         {/* <div className="flex flex-col"> */}
         {/* <div style={{ position: 'relative', height: '400px' }}> */}
@@ -232,7 +232,7 @@ function HowitWorksItem({ item }: { item: IHowitWorksItems }) {
         {/* </div> */}
       </div>
       <div className="flex flex-col">
-        <h3 className="text-base font-semibold my-2 text-[--foreground_dark_blue]">
+        <h3 className="text-base font-semibold my-2 text-(--foreground_dark_blue)">
           {" "}
           {item.heading}
         </h3>
@@ -244,7 +244,7 @@ function HowitWorksItem({ item }: { item: IHowitWorksItems }) {
 
 function Newsletter() {
   return (
-    <section className="bg-[--background_light_blue]">
+    <section className="bg-(--background_light_blue)">
       <div className="w-full max-w-7xl mx-auto px-4  py-8">
         <Title
           pill={"Newsletter"}
@@ -258,7 +258,7 @@ function Newsletter() {
             <EnvelopeIcon className="absolute inset-y-3 start-0 h-6 px-2 text-primary" />
             <input
               type="email"
-              className="rounded-lg input input-bordered w-full pl-10 pr-12 text-sm text-[--fore_dark] shadow-sm"
+              className="rounded-lg input input-bordered w-full pl-10 pr-12 text-sm text-(--fore_dark) shadow-xs"
               placeholder="Enter email ...."
             />
 
@@ -322,7 +322,7 @@ function FeatureItem({ item }: { item: IfeaturesItem }) {
                 <span className="mr-2 pt-1">
                   <FaRegCircleCheck className="text-primary md:text-xl" />
                 </span>
-                <span className="text-[--foreground_neutral_base] md:text-lg lg:text-xl lg:leading-relaxed">
+                <span className="text-(--foreground_neutral_base) md:text-lg lg:text-xl lg:leading-relaxed">
                   {el}
                 </span>
               </li>

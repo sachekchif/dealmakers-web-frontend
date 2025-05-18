@@ -42,7 +42,7 @@ export default function TeamMembers() {
           title="Meet Our Experts"
           subHeading=" Discover the faces driving reliability and transparency in every deal."
         />
-        <ul className=" my-2 md:my-4 auto-rows-fr justify-items-center grid grid-cols-[repeat(auto-fit,_minmax(250px,_1fr))]  gap-4">
+        <ul className=" my-2 md:my-4 auto-rows-fr justify-items-center grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))]  gap-4">
           {TeamMembersItems.map((el, i) => (
             <TeamMember item={el} key={i} />
           ))}
@@ -53,7 +53,7 @@ export default function TeamMembers() {
 }
 function TeamMember({ item }: { item: ITeamMembers }) {
   return (
-    <li className="rounded-sm border border-gray-600  pb-2 p-4 md:pb-4">
+    <li className="rounded-xs border border-gray-600  pb-2 p-4 md:pb-4">
       <div style={{ position: "relative", height: "200px", width: "200px" }}>
         <Image
           alt="Mountains"
@@ -66,7 +66,7 @@ function TeamMember({ item }: { item: ITeamMembers }) {
         />
       </div>
       <div className="flex flex-col">
-        <h3 className="text-center capitalize text-base font-bold my-1 text-[--foreground_dark_blue]">
+        <h3 className="text-center capitalize text-base font-bold my-1 text-(--foreground_dark_blue)">
           {item.name}
         </h3>
         <div className="w-16 bg-primary h-0.5 rounded-full mx-auto"></div>

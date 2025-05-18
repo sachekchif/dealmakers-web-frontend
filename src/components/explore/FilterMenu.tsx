@@ -10,7 +10,7 @@ export default function FilterMenu() {
   return (
     <ul className="menu p-4 pt-12 lg:p-0 w-full min-h-full bg-white text-base-content relative">
       <div className="flex items-center justify-between mb-2">
-        <h3 className="my-2.5 font-bold text-xl text-[--foreground_dark_blue] px-4">
+        <h3 className="my-2.5 font-bold text-xl text-(--foreground_dark_blue) px-4">
           Filters
         </h3>
         <label
@@ -23,28 +23,28 @@ export default function FilterMenu() {
       <nav>
         <ul className="flex">
           <li
-            className={`tracking-wider antialiased font-semibold  *:active:bg-transparent border-b-4 flex-1 p-2 px-4 text-center active:!bg-inherit ${
+            className={`tracking-wider antialiased font-semibold  active:*:bg-transparent border-b-4 flex-1 p-2 px-4 text-center active:!bg-inherit ${
               pathname === "/explore"
-                ? "text-[--foreground_dark_blue] border-primary"
+                ? "text-(--foreground_dark_blue) border-primary"
                 : "text-gray-400 border-gray-400"
             }`}
           >
             <Link
-              className="px-0 active:!bg-inherit hover:bg-transparent hover:text-[--foreground_dark_blue]"
+              className="px-0 active:bg-inherit! hover:bg-transparent hover:text-(--foreground_dark_blue)"
               href={"#"}
             >
               Products
             </Link>
           </li>
           <li
-            className={`tracking-wider antialiased font-semibold  *:active:bg-transparent border-b-2 flex-1 p-2 px-4 text-center active:!bg-inherit ${
+            className={`tracking-wider antialiased font-semibold  active:*:bg-transparent border-b-2 flex-1 p-2 px-4 text-center active:!bg-inherit ${
               pathname === "/explore/service"
-                ? "text-[--foreground_dark_blue] border-primary"
+                ? "text-(--foreground_dark_blue) border-primary"
                 : "text-gray-400 border-gray-400"
             }`}
           >
             <Link
-              className="px-0 active:!bg-inherit hover:bg-transparent hover:text-[--foreground_dark_blue]"
+              className="px-0 active:bg-inherit! hover:bg-transparent hover:text-(--foreground_dark_blue)"
               href={"#"}
             >
               Services
@@ -53,7 +53,7 @@ export default function FilterMenu() {
         </ul>
       </nav>
       <form action="">
-        <div className="space-y-2 divide-y divide-[--foreground_neutral_base] flex flex-col">
+        <div className="space-y-2 divide-y divide-(--foreground_neutral_base) flex flex-col">
           <details
             open
             className=" group overflow-hidden [&_summary::-webkit-details-marker]:hidden"
@@ -84,12 +84,12 @@ export default function FilterMenu() {
                 <li>
                   <label
                     htmlFor="FilterCategory"
-                    className="inline-flex items-center gap-2 active:!bg-inherit"
+                    className="inline-flex items-center gap-2 active:bg-inherit!"
                   >
                     <input
                       type="checkbox"
                       id="FilterCategory"
-                      className="checkbox checkbox-primary rounded-sm [--chkfg:white] checkbox-sm"
+                      className="checkbox checkbox-primary rounded-xs [--chkfg:white] checkbox-sm"
                     />
 
                     <span className="text-sm font-medium text-gray-700">
@@ -102,12 +102,12 @@ export default function FilterMenu() {
                 <li>
                   <label
                     htmlFor="FilterCategory1"
-                    className="inline-flex items-center gap-2 active:!bg-inherit"
+                    className="inline-flex items-center gap-2 active:bg-inherit!"
                   >
                     <input
                       type="checkbox"
                       id="FilterCategory1"
-                      className="checkbox checkbox-primary rounded-sm [--chkfg:white] checkbox-sm"
+                      className="checkbox checkbox-primary rounded-xs [--chkfg:white] checkbox-sm"
                     />
 
                     <span className="text-sm font-medium text-gray-700">
@@ -120,12 +120,12 @@ export default function FilterMenu() {
                 <li>
                   <label
                     htmlFor="FilterCategory2"
-                    className="inline-flex items-center gap-2 active:!bg-inherit"
+                    className="inline-flex items-center gap-2 active:bg-inherit!"
                   >
                     <input
                       type="checkbox"
                       id="FilterCategory2"
-                      className="checkbox checkbox-primary rounded-sm [--chkfg:white] checkbox-sm"
+                      className="checkbox checkbox-primary rounded-xs [--chkfg:white] checkbox-sm"
                     />
 
                     <span className="text-sm font-medium text-gray-700">
@@ -137,12 +137,12 @@ export default function FilterMenu() {
                 <li>
                   <label
                     htmlFor="FilterCategory3"
-                    className="inline-flex items-center gap-2 active:!bg-inherit"
+                    className="inline-flex items-center gap-2 active:bg-inherit!"
                   >
                     <input
                       type="checkbox"
                       id="FilterCategory3"
-                      className="checkbox checkbox-primary rounded-sm [--chkfg:white] checkbox-sm"
+                      className="checkbox checkbox-primary rounded-xs [--chkfg:white] checkbox-sm"
                     />
 
                     <span className="text-sm font-medium text-gray-700">
@@ -154,12 +154,12 @@ export default function FilterMenu() {
                 <li>
                   <label
                     htmlFor="FilterCategory3"
-                    className="inline-flex items-center gap-2 active:!bg-inherit"
+                    className="inline-flex items-center gap-2 active:bg-inherit!"
                   >
                     <input
                       type="checkbox"
                       id="FilterCategory3"
-                      className="checkbox checkbox-primary rounded-sm [--chkfg:white] checkbox-sm"
+                      className="checkbox checkbox-primary rounded-xs [--chkfg:white] checkbox-sm"
                     />
 
                     <span className="text-sm font-medium text-gray-700">
@@ -171,12 +171,12 @@ export default function FilterMenu() {
                 <li>
                   <label
                     htmlFor="FilterCategory4"
-                    className="inline-flex items-center gap-2 active:!bg-inherit"
+                    className="inline-flex items-center gap-2 active:bg-inherit!"
                   >
                     <input
                       type="checkbox"
                       id="FilterCategory4"
-                      className="checkbox checkbox-primary rounded-sm [--chkfg:white] checkbox-sm"
+                      className="checkbox checkbox-primary rounded-xs [--chkfg:white] checkbox-sm"
                     />
 
                     <span className="text-sm font-medium text-gray-700">
@@ -187,12 +187,12 @@ export default function FilterMenu() {
                 <li>
                   <label
                     htmlFor="FilterCategory5"
-                    className="inline-flex items-center gap-2 active:!bg-inherit"
+                    className="inline-flex items-center gap-2 active:bg-inherit!"
                   >
                     <input
                       type="checkbox"
                       id="FilterCategory5"
-                      className="checkbox checkbox-primary rounded-sm [--chkfg:white] checkbox-sm"
+                      className="checkbox checkbox-primary rounded-xs [--chkfg:white] checkbox-sm"
                     />
 
                     <span className="text-sm font-medium text-gray-700">
@@ -234,7 +234,7 @@ export default function FilterMenu() {
                 <li>
                   <label
                     htmlFor="FilterSort0"
-                    className="inline-flex items-center gap-2 active:!bg-inherit"
+                    className="inline-flex items-center gap-2 active:bg-inherit!"
                   >
                     <input
                       type="radio"
@@ -253,7 +253,7 @@ export default function FilterMenu() {
                 <li>
                   <label
                     htmlFor="FilterSort1"
-                    className="inline-flex items-center gap-2 active:!bg-inherit"
+                    className="inline-flex items-center gap-2 active:bg-inherit!"
                   >
                     <input
                       type="radio"
@@ -272,7 +272,7 @@ export default function FilterMenu() {
                 <li>
                   <label
                     htmlFor="FilterSort2"
-                    className="inline-flex items-center gap-2 active:!bg-inherit"
+                    className="inline-flex items-center gap-2 active:bg-inherit!"
                   >
                     <input
                       type="radio"
@@ -290,7 +290,7 @@ export default function FilterMenu() {
                 <li>
                   <label
                     htmlFor="FilterSort3"
-                    className="inline-flex items-center gap-2 active:!bg-inherit"
+                    className="inline-flex items-center gap-2 active:bg-inherit!"
                   >
                     <input
                       type="radio"
@@ -338,7 +338,7 @@ export default function FilterMenu() {
                 <li>
                   <label
                     htmlFor="FilterPrice0"
-                    className="inline-flex items-center gap-2 active:!bg-inherit"
+                    className="inline-flex items-center gap-2 active:bg-inherit!"
                   >
                     <input
                       type="radio"
@@ -357,7 +357,7 @@ export default function FilterMenu() {
                 <li>
                   <label
                     htmlFor="FilterPrice1"
-                    className="inline-flex items-center gap-2 active:!bg-inherit"
+                    className="inline-flex items-center gap-2 active:bg-inherit!"
                   >
                     <input
                       type="radio"
@@ -376,7 +376,7 @@ export default function FilterMenu() {
                 <li>
                   <label
                     htmlFor="FilterPrice2"
-                    className="inline-flex items-center gap-2 active:!bg-inherit"
+                    className="inline-flex items-center gap-2 active:bg-inherit!"
                   >
                     <input
                       type="radio"
@@ -394,7 +394,7 @@ export default function FilterMenu() {
                 <li>
                   <label
                     htmlFor="FilterPrice3"
-                    className="inline-flex items-center gap-2 active:!bg-inherit"
+                    className="inline-flex items-center gap-2 active:bg-inherit!"
                   >
                     <input
                       type="radio"
@@ -422,7 +422,7 @@ export default function FilterMenu() {
                       type="number"
                       id="FilterPriceFrom"
                       placeholder="From"
-                      className="w-full rounded-md border-gray-200 shadow-sm sm:text-sm"
+                      className="w-full rounded-md border-gray-200 shadow-xs sm:text-sm"
                     />
                   </label>
 
@@ -436,7 +436,7 @@ export default function FilterMenu() {
                       type="number"
                       id="FilterPriceTo"
                       placeholder="To"
-                      className="w-full rounded-md border-gray-200 shadow-sm sm:text-sm"
+                      className="w-full rounded-md border-gray-200 shadow-xs sm:text-sm"
                     />
                   </label>
                 </div>
@@ -473,12 +473,12 @@ export default function FilterMenu() {
                 <li>
                   <label
                     htmlFor="FilterCategory"
-                    className="inline-flex items-center gap-2 active:!bg-inherit"
+                    className="inline-flex items-center gap-2 active:bg-inherit!"
                   >
                     <input
                       type="checkbox"
                       id="FilterBrand0"
-                      className="checkbox checkbox-primary rounded-sm [--chkfg:white] checkbox-sm"
+                      className="checkbox checkbox-primary rounded-xs [--chkfg:white] checkbox-sm"
                     />
 
                     <span className="text-sm font-medium text-gray-700">
@@ -491,12 +491,12 @@ export default function FilterMenu() {
                 <li>
                   <label
                     htmlFor="FilterBrand1"
-                    className="inline-flex items-center gap-2 active:!bg-inherit"
+                    className="inline-flex items-center gap-2 active:bg-inherit!"
                   >
                     <input
                       type="checkbox"
                       id="FilterBrand1"
-                      className="checkbox checkbox-primary rounded-sm [--chkfg:white] checkbox-sm"
+                      className="checkbox checkbox-primary rounded-xs [--chkfg:white] checkbox-sm"
                     />
 
                     <span className="text-sm font-medium text-gray-700">
@@ -509,12 +509,12 @@ export default function FilterMenu() {
                 <li>
                   <label
                     htmlFor="FilterBrand2"
-                    className="inline-flex items-center gap-2 active:!bg-inherit"
+                    className="inline-flex items-center gap-2 active:bg-inherit!"
                   >
                     <input
                       type="checkbox"
                       id="FilterBrand2"
-                      className="checkbox checkbox-primary rounded-sm [--chkfg:white] checkbox-sm"
+                      className="checkbox checkbox-primary rounded-xs [--chkfg:white] checkbox-sm"
                     />
 
                     <span className="text-sm font-medium text-gray-700">
@@ -526,12 +526,12 @@ export default function FilterMenu() {
                 <li>
                   <label
                     htmlFor="FilterBrand3"
-                    className="inline-flex items-center gap-2 active:!bg-inherit"
+                    className="inline-flex items-center gap-2 active:bg-inherit!"
                   >
                     <input
                       type="checkbox"
                       id="FilterBrand3"
-                      className="checkbox checkbox-primary rounded-sm [--chkfg:white] checkbox-sm"
+                      className="checkbox checkbox-primary rounded-xs [--chkfg:white] checkbox-sm"
                     />
 
                     <span className="text-sm font-medium text-gray-700">

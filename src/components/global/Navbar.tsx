@@ -8,7 +8,7 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <div className="navbar bg-[--nav-bg] py-4 md:py-6 border-b border-gray-300">
+    <div className="navbar bg-(--nav-bg) py-4 md:py-6 border-b border-gray-300">
       <div className="max-w-7xl w-full mx-auto  flex flex-row-reverse md:flex-row">
         <div className="flex basis-1 justify-end md:justify-start">
           <label
@@ -42,7 +42,7 @@ export default function Navbar() {
             </div>
           </Link>
         </div>
-        <div className="flex flex-1 md:flex-[3] justify-start">
+        <div className="flex flex-1 md:flex-3 justify-start">
           <Link href="/" className="flex md:hidden">
             <div className="w-36 h-12 relative my-0 flex md:hidden ">
               <Image
@@ -55,28 +55,28 @@ export default function Navbar() {
           </Link>
           <ul className="hidden md:menu md:menu-horizontal px-1 w-full justify-center ">
             <li
-              className={`tracking-wider	antialiased font-semibold  *:active:bg-transparent  ${
+              className={`tracking-wider	antialiased font-semibold  active:*:bg-transparent  ${
                 pathname === "/"
-                  ? "text-[--foreground_dark_blue]"
+                  ? "text-(--foreground_dark_blue)"
                   : "text-gray-400 "
               }`}
             >
               <Link
-                className="active:bg-transparent hover:bg-transparent hover:text-[--foreground_dark_blue]"
+                className="active:bg-transparent hover:bg-transparent hover:text-(--foreground_dark_blue)"
                 href={"/"}
               >
                 Home
               </Link>
             </li>
             <li
-              className={`tracking-wider	antialiased font-semibold  *:active:bg-transparent ${
+              className={`tracking-wider	antialiased font-semibold  active:*:bg-transparent ${
                 pathname === "/about"
-                  ? "text-[--foreground_dark_blue]"
+                  ? "text-(--foreground_dark_blue)"
                   : "text-gray-400 "
               }`}
             >
               <Link
-                className="active:bg-transparent hover:bg-transparent hover:text-[--foreground_dark_blue]"
+                className="active:bg-transparent hover:bg-transparent hover:text-(--foreground_dark_blue)"
                 href={"/about"}
               >
                 About Us
@@ -84,28 +84,28 @@ export default function Navbar() {
             </li>
 
             <li
-              className={`tracking-wider	antialiased font-semibold  *:active:bg-transparent ${
+              className={`tracking-wider	antialiased font-semibold  active:*:bg-transparent ${
                 pathname === "/beta"
-                  ? "text-[--foreground_dark_blue]"
+                  ? "text-(--foreground_dark_blue)"
                   : "text-gray-400 "
               }`}
             >
               <Link
-                className="active:bg-transparent hover:bg-transparent hover:text-[--foreground_dark_blue]"
+                className="active:bg-transparent hover:bg-transparent hover:text-(--foreground_dark_blue)"
                 href={"/beta"}
               >
                 Join Beta
               </Link>
             </li>
             <li
-              className={`tracking-wider	antialiased font-semibold  *:active:bg-transparent ${
+              className={`tracking-wider	antialiased font-semibold  active:*:bg-transparent ${
                 pathname === "/explore"
-                  ? "text-[--foreground_dark_blue]"
+                  ? "text-(--foreground_dark_blue)"
                   : "text-gray-400 "
               }`}
             >
               <Link
-                className="active:bg-transparent hover:bg-transparent hover:text-[--foreground_dark_blue]"
+                className="active:bg-transparent hover:bg-transparent hover:text-(--foreground_dark_blue)"
                 href={"/explore"}
               >
                 Explore
@@ -144,28 +144,28 @@ export function SideDrawer() {
       <ul className="menu p-4 w-60 min-h-full bg-white">
         {/* Sidebar content here */}
         <li
-          className={`tracking-wider	antialiased font-semibold  *:active:bg-transparent  ${
+          className={`tracking-wider	antialiased font-semibold  active:*:bg-transparent  ${
             pathname === "/"
-              ? "text-[--foreground_dark_blue]"
+              ? "text-(--foreground_dark_blue)"
               : "text-gray-400 "
           }`}
         >
           <Link
-            className="active:bg-transparent hover:bg-transparent hover:text-[--foreground_dark_blue]"
+            className="active:bg-transparent hover:bg-transparent hover:text-(--foreground_dark_blue)"
             href={"/"}
           >
             Home
           </Link>
         </li>
         <li
-          className={`tracking-wider	antialiased font-semibold  *:active:bg-transparent ${
+          className={`tracking-wider	antialiased font-semibold  active:*:bg-transparent ${
             pathname === "/about"
-              ? "text-[--foreground_dark_blue]"
+              ? "text-(--foreground_dark_blue)"
               : "text-gray-400 "
           }`}
         >
           <Link
-            className="active:bg-transparent hover:bg-transparent hover:text-[--foreground_dark_blue]"
+            className="active:bg-transparent hover:bg-transparent hover:text-(--foreground_dark_blue)"
             href={"/about"}
           >
             About Us
@@ -173,28 +173,28 @@ export function SideDrawer() {
         </li>
 
         <li
-          className={`tracking-wider	antialiased font-semibold  *:active:bg-transparent ${
+          className={`tracking-wider	antialiased font-semibold  active:*:bg-transparent ${
             pathname === "/beta"
-              ? "text-[--foreground_dark_blue]"
+              ? "text-(--foreground_dark_blue)"
               : "text-gray-400 "
           }`}
         >
           <Link
-            className="active:bg-transparent hover:bg-transparent hover:text-[--foreground_dark_blue]"
+            className="active:bg-transparent hover:bg-transparent hover:text-(--foreground_dark_blue)"
             href={"/beta"}
           >
             Join Beta
           </Link>
         </li>
         <li
-          className={`tracking-wider	antialiased font-semibold  *:active:bg-transparent ${
+          className={`tracking-wider	antialiased font-semibold  active:*:bg-transparent ${
             pathname === "/explore"
-              ? "text-[--foreground_dark_blue]"
+              ? "text-(--foreground_dark_blue)"
               : "text-gray-400 "
           }`}
         >
           <Link
-            className="active:bg-transparent hover:bg-transparent hover:text-[--foreground_dark_blue]"
+            className="active:bg-transparent hover:bg-transparent hover:text-(--foreground_dark_blue)"
             href={"/explore"}
           >
             Explore

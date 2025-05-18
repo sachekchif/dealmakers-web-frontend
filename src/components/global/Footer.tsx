@@ -10,7 +10,7 @@ const currentYear = new Date().getFullYear();
 
 export default function Footer() {
   return (
-    <section className="bg-[--background_dark_base]">
+    <section className="bg-(--background_dark_base)">
       <div className="max-w-7xl w-full mx-auto px-4 py-14 text-white">
         {/* Links and forms  */}
         <div className="md:flex md:flex-row-reverse">
@@ -99,7 +99,7 @@ function FooterLinks() {
 }
 
 const HorizontalLine = () => {
-  return <div className="w-full border-t border-[--primary_light] my-4"></div>;
+  return <div className="w-full border-t border-(--primary_light) my-4"></div>;
 };
 
 function SocailHandles() {

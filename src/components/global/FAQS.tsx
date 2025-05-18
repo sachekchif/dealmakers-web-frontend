@@ -9,14 +9,14 @@ export default function FAQs() {
               text-2xl
               sm:text-4xl
               sm:max-w-[750px]
-              text-[--foreground_dark_blue]
+              text-(--foreground_dark_blue)
               text-center
               font-extralight 
               capitalize"
         >
           Frequently Asked Questions (FAQs)
         </h2>
-        <div className="w-full max-w-4xl divide-y divide-[--foreground_neutral_base] mx-auto px-2 my-4">
+        <div className="w-full max-w-4xl divide-y divide-(--foreground_neutral_base) mx-auto px-2 my-4">
           <details className="group py-4 [&_summary::-webkit-details-marker]:hidden">
             <summary className="flex cursor-pointer items-center justify-between gap-1.5 text-gray-900">
               <h3 className="">What is TrustedDealMaker?</h3>

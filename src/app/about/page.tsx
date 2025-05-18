@@ -104,7 +104,7 @@ function Commitments() {
               <div className="bg-gray-100 p-2 w-max inline-flex ">
                 {/* tinyLogo */}
                 <Image src={tinyLogo} alt="Picture of the author" />
-                <span className="font-medium text-[--foreground_dark_blue] ml-2">
+                <span className="font-medium text-(--foreground_dark_blue) ml-2">
                   Welcome to Trusted Payer
                 </span>
               </div>
@@ -112,7 +112,7 @@ function Commitments() {
                 {" "}
                 We’re Commited to Quality
               </h3>
-              <p className=" my-2 text-[--foreground_neutral_base] md:text-lg lg:text-xl lg:leading-relaxed">
+              <p className=" my-2 text-(--foreground_neutral_base) md:text-lg lg:text-xl lg:leading-relaxed">
                 Your Transactions, Our Priority: Unparalleled Security and
                 Trust. We provide Your Transactions, Our Priority: Unparalleled
                 Security and Trust.

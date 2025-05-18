@@ -16,7 +16,7 @@ export default function SignUpPage() {
           type="text"
           id="name"
           placeholder="john doe"
-          className="mt-1 w-full rounded-sm border-gray-200 shadow-sm sm:text-sm"
+          className="mt-1 w-full rounded-xs border-gray-200 shadow-xs sm:text-sm"
         />
       </div>
       <div className=" my-6">
@@ -32,7 +32,7 @@ export default function SignUpPage() {
           type="email"
           id="UserEmail"
           placeholder="john@rhcp.com"
-          className="mt-1 w-full rounded-sm border-gray-200 shadow-sm sm:text-sm"
+          className="mt-1 w-full rounded-xs border-gray-200 shadow-xs sm:text-sm"
         />
       </div>
       <div className="relative my-6">
@@ -49,7 +49,7 @@ export default function SignUpPage() {
           type="password"
           id="Search"
           placeholder="type your password"
-          className="w-full rounded-sm border-gray-200 py-2.5 pe-10 shadow-sm sm:text-sm"
+          className="w-full rounded-xs border-gray-200 py-2.5 pe-10 shadow-xs sm:text-sm"
         />
 
         <span className="absolute top-10 end-0 grid w-10 place-content-center">
@@ -93,7 +93,7 @@ export default function SignUpPage() {
           type="password"
           id="pwdConfirm"
           placeholder="type your password"
-          className="w-full rounded-sm border-gray-200 py-2.5 pe-10 shadow-sm sm:text-sm"
+          className="w-full rounded-xs border-gray-200 py-2.5 pe-10 shadow-xs sm:text-sm"
         />
 
         <span className="absolute top-10 end-0 grid w-10 place-content-center">
@@ -127,7 +127,7 @@ export default function SignUpPage() {
         <input
           type="checkbox"
           defaultChecked
-          className="checkbox checkbox-primary rounded-sm [--chkfg:white] checkbox-sm"
+          className="checkbox checkbox-primary rounded-xs [--chkfg:white] checkbox-sm"
         />
 
         <span className="mx-2 text-sm">
@@ -136,7 +136,7 @@ export default function SignUpPage() {
       </div>
       <button
         type="button"
-        className="btn btn-block text-white rounded-sm btn-primary mt-4 uppercase"
+        className="btn btn-block text-white rounded-xs btn-primary mt-4 uppercase"
       >
         Sign In
         <LiaArrowRightSolid className="text-black text-xl" />

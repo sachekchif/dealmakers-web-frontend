@@ -15,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" data-theme="mytheme" className={`${PoppinsFont.variable} `}>
+    <html lang="en" data-theme="light" className={`${PoppinsFont.variable} `}>
       <body>
         <ToastContainer
           limit={3}

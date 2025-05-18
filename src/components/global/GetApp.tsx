@@ -18,7 +18,7 @@ export default function GetApp() {
   return (
     <section
       id="home-download-banner"
-      className="bg-[--background_light_blue] mb-16"
+      className="bg-(--background_light_blue) mb-16"
     >
       <div className="w-full max-w-7xl mx-auto px-4 pt-8">
         <article className="my-2">
@@ -45,7 +45,7 @@ export default function GetApp() {
                 {" "}
                 {GetAppItem.heading}
               </h3>
-              <p className=" my-2 text-[--foreground_neutral_base] md:text-lg lg:text-xl lg:leading-relaxed">
+              <p className=" my-2 text-(--foreground_neutral_base) md:text-lg lg:text-xl lg:leading-relaxed">
                 Ready to experience hassle-free transactions? Download Trusted
                 Deal Maker now and take the first step towards secure deals.
                 Your peace of mind is just a click away!

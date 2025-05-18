@@ -208,7 +208,7 @@ export default function ProductList() {
     <div className="pb-8 ">
       <ProductListHeading />
 
-      <ul className="auto-rows-fr justify-items-center grid grid-cols-2 sm:grid-cols-[repeat(auto-fit,_minmax(250px,_1fr))] gap-4">
+      <ul className="auto-rows-fr justify-items-center grid grid-cols-2 sm:grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-4">
         {productList.map((el) => {
           return <ProductItem key={el.id} product={el} />;
         })}
@@ -220,7 +220,7 @@ export default function ProductList() {
 function ProductListHeading() {
   return (
     <div className="my-6 mb-2 text-sm flex flex-col lg:flex-row justify-between items-center">
-      <h1 className="font-bold text-[--foreground_dark_blue] text-xl  w-full lg:max-w-max ">
+      <h1 className="font-bold text-(--foreground_dark_blue) text-xl  w-full lg:max-w-max ">
         Explore Products and Services
       </h1>
       <div className="flex lg:*:ml-2 lg:items-center w-full lg:max-w-max">
@@ -237,13 +237,13 @@ function SortDropdown() {
       <summary className="btn btn-ghost rounded-btn btn-sm">Sort By</summary>
       <ul
         tabIndex={0}
-        className="menu dropdown-content z-[1] p-2 shadow bg-base-100 rounded w-52 mt-4"
+        className="menu dropdown-content z-1 p-2 shadow-sm bg-base-100 rounded-sm w-52 mt-4"
       >
         <ul className="space-y-1 ">
           <li>
             <label
               htmlFor="FilterSort0"
-              className="inline-flex items-center gap-2 active:!bg-inherit"
+              className="inline-flex items-center gap-2 active:bg-inherit!"
             >
               <input
                 type="radio"
@@ -262,7 +262,7 @@ function SortDropdown() {
           <li>
             <label
               htmlFor="FilterSort1"
-              className="inline-flex items-center gap-2 active:!bg-inherit"
+              className="inline-flex items-center gap-2 active:bg-inherit!"
             >
               <input
                 type="radio"
@@ -281,7 +281,7 @@ function SortDropdown() {
           <li>
             <label
               htmlFor="FilterSort2"
-              className="inline-flex items-center gap-2 active:!bg-inherit"
+              className="inline-flex items-center gap-2 active:bg-inherit!"
             >
               <input
                 type="radio"
@@ -299,7 +299,7 @@ function SortDropdown() {
           <li>
             <label
               htmlFor="FilterSort3"
-              className="inline-flex items-center gap-2 active:!bg-inherit"
+              className="inline-flex items-center gap-2 active:bg-inherit!"
             >
               <input
                 type="radio"
@@ -324,7 +324,7 @@ function ProductItem({ product }: { product: IProduct }) {
   return (
     <li
       onClick={notify}
-      className="shadow-sm rounded-sm border border-gray-300 w-full relative hover:cursor-pointer"
+      className="shadow-xs rounded-xs border border-gray-300 w-full relative hover:cursor-pointer"
     >
       <span
         className={clsx(
@@ -368,7 +368,7 @@ function ProductItem({ product }: { product: IProduct }) {
         </div>
       )}
       <div className="flex flex-col border-t border-gray-300 p-3">
-        <h3 className="text-xs font-medium my-1 text-[--foreground_dark_blue]">
+        <h3 className="text-xs font-medium my-1 text-(--foreground_dark_blue)">
           {" "}
           {product.title}
         </h3>

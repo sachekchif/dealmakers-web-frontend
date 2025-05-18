@@ -12,7 +12,7 @@ function BetaPage() {
     <main>
       <section className="my-16">
         <div className="w-full max-w-7xl mx-auto px-4 py-8">
-          <div className="max-w-4xl w-full mx-auto shadow-md rounded p-4 md:p-8">
+          <div className="max-w-4xl w-full mx-auto shadow-md rounded-sm p-4 md:p-8">
             <h1 className="text-primary text-center font-bold text-2xl">
               Get Latest update on our BETA version
             </h1>
@@ -47,13 +47,13 @@ function ContactDetails() {
         <a href="mailto:services@trustedpayer.co"> services@trustedpayer.co </a>
       </p>
       <SocailHandles />
-      <div className="relative h-48 rounded">
+      <div className="relative h-48 rounded-sm">
         <Image
           alt="Mountains"
           src={VIlagos}
           fill
           sizes="(min-width: 808px) 50vw, 100vw"
-          className="object-cover rounded"
+          className="object-cover rounded-sm"
         />
       </div>
     </div>

@@ -38,7 +38,7 @@ function Title({ title, subHeading, pill }: TitleProps) {
             text-2xl
             sm:text-4xl
             sm:max-w-[750px]
-            text-[--foreground_dark_blue]
+            text-(--foreground_dark_blue)
             text-center
             font-bold 
             capitalize
@@ -55,7 +55,7 @@ function Title({ title, subHeading, pill }: TitleProps) {
             md:text-lg
             font-normal
             md:leading-loose
-            text-[--foreground_neutral_base]
+            text-(--foreground_neutral_base)
         "
           >
             {subHeading}
