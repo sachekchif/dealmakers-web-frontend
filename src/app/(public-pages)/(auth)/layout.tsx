@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import hero1 from "../../../public/images/hero-1.png";
+import hero1 from "../../../../public/images/hero-1.png";
 import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple } from "react-icons/fa";

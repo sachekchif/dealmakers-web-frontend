@@ -42,7 +42,7 @@ const data: {
         },
         {
           title: "Wallet",
-          url: "#",
+          url: "dashboard/wallet",
         },
         {
           title: "Manage Dispute",

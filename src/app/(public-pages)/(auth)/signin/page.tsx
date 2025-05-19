@@ -1,6 +1,12 @@
+"use client";
+
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { use } from "react";
 import { LiaArrowRightSolid } from "react-icons/lia";
 export default function SignInPage() {
+  const router = useRouter();
+
   return (
     <form action={"#"} className="my-4">
       <div className=" my-6">
@@ -74,6 +80,9 @@ export default function SignInPage() {
       <button
         type="button"
         className="btn btn-block text-white rounded-xs btn-primary mt-4 uppercase"
+        onClick={() => {
+          router.push("/dashboard");
+        }}
       >
         Sign up
         <LiaArrowRightSolid className="text-black text-xl" />
