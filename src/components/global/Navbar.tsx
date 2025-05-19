@@ -3,13 +3,18 @@ import Image from "next/image";
 import Link from "next/link";
 import logo from "../../../public/images/logo.png";
 import { usePathname } from "next/navigation";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
 
 export default function Navbar() {
   const pathname = usePathname();
 
   return (
     <div className="navbar bg-(--nav-bg) py-4 md:py-6 border-b border-gray-300">
-      <div className="max-w-7xl w-full mx-auto  flex flex-row-reverse md:flex-row">
+      <div className="max-w-7xl w-full mx-auto  flex flex-row-reverse md:flex-row items-center">
         <div className="flex basis-1 justify-end md:justify-start">
           <label
             htmlFor="my-drawer-3"
@@ -113,19 +118,38 @@ export default function Navbar() {
             </li>
           </ul>
         </div>
-        <div className="hidden max-md:flex-1 basis-56 md:flex justify-between">
-          <Link
+        <div className="hidden max-md:flex-1 basis-56 md:flex justify-between items-center">
+          {/* <Link
             href={"/#home-download-banner"}
-            className="btn btn-primary shadow-md rounded-md justify-end text-white"
+            className="btn w-fit btn-primary shadow-md rounded-md text-white"
           >
             Download App
-          </Link>
+          </Link> */}
           <Link
             href={"/signin"}
-            className="btn btn-link justify-end no-underline text-primary/65 hover:text-primary hover:no-underline "
+            className="btn btn-link w-fit no-underline text-primary/65 hover:text-primary hover:no-underline "
           >
-            Sign In
+            Sign up
           </Link>
+          <HoverCard>
+            <HoverCardTrigger className="btn btn-link w-fit no-underline text-primary/65 hover:text-primary hover:no-underline ">
+              Sign In
+            </HoverCardTrigger>{" "}
+            <HoverCardContent>
+              <Link
+                href={"/signup"}
+                className="btn btn-link w-fit no-underline text-primary/65 hover:text-primary hover:no-underline "
+              >
+                As marketplace user
+              </Link>
+              <Link
+                href={"/signup"}
+                className="btn btn-link w-fit no-underline text-primary/65 hover:text-primary hover:no-underline "
+              >
+                As buyer/seller user
+              </Link>
+            </HoverCardContent>
+          </HoverCard>
         </div>
       </div>
     </div>
@@ -201,20 +225,39 @@ export function SideDrawer() {
           </Link>
         </li>
         <li>
-          <Link
+          {/* <Link
             href={"/#home-download-banner"}
             className="btn w-fit btn-primary shadow-md rounded-md text-white"
           >
             Download App
+          </Link> */}
+          <Link
+            href={"/signin"}
+            className="btn btn-link px-3 w-fit no-underline text-primary/65 hover:text-primary hover:no-underline "
+          >
+            Sign up
           </Link>
         </li>
         <li>
-          <Link
-            href={"/signin"}
-            className="btn btn-link w-fit no-underline text-primary/65 hover:text-primary hover:no-underline "
-          >
-            Sign In
-          </Link>
+          <HoverCard>
+            <HoverCardTrigger className="btn px-3 btn-link w-fit no-underline text-primary/65 hover:text-primary hover:no-underline ">
+              Sign In
+            </HoverCardTrigger>
+            <HoverCardContent>
+              <Link
+                href={"/signup"}
+                className="btn btn-link w-fit no-underline text-primary/65 hover:text-primary hover:no-underline "
+              >
+                As marketplace user
+              </Link>
+              <Link
+                href={"/signup"}
+                className="btn btn-link w-fit no-underline text-primary/65 hover:text-primary hover:no-underline "
+              >
+                As buyer/seller user
+              </Link>
+            </HoverCardContent>
+          </HoverCard>
         </li>
       </ul>
     </div>
