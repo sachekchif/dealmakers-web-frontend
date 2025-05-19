@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { PoppinsFont } from "@/utils/font";
+import { Toaster } from "@/components/ui/sonner";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -23,6 +24,8 @@ export default function RootLayout({
           draggablePercent={60}
           draggable
         />
+
+        <Toaster />
 
         <main className="font-poppins">{children}</main>
       </body>

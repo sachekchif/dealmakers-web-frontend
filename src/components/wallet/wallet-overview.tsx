@@ -1,5 +1,6 @@
 "use client";
 
+import { toast } from "sonner";
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -12,6 +13,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import KycDialog from "./kyc-dialog";
+import DepositDialog from "./deposit-dialog";
+// import DepositDialog from "";
 
 type WalletOverviewProps = {
   handleKYCStatusChange: () => void;
@@ -23,6 +26,7 @@ export default function WalletOverview({
   isKYCCompleted,
 }: WalletOverviewProps) {
   const [timeframe, setTimeframe] = useState("week");
+  const [depositDialogOpen, setDepositDialogOpen] = useState(false);
 
   // Sample data for the chart
   const chartData = {
@@ -39,6 +43,17 @@ export default function WalletOverview({
     ],
     // This would be replaced with actual data points in a real application
     dataPoints: [20, 25, 18, 30, 22, 35, 28, 32],
+  };
+
+  const handleDepositComplete = () => {
+    toast("Deposit Initiated", {
+      description:
+        "Your deposit has been initiated. It will be credited once confirmed.",
+      action: {
+        label: "Undo",
+        onClick: () => console.log("Undo"),
+      },
+    });
   };
 
   return (
@@ -79,12 +94,19 @@ export default function WalletOverview({
             >
               Withdraw
             </Button>
-            <Button
-              className="w-full bg-blue-500 hover:bg-blue-600"
-              disabled={!isKYCCompleted}
-            >
-              Deposit
-            </Button>
+            <DepositDialog
+              open={depositDialogOpen}
+              onOpenChange={setDepositDialogOpen}
+              onComplete={handleDepositComplete}
+              trigger={
+                <Button
+                  disabled={!isKYCCompleted}
+                  className="w-full bg-blue-500 hover:bg-blue-600"
+                >
+                  Deposit
+                </Button>
+              }
+            />
           </div>
           {isKYCCompleted ? (
             <Button
