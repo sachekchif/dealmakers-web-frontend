@@ -1,8 +1,8 @@
 import Image, { StaticImageData } from "next/image";
 // import { RecognizedBy } from "../(home)/page";
-import aboutHero from "../../../public/images/aboutHero.png";
-import tinyLogo from "../../../public/images/tiny_logo.png";
-import aboutus from "../../../public/images/about_us.png";
+import aboutHero from "../../../../public/images/aboutHero.png";
+import tinyLogo from "../../../../public/images/tiny_logo.png";
+import aboutus from "../../../../public/images/about_us.png";
 import { IoCheckmarkCircleSharp } from "react-icons/io5";
 import TeamMembers from "@/components/about/TeamMembers";
 import GetApp from "@/components/global/GetApp";

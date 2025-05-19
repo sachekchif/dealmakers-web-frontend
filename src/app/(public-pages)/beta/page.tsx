@@ -1,4 +1,4 @@
-import VIlagos from "../../../public/images/vi.png";
+import VIlagos from "../../../../public/images/vi.png";
 import { FaInstagram } from "react-icons/fa6";
 import { SlSocialTwitter } from "react-icons/sl";
 import { PiLinkedinLogoBold } from "react-icons/pi";
