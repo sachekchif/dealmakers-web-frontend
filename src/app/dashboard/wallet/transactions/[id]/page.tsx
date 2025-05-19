@@ -2,6 +2,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { notFound } from "next/navigation";
+import DisputeDialog from "@/components/disputes/dispute-dialog";
+import DialogContainer from "@/app/dashboard/disputes/dialog-container";
 
 // This would typically come from a database or API
 const getTransactionDetails = (id: string) => {
@@ -145,10 +147,7 @@ export default async function TransactionDetailsPage({
         </Card>
       </div>
 
-      {/* Raise A Dispute Button */}
-      <Button className="w-full md:w-auto bg-blue-500 hover:bg-blue-600">
-        Raise A Dispute
-      </Button>
+      <DialogContainer transactionId={transactionId} />
     </div>
   );
 }

@@ -46,7 +46,7 @@ const data: {
         },
         {
           title: "Manage Dispute",
-          url: "#",
+          url: "dashboard/disputes",
         },
         {
           title: "Profile",
