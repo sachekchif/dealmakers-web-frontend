@@ -1,5 +1,7 @@
 import * as React from "react";
 import { VersionSwitcher } from "@/components/version-switcher";
+import logo from "../../public/images/logo.png";
+
 import {
   Sidebar,
   SidebarContent,
@@ -12,6 +14,8 @@ import {
   SidebarMenuItem,
   SidebarRail,
 } from "@/components/ui/sidebar";
+import Image from "next/image";
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
 // This is sample data.
 type NavItem = {
@@ -42,11 +46,11 @@ const data: {
         },
         {
           title: "Wallet",
-          url: "dashboard/wallet",
+          url: "/dashboard/wallet",
         },
         {
           title: "Manage Dispute",
-          url: "dashboard/disputes",
+          url: "/dashboard/disputes",
         },
         {
           title: "Profile",
@@ -172,16 +176,27 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar {...props}>
       <SidebarHeader>
-        <VersionSwitcher
-          versions={data.versions}
-          defaultVersion={data.versions[0]}
-        />
+        <div className="flex items-center justify-start gap-2">
+          {" "}
+          <Avatar>
+            <AvatarImage src="https://github.com/shadcn.png" />
+            <AvatarFallback>TDM</AvatarFallback>
+          </Avatar>
+          <div className="w-36 h-12 relative my-0 flex ">
+            <Image
+              src={logo}
+              alt={"logo"}
+              fill
+              className="object-contain"
+            ></Image>
+          </div>
+        </div>
       </SidebarHeader>
       <SidebarContent>
         {/* We create a SidebarGroup for each parent. */}
         {data.navMain.map((item) => (
           <SidebarGroup key={item.title}>
-            <SidebarGroupLabel>{item.title}</SidebarGroupLabel>
+            {/* <SidebarGroupLabel>{item.title}</SidebarGroupLabel> */}
             <SidebarGroupContent>
               <SidebarMenu>
                 {item.items.map((item) => (
