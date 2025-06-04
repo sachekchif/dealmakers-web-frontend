@@ -28,32 +28,32 @@ export default function ContactsPanel() {
       avatar: "/placeholder.svg?height=32&width=32",
       initials: "OD",
     },
-    {
-      id: "4",
-      name: "Andi Lane",
-      avatar: "/placeholder.svg?height=32&width=32",
-      initials: "AL",
-    },
-    {
-      id: "5",
-      name: "Kate Morrison",
-      avatar: "/placeholder.svg?height=32&width=32",
-      initials: "KM",
-    },
-    {
-      id: "6",
-      name: "Koray Okumus",
-      avatar: "/placeholder.svg?height=32&width=32",
-      initials: "KO",
-    },
+    // {
+    //   id: "4",
+    //   name: "Andi Lane",
+    //   avatar: "/placeholder.svg?height=32&width=32",
+    //   initials: "AL",
+    // },
+    // {
+    //   id: "5",
+    //   name: "Kate Morrison",
+    //   avatar: "/placeholder.svg?height=32&width=32",
+    //   initials: "KM",
+    // },
+    // {
+    //   id: "6",
+    //   name: "Koray Okumus",
+    //   avatar: "/placeholder.svg?height=32&width=32",
+    //   initials: "KO",
+    // },
   ];
 
   return (
-    <Card className="shadow-none border-0">
-      <CardHeader className="pb-2">
+    <Card className="shadow-none border-0  bg-transparent py-3 gap-4">
+      <CardHeader className="">
         <CardTitle className="text-lg font-medium">Contacts</CardTitle>
       </CardHeader>
-      <CardContent className="space-y-4">
+      <CardContent className="space-y-2">
         {contacts.map((contact) => (
           <div key={contact.id} className="flex items-center gap-3">
             <Avatar className="h-8 w-8">

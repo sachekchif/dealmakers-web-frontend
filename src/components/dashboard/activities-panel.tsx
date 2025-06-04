@@ -45,34 +45,34 @@ export default function ActivitiesPanel() {
       },
       icon: <BugIcon className="h-4 w-4" />,
     },
-    {
-      id: "4",
-      content: "Modified A data in Page X",
-      time: "Today, 11:59 AM",
-      user: {
-        avatar: "/placeholder.svg?height=32&width=32",
-        initials: "MD",
-      },
-      icon: <FileEdit className="h-4 w-4" />,
-    },
-    {
-      id: "5",
-      content: "Deleted a page in Project X",
-      time: "Feb 2, 2023",
-      user: {
-        avatar: "/placeholder.svg?height=32&width=32",
-        initials: "DP",
-      },
-      icon: <Trash2 className="h-4 w-4" />,
-    },
+    // {
+    //   id: "4",
+    //   content: "Modified A data in Page X",
+    //   time: "Today, 11:59 AM",
+    //   user: {
+    //     avatar: "/placeholder.svg?height=32&width=32",
+    //     initials: "MD",
+    //   },
+    //   icon: <FileEdit className="h-4 w-4" />,
+    // },
+    // {
+    //   id: "5",
+    //   content: "Deleted a page in Project X",
+    //   time: "Feb 2, 2023",
+    //   user: {
+    //     avatar: "/placeholder.svg?height=32&width=32",
+    //     initials: "DP",
+    //   },
+    //   icon: <Trash2 className="h-4 w-4" />,
+    // },
   ];
 
   return (
-    <Card className="shadow-none border-0">
-      <CardHeader className="pb-2">
+    <Card className="shadow-none border-0  bg-transparent py-3 gap-4">
+      <CardHeader className="">
         <CardTitle className="text-lg font-medium">Activities</CardTitle>
       </CardHeader>
-      <CardContent className="space-y-4">
+      <CardContent className="space-y-2">
         {activities.map((activity) => (
           <div key={activity.id} className="flex items-start gap-3">
             <Avatar className="h-8 w-8">

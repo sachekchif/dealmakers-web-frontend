@@ -34,24 +34,24 @@ export default function NotificationsPanel() {
       time: "12 hours ago",
       icon: <BugIcon className="h-4 w-4" />,
     },
-    {
-      id: "4",
-      content: "Andi Lane subscribed to you",
-      time: "Today, 11:59 AM",
-      icon: (
-        <Avatar className="h-5 w-5">
-          <AvatarFallback>AL</AvatarFallback>
-        </Avatar>
-      ),
-    },
+    // {
+    //   id: "4",
+    //   content: "Andi Lane subscribed to you",
+    //   time: "Today, 11:59 AM",
+    //   icon: (
+    //     <Avatar className="h-5 w-5">
+    //       <AvatarFallback>AL</AvatarFallback>
+    //     </Avatar>
+    //   ),
+    // },
   ];
 
   return (
-    <Card className="shadow-none border-0">
-      <CardHeader className="pb-2">
+    <Card className="shadow-none border-0 bg-transparent gap-4">
+      <CardHeader className="">
         <CardTitle className="text-lg font-medium">Notifications</CardTitle>
       </CardHeader>
-      <CardContent className="space-y-4">
+      <CardContent className="space-y-2">
         {notifications.map((notification) => (
           <div key={notification.id} className="flex items-start gap-3">
             <div className="mt-0.5 flex h-6 w-6 items-center justify-center rounded-full bg-gray-100">
