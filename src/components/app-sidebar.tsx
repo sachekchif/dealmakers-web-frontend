@@ -16,12 +16,21 @@ import {
 } from "@/components/ui/sidebar";
 import Image from "next/image";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import {
+  HandshakeIcon,
+  Home,
+  ShoppingBag,
+  UserCircle,
+  Wallet,
+  Wallet2,
+} from "lucide-react";
 
 // This is sample data.
 type NavItem = {
   title: string;
   url: string;
   isActive?: boolean;
+  icon?: React.ElementType; // Optional icon component type for the item
 };
 
 type NavGroup = {
@@ -43,18 +52,22 @@ const data: {
         {
           title: "Dashboard",
           url: "/dashboard",
+          icon: Home,
         },
         {
           title: "Wallet",
           url: "/dashboard/wallet",
+          icon: ShoppingBag,
         },
         {
           title: "Manage Dispute",
           url: "/dashboard/disputes",
+          icon: HandshakeIcon,
         },
         {
           title: "Profile",
           url: "#",
+          icon: UserCircle,
         },
       ],
     },
@@ -201,8 +214,14 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               <SidebarMenu>
                 {item.items.map((item) => (
                   <SidebarMenuItem key={item.title}>
-                    <SidebarMenuButton asChild isActive={item.isActive}>
-                      <a href={item.url}>{item.title}</a>
+                    <SidebarMenuButton
+                      asChild
+                      className="pl-6 hover:bg-background"
+                    >
+                      <a href={item.url}>
+                        {item.icon && <item.icon />}
+                        <span>{item.title}</span>
+                      </a>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 ))}
