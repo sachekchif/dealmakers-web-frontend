@@ -18,7 +18,7 @@ export function StatCard({ title, value, change, index }: StatCardProps) {
     <Card
       className={cn(
         index % 2 === 0 ? "bg-secondary" : "bg-accent",
-        " shadow-none"
+        " shadow-none gap-4"
       )}
     >
       <CardHeader className="pb-2">

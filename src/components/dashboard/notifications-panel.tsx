@@ -47,9 +47,9 @@ export default function NotificationsPanel() {
   ];
 
   return (
-    <Card className="shadow-none border-0 bg-transparent gap-4">
+    <Card className="shadow-none border-0 bg-transparent gap-4 pb-3">
       <CardHeader className="">
-        <CardTitle className="text-lg font-medium">Notifications</CardTitle>
+        <CardTitle className=" font-semibold">Notifications</CardTitle>
       </CardHeader>
       <CardContent className="space-y-2">
         {notifications.map((notification) => (

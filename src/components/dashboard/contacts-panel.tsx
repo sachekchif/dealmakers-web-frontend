@@ -51,7 +51,7 @@ export default function ContactsPanel() {
   return (
     <Card className="shadow-none border-0  bg-transparent py-3 gap-4">
       <CardHeader className="">
-        <CardTitle className="text-lg font-medium">Contacts</CardTitle>
+        <CardTitle className="font-semibold">Contacts</CardTitle>
       </CardHeader>
       <CardContent className="space-y-2">
         {contacts.map((contact) => (

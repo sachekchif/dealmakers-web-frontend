@@ -70,7 +70,7 @@ export default function ActivitiesPanel() {
   return (
     <Card className="shadow-none border-0  bg-transparent py-3 gap-4">
       <CardHeader className="">
-        <CardTitle className="text-lg font-medium">Activities</CardTitle>
+        <CardTitle className="font-semibold">Activities</CardTitle>
       </CardHeader>
       <CardContent className="space-y-2">
         {activities.map((activity) => (

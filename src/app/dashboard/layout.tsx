@@ -3,14 +3,6 @@ import { DynamicBreadcrumb } from "@/components/dynamic-breadcrumbs";
 import { ModeToggle } from "@/components/mode-toogle";
 import { SidebarRight } from "@/components/right-sidebar";
 import { SearchForm } from "@/components/search-form";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import {
@@ -18,7 +10,7 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
-import { Bell, History, Layers, RotateCcw } from "lucide-react";
+import { Bell, History } from "lucide-react";
 
 export default function DashboardLayout({
   children,
