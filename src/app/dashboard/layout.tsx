@@ -1,4 +1,6 @@
 import { AppSidebar } from "@/components/app-sidebar";
+import { DynamicBreadcrumb } from "@/components/dynamic-breadcrumbs";
+import { ModeToggle } from "@/components/mode-toogle";
 import { SidebarRight } from "@/components/right-sidebar";
 import { SearchForm } from "@/components/search-form";
 import {
@@ -34,31 +36,16 @@ export default function DashboardLayout({
               orientation="vertical"
               className="mr-2 data-[orientation=vertical]:h-4"
             />
-            <Breadcrumb>
-              <BreadcrumbList>
-                <BreadcrumbItem className="hidden md:block">
-                  <BreadcrumbLink href="#">Dashboard</BreadcrumbLink>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator className="hidden md:block" />
-                <BreadcrumbItem>
-                  <BreadcrumbPage> </BreadcrumbPage>
-                </BreadcrumbItem>
-              </BreadcrumbList>
-            </Breadcrumb>
+            <DynamicBreadcrumb />
           </div>
           <div className="flex items-center gap-3">
             <SearchForm />
-            <Button variant="ghost" size="icon">
-              <RotateCcw className="h-5 w-5" />
-            </Button>
+            <ModeToggle />
             <Button variant="ghost" size="icon">
               <History className="h-5 w-5" />
             </Button>
             <Button variant="ghost" size="icon">
               <Bell className="h-5 w-5" />
-            </Button>
-            <Button variant="ghost" size="icon">
-              <Layers className="h-5 w-5" />
             </Button>
           </div>
         </header>
