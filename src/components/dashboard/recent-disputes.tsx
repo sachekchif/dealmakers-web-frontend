@@ -1,17 +1,25 @@
-import { Button } from "@/components/ui/button"
-import { Checkbox } from "@/components/ui/checkbox"
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { Badge } from "@/components/ui/badge"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import Link from "next/link";
 
 interface Dispute {
-  id: string
-  product: string
-  date: string
-  hoursLeft: number
-  resolution: string
-  transactionId: string
-  amount: string
+  id: string;
+  product: string;
+  date: string;
+  hoursLeft: number;
+  resolution: string;
+  transactionId: string;
+  amount: string;
 }
 
 export default function RecentDisputes() {
@@ -52,14 +60,20 @@ export default function RecentDisputes() {
       transactionId: "#119234890",
       amount: "₦5,000.00",
     },
-  ]
+  ];
 
   return (
     <Card>
       <CardHeader className="flex flex-row items-center justify-between pb-2">
         <CardTitle className="text-lg font-medium">Recent Dispute</CardTitle>
-        <Button variant="link" className="text-blue-500 h-auto p-0">
-          See All
+        <Button
+          asChild={true}
+          variant="link"
+          className="text-blue-500 h-auto p-0"
+        >
+          <Link href="/dashboard/disputes" className="flex items-center gap-1">
+            See All
+          </Link>
         </Button>
       </CardHeader>
       <CardContent>
@@ -89,15 +103,24 @@ export default function RecentDisputes() {
                   <div className="font-medium">{dispute.product}</div>
                 </TableCell>
                 <TableCell>
-                  {dispute.date}. <span className="text-red-500">{dispute.hoursLeft} Hours Left</span>
+                  {dispute.date}.{" "}
+                  <span className="text-red-500">
+                    {dispute.hoursLeft} Hours Left
+                  </span>
                 </TableCell>
                 <TableCell>
-                  <Badge variant="outline" className="bg-gray-100 text-gray-600 hover:bg-gray-100">
+                  <Badge
+                    variant="outline"
+                    className="bg-gray-100 text-gray-600 hover:bg-gray-100"
+                  >
                     {dispute.resolution}
                   </Badge>
                 </TableCell>
                 <TableCell>
-                  <Badge variant="outline" className="bg-blue-50 text-blue-600 hover:bg-blue-50">
+                  <Badge
+                    variant="outline"
+                    className="bg-blue-50 text-blue-600 hover:bg-blue-50"
+                  >
                     {dispute.transactionId}
                   </Badge>
                 </TableCell>
@@ -113,5 +136,5 @@ export default function RecentDisputes() {
         </Table>
       </CardContent>
     </Card>
-  )
+  );
 }
