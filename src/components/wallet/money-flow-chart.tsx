@@ -73,7 +73,7 @@ export default function MoneyFlowChart({ chartData }: MoneyFlowChartProps) {
           </Select>
         </div>
       </CardHeader>
-      <CardContent className="p-0">
+      <CardContent className="p-0 pr-8">
         <ChartContainer config={chartConfig} className="h-[200px] w-full">
           <AreaChart
             accessibilityLayer
