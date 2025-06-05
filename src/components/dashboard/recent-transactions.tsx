@@ -1,8 +1,5 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import Link from "next/link";
-import { RecentTransactionsTable } from "./recent-transaction-table";
 import { recentTransactionsColumns } from "./columns/recent-transactions-table-column";
+import RecentTableContainer from "../ui/recent-table-container";
 
 export interface Transaction {
   id: string;
@@ -28,7 +25,7 @@ export default function RecentTransactions() {
       },
       date: "27th March, 2024. 2:39 PM",
       type: "Withdrawal",
-      transactionId: "#119234890",
+      transactionId: "11723456790",
       amount: 5000,
     },
     {
@@ -40,7 +37,7 @@ export default function RecentTransactions() {
       },
       date: "27th March, 2024. 2:39 PM",
       type: "Deposit",
-      transactionId: "#119234890",
+      transactionId: "11723456793",
       amount: 25000,
     },
     {
@@ -52,33 +49,19 @@ export default function RecentTransactions() {
       },
       date: "27th March, 2024. 2:39 PM",
       type: "Withdrawal",
-      transactionId: "#119234990",
+      transactionId: "11723456795",
       amount: 85000,
     },
   ];
 
   return (
-    <Card className="shadow-none gap-2 border-none px-0">
-      <CardHeader className="flex flex-row items-center justify-between px-0 ">
-        <CardTitle className="text-lg font-medium">
-          Recent Transaction
-        </CardTitle>
-        <Button
-          asChild={true}
-          variant="link"
-          className="text-primary h-auto p-0"
-        >
-          <Link href="/dashboard/wallet" className="flex items-center gap-1">
-            See All
-          </Link>
-        </Button>
-      </CardHeader>
-      <CardContent className="px-0">
-        <RecentTransactionsTable
-          data={transactions}
-          columns={recentTransactionsColumns}
-        />
-      </CardContent>
-    </Card>
+    <RecentTableContainer
+      title="Recent Transactions"
+      data={transactions}
+      columns={recentTransactionsColumns} // your existing columns
+      seeAllHref="/dashboard/wallet"
+      seeAllText="See All"
+      showSeeAll={true}
+    />
   );
 }

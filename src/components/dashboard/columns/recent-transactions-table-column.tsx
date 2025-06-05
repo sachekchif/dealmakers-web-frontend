@@ -16,6 +16,7 @@ import { ColumnDef } from "@tanstack/react-table";
 import { ArrowUpDown, MoreHorizontal } from "lucide-react";
 import React from "react";
 import { Transaction } from "../recent-transactions";
+import Link from "next/link";
 
 export const recentTransactionsColumns: ColumnDef<Transaction>[] = [
   {
@@ -95,7 +96,7 @@ export const recentTransactionsColumns: ColumnDef<Transaction>[] = [
         variant="outline"
         className="border border-primary text-primary hover:bg-primary/15"
       >
-        {row.getValue("transactionId")}
+        #{row.getValue("transactionId")}
       </Badge>
     ),
   },
@@ -136,7 +137,20 @@ export const recentTransactionsColumns: ColumnDef<Transaction>[] = [
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem>View customer</DropdownMenuItem>
-            <DropdownMenuItem>View payment details</DropdownMenuItem>
+            <DropdownMenuItem>
+              <Button
+                asChild={true}
+                variant="link"
+                className="text-primary h-auto p-0"
+              >
+                <Link
+                  href={`/dashboard/wallet/transactions/${payment.transactionId}`}
+                  className="flex items-center gap-1"
+                >
+                  View details
+                </Link>
+              </Button>
+            </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       );

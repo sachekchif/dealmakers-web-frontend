@@ -21,7 +21,7 @@ interface DataTableProps<TData, TValue> {
   data: TData[];
 }
 
-export function RecentTransactionsTable<TData, TValue>({
+export function RecentTable<TData, TValue>({
   columns,
   data,
 }: DataTableProps<TData, TValue>) {
