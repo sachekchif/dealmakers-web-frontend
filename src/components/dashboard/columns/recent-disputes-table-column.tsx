@@ -24,7 +24,6 @@ export const recentDisputesColumns: ColumnDef<Dispute>[] = [
       </div>
     ),
   },
-  // The separate column definition for "hoursLeft" has been removed from here.
   {
     accessorKey: "date",
     header: ({ column }) => {

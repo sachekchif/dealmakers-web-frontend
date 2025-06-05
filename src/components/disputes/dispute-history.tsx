@@ -1,161 +1,137 @@
-"use client"
+"use client";
 
-import { useRouter } from "next/navigation"
-import { Button } from "@/components/ui/button"
-import { Checkbox } from "@/components/ui/checkbox"
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { Badge } from "@/components/ui/badge"
-import { Card, CardContent } from "@/components/ui/card"
+import { useRouter } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
+import { HistoryTable } from "../history-table";
+import { recentDisputesColumns } from "../dashboard/columns/recent-disputes-table-column";
+import { Input } from "../ui/input";
 
-interface Dispute {
-  id: string
-  type: string
-  date: string
-  hoursLeft: number
-  resolution: string
-  transactionId: string
-  amount: string
+export interface Dispute {
+  id: string;
+  disputeType: string;
+  date: string;
+  hoursLeft: number;
+  resolution: string;
+  transactionId: string;
+  amount: number;
 }
 
 export default function DisputeHistory() {
-  const router = useRouter()
-
-  // Sample dispute data
+  // Inside your DisputeHistory component
   const disputes: Dispute[] = [
     {
       id: "1",
-      type: "Damaged Product",
-      date: "27th March, 2024",
-      hoursLeft: 45,
-      resolution: "Refund",
-      transactionId: "#119234890",
-      amount: "₦5,000.00",
+      disputeType: "Product Not Received",
+      date: "15th May, 2024",
+      hoursLeft: 24,
+      resolution: "Pending",
+      transactionId: "#124567890",
+      amount: 15000,
     },
     {
       id: "2",
-      type: "Damaged Product",
-      date: "27th March, 2024",
-      hoursLeft: 45,
-      resolution: "Refund",
-      transactionId: "#119234890",
-      amount: "₦5,000.00",
+      disputeType: "Incorrect Item Sent",
+      date: "12th May, 2024",
+      hoursLeft: 12,
+      resolution: "Replacement Sent",
+      transactionId: "#124567801",
+      amount: 8500,
     },
     {
       id: "3",
-      type: "Damaged Product",
-      date: "27th March, 2024",
-      hoursLeft: 45,
+      disputeType: "Damaged Product",
+      date: "10th May, 2024",
+      hoursLeft: 3,
       resolution: "Refund",
-      transactionId: "#119234890",
-      amount: "₦5,000.00",
+      transactionId: "#124567112",
+      amount: 32000,
     },
     {
       id: "4",
-      type: "Damaged Product",
-      date: "27th March, 2024",
-      hoursLeft: 45,
-      resolution: "Refund",
-      transactionId: "#119234890",
-      amount: "₦5,000.00",
+      disputeType: "Service Not Rendered",
+      date: "5th May, 2024",
+      hoursLeft: 72,
+      resolution: "In Review",
+      transactionId: "#124567345",
+      amount: 5500,
     },
     {
       id: "5",
-      type: "Damaged Product",
-      date: "27th March, 2024",
-      hoursLeft: 45,
-      resolution: "Refund",
-      transactionId: "#119234890",
-      amount: "₦5,000.00",
+      disputeType: "Late Delivery",
+      date: "2nd May, 2024",
+      hoursLeft: 48,
+      resolution: "Partial Refund",
+      transactionId: "#124567999",
+      amount: 1250,
     },
     {
       id: "6",
-      type: "Damaged Product",
-      date: "27th March, 2024",
-      hoursLeft: 45,
-      resolution: "Refund",
-      transactionId: "#119234890",
-      amount: "₦5,000.00",
+      disputeType: "Duplicate Charge",
+      date: "28th April, 2024",
+      hoursLeft: 96,
+      resolution: "Refunded",
+      transactionId: "#124567001",
+      amount: 4999,
     },
     {
       id: "7",
-      type: "Damaged Product",
-      date: "27th March, 2024",
-      hoursLeft: 45,
-      resolution: "Refund",
-      transactionId: "#119234890",
-      amount: "₦5,000.00",
+      disputeType: "Product Not as Described",
+      date: "25th April, 2024",
+      hoursLeft: 6,
+      resolution: "In Review",
+      transactionId: "#124567432",
+      amount: 25000,
     },
-  ]
-
-  const handleViewDispute = (disputeId: string) => {
-    router.push(`/disputes/${disputeId}`)
-  }
+    {
+      id: "8",
+      disputeType: "Damaged Product",
+      date: "20th April, 2024",
+      hoursLeft: 1,
+      resolution: "Closed",
+      transactionId: "#124567876",
+      amount: 18000,
+    },
+    {
+      id: "9",
+      disputeType: "Product Not Received",
+      date: "15th April, 2024",
+      hoursLeft: 120,
+      resolution: "Pending",
+      transactionId: "#124567111",
+      amount: 75000,
+    },
+  ];
+  const handleFilterDispute = (value: string) => {
+    return;
+  };
 
   return (
     <div className="space-y-4">
       <div className="flex justify-between items-center">
         <h2 className="text-xl font-bold">Dispute History</h2>
-        <Button variant="link" className="text-blue-500 h-auto p-0">
-          See All
-        </Button>
+
+        <div className="flex items-center">
+          <Input
+            placeholder="Filter by Transaction ID"
+            // value={(table.getColumn("transactionId")?.getFilterValue() as string) ?? ""}
+            onChange={(event) => handleFilterDispute(event.target.value)}
+            className="max-w-sm"
+          />
+        </div>
       </div>
 
-      <Card>
-        <CardContent className="p-0">
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead className="w-[30px]">
-                  <Checkbox />
-                </TableHead>
-                <TableHead>
-                  <div className="flex items-center gap-1">Dispute Type</div>
-                </TableHead>
-                <TableHead>Date</TableHead>
-                <TableHead>Dispute Resolution</TableHead>
-                <TableHead>Transaction ID</TableHead>
-                <TableHead>Amount</TableHead>
-                <TableHead className="text-right"></TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {disputes.map((dispute) => (
-                <TableRow key={dispute.id}>
-                  <TableCell>
-                    <Checkbox />
-                  </TableCell>
-                  <TableCell>
-                    <div className="font-medium">{dispute.type}</div>
-                  </TableCell>
-                  <TableCell>
-                    {dispute.date}. <span className="text-red-500">{dispute.hoursLeft} Hours Left</span>
-                  </TableCell>
-                  <TableCell>
-                    <Badge variant="outline" className="bg-gray-100 text-gray-600 hover:bg-gray-100">
-                      {dispute.resolution}
-                    </Badge>
-                  </TableCell>
-                  <TableCell>
-                    <Badge variant="outline" className="bg-blue-50 text-blue-600 hover:bg-blue-50">
-                      {dispute.transactionId}
-                    </Badge>
-                  </TableCell>
-                  <TableCell>{dispute.amount}</TableCell>
-                  <TableCell className="text-right">
-                    <Button
-                      size="sm"
-                      className="bg-blue-500 hover:bg-blue-600"
-                      onClick={() => handleViewDispute(dispute.id)}
-                    >
-                      View
-                    </Button>
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </CardContent>
-      </Card>
+      <HistoryTable columns={recentDisputesColumns} data={disputes} />
     </div>
-  )
+  );
 }
