@@ -1,91 +1,122 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+"use client";
+
+import { Pie, PieChart } from "recharts";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  ChartConfig,
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+} from "@/components/ui/chart";
+
+const chartData = [
+  {
+    country: "United States",
+    percentage: 38.6,
+    fill: "var(--color-united-states)",
+  },
+  {
+    country: "Canada",
+    percentage: 22.5,
+    fill: "var(--color-canada)",
+  },
+  {
+    country: "Mexico",
+    percentage: 30.8,
+    fill: "var(--color-mexico)",
+  },
+  {
+    country: "Other",
+    percentage: 8.1,
+    fill: "var(--color-other)",
+  },
+];
+
+const chartConfig = {
+  percentage: {
+    label: "Percentage",
+  },
+  "united-states": {
+    label: "United States",
+    color: "#3b82f6", // blue-500
+  },
+  canada: {
+    label: "Canada",
+    color: "#059669", // green-600
+  },
+  mexico: {
+    label: "Mexico",
+    color: "#34d399", // green-400
+  },
+  other: {
+    label: "Other",
+    color: "#1f2937", // gray-800
+  },
+} satisfies ChartConfig;
 
 export default function UsersLocation() {
-  const locations = [
-    { country: "United States", percentage: "38.6%" },
-    { country: "Canada", percentage: "22.5%" },
-    { country: "Mexico", percentage: "30.8%" },
-    { country: "Other", percentage: "8.1%" },
-  ]
-
-  const colors = {
-    "United States": "bg-blue-500",
-    Canada: "bg-green-600",
-    Mexico: "bg-green-400",
-    Other: "bg-gray-800",
-  }
-
   return (
-    <Card>
-      <CardHeader className="pb-2">
+    <Card className={`shadow-none gap-2 border-none px-0`}>
+      <CardHeader className="px-0">
         <CardTitle className="text-lg font-medium">Users by Location</CardTitle>
       </CardHeader>
       <CardContent className="flex flex-col md:flex-row gap-6 items-center">
-        <div className="relative w-40 h-40">
-          <svg viewBox="0 0 100 100" className="w-full h-full">
-            <circle cx="50" cy="50" r="40" fill="none" stroke="#f3f4f6" strokeWidth="20" />
-            {/* United States - 38.6% */}
-            <circle
-              cx="50"
-              cy="50"
-              r="40"
-              fill="none"
-              stroke="#818cf8"
-              strokeWidth="20"
-              strokeDasharray="251.2 251.2"
-              strokeDashoffset="0"
-              transform="rotate(-90 50 50)"
+        <ChartContainer
+          config={chartConfig}
+          className="w-40 h-40 flex-shrink-0"
+        >
+          <PieChart>
+            <ChartTooltip
+              cursor={false}
+              content={
+                <ChartTooltipContent
+                  hideLabel
+                  formatter={(value, name) => [
+                    `${value}%`,
+                    chartConfig[name as keyof typeof chartConfig]?.label ||
+                      name,
+                  ]}
+                />
+              }
             />
-            {/* Canada - 22.5% */}
-            <circle
-              cx="50"
-              cy="50"
-              r="40"
-              fill="none"
-              stroke="#059669"
-              strokeWidth="20"
-              strokeDasharray="251.2 251.2"
-              strokeDashoffset="251.2 - (251.2 * 0.386)"
-              transform="rotate(-90 50 50)"
+            <Pie
+              data={chartData}
+              dataKey="percentage"
+              nameKey="country"
+              innerRadius={30}
+              outerRadius={70}
+              paddingAngle={2}
             />
-            {/* Mexico - 30.8% */}
-            <circle
-              cx="50"
-              cy="50"
-              r="40"
-              fill="none"
-              stroke="#34d399"
-              strokeWidth="20"
-              strokeDasharray="251.2 251.2"
-              strokeDashoffset="251.2 - (251.2 * (0.386 + 0.225))"
-              transform="rotate(-90 50 50)"
-            />
-            {/* Other - 8.1% */}
-            <circle
-              cx="50"
-              cy="50"
-              r="40"
-              fill="none"
-              stroke="#1f2937"
-              strokeWidth="20"
-              strokeDasharray="251.2 251.2"
-              strokeDashoffset="251.2 - (251.2 * (0.386 + 0.225 + 0.308))"
-              transform="rotate(-90 50 50)"
-            />
-          </svg>
-        </div>
+          </PieChart>
+        </ChartContainer>
+
         <div className="flex-1 space-y-2">
-          {locations.map((location) => (
-            <div key={location.country} className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <div className={`w-3 h-3 rounded-full ${colors[location.country as keyof typeof colors]}`}></div>
-                <span>{location.country}</span>
+          {chartData.map((location) => {
+            const configKey = location.country
+              .toLowerCase()
+              .replace(/\s+/g, "-") as keyof typeof chartConfig;
+            const config = chartConfig[configKey];
+            const color =
+              config && "color" in config ? config.color : "#6b7280";
+
+            return (
+              <div
+                key={location.country}
+                className="flex items-center justify-between"
+              >
+                <div className="flex items-center gap-2">
+                  <div
+                    className="w-3 h-3 rounded-full"
+                    style={{ backgroundColor: color }}
+                  ></div>
+                  <span>{location.country}</span>
+                </div>
+                <span className="font-medium">{location.percentage}%</span>
               </div>
-              <span className="font-medium">{location.percentage}</span>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </CardContent>
     </Card>
-  )
+  );
 }

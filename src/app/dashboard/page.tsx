@@ -5,7 +5,7 @@ import UsersLocation from "@/components/dashboard/users-location";
 
 export default function Page() {
   return (
-    <section className="p-8 flex flex-col gap-4">
+    <section className="p-8 flex flex-col">
       <StatCards />
       <RecentTransactions />
       <UsersLocation />
