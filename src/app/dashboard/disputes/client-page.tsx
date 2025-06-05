@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import DisputeStats from "@/components/disputes/dispute-stats"
-import DisputeHistory from "@/components/disputes/dispute-history"
-import DisputeDialog from "@/components/disputes/dispute-dialog"
-import { Button } from "@/components/ui/button"
+import DisputeStats from "@/components/disputes/dispute-stats";
+import DisputeHistory from "@/components/disputes/dispute-history";
+import DisputeDialog from "@/components/disputes/dispute-dialog";
+import { Button } from "@/components/ui/button";
 
 export default function ClientDisputesPage() {
   return (
@@ -12,15 +12,15 @@ export default function ClientDisputesPage() {
 
       <div>
         <DisputeDialog
-          trigger={<Button className="bg-blue-500 hover:bg-blue-600">Create Dispute</Button>}
+          trigger={<Button>Create Dispute</Button>}
           onSubmit={async (values) => {
             // In a real app, this would be an API call
-            console.log("Dispute created:", values)
+            console.log("Dispute created:", values);
           }}
         />
       </div>
 
       <DisputeHistory />
     </div>
-  )
+  );
 }

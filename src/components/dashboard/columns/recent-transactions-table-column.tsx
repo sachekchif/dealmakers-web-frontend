@@ -28,8 +28,8 @@ export const recentTransactionsColumns: ColumnDef<Transaction>[] = [
       const user = row.getValue("user") as Transaction["user"];
 
       // Generate initials for AvatarFallback
-      const initials = user.name
-        ? user.name
+      const initials = user?.name
+        ? user?.name
             .split(" ")
             .map((n) => n[0])
             .join("")
@@ -40,16 +40,16 @@ export const recentTransactionsColumns: ColumnDef<Transaction>[] = [
         <div className="flex items-center gap-3">
           <Avatar className="h-10 w-10 bg-orange-500">
             <AvatarImage
-              src={user.avatar || "/placeholder.svg"} // Access user.avatar directly
-              alt={user.name || "User avatar"} // Access user.name directly
+              src={user?.avatar || "/placeholder.svg"} // Access user.avatar directly
+              alt={user?.name || "User avatar"} // Access user.name directly
             />
             <AvatarFallback>{initials}</AvatarFallback>
           </Avatar>
           <div>
             {/* Display user's name */}
-            <div className="font-medium">{user.name}</div>
+            <div className="font-medium">{user?.name}</div>
             {/* Display user's bank */}
-            <div className="text-xs text-muted-foreground">{user.bank}</div>
+            <div className="text-xs text-muted-foreground">{user?.bank}</div>
           </div>
         </div>
       );

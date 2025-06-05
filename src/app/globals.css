@@ -123,10 +123,10 @@
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
   --accent: #EBFAFF;
-  --accent-foreground: 1c1c1c;
+  --accent-foreground: #1c1c1c;
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
+  --input: #0097C7;
   --ring: oklch(0.708 0 0);
   --chart-1: #F5F6FF;
   --chart-2: oklch(0.6 0.118 184.704);

@@ -376,7 +376,7 @@ export default function AddBankDialog({
           <DialogTitle className="text-center text-xl font-semibold">
             Add Bank
           </DialogTitle>
-          <div className="w-full h-0.5 bg-blue-500 mt-2"></div>
+          <div className="w-full h-0.5 bg-primary mt-2"></div>
         </DialogHeader>
 
         {view === "list" && (
@@ -416,16 +416,13 @@ export default function AddBankDialog({
               {canAddMoreBanks && (
                 <Button
                   variant="link"
-                  className="w-full text-blue-500"
+                  className="w-full "
                   onClick={() => setView("form")}
                 >
                   Add Bank
                 </Button>
               )}
-              <Button
-                className="w-full bg-blue-500 hover:bg-blue-600"
-                onClick={handleClose}
-              >
+              <Button className="w-full " onClick={handleClose}>
                 Done
               </Button>
             </div>
@@ -491,7 +488,7 @@ export default function AddBankDialog({
 
             <div className="space-y-2">
               <Button
-                className="w-full bg-blue-500 hover:bg-blue-600"
+                className="w-full "
                 onClick={handleConfirm}
                 disabled={
                   !accountName ||

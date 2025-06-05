@@ -71,11 +71,11 @@ export default function DepositDialog({
             <DialogHeader>
               <div className="flex justify-center mb-2">
                 <div className="flex items-center">
-                  <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white">
+                  <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white">
                     1
                   </div>
                   <div className="w-12 h-1 bg-gray-200">
-                    <div className="w-0 h-1 bg-blue-500"></div>
+                    <div className="w-0 h-1 bg-primary"></div>
                   </div>
                   <div className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-gray-500">
                     2
@@ -113,10 +113,7 @@ export default function DepositDialog({
                   </div>
                 </div>
               </div>
-              <Button
-                className="w-full bg-blue-500 hover:bg-blue-600"
-                onClick={() => setStep(2)}
-              >
+              <Button className="w-full" onClick={() => setStep(2)}>
                 Continue
               </Button>
             </div>
@@ -128,13 +125,13 @@ export default function DepositDialog({
             <DialogHeader>
               <div className="flex justify-center mb-2">
                 <div className="flex items-center">
-                  <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white">
+                  <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white">
                     <Check className="h-4 w-4" />
                   </div>
-                  <div className="w-12 h-1 bg-blue-500">
-                    <div className="w-full h-1 bg-blue-500"></div>
+                  <div className="w-12 h-1 bg-primary">
+                    <div className="w-full h-1 bg-primary"></div>
                   </div>
-                  <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white">
+                  <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white">
                     2
                   </div>
                   <div className="w-12 h-1 bg-gray-200">
@@ -190,7 +187,7 @@ export default function DepositDialog({
                 <div
                   className={cn(
                     "border rounded-md p-3 flex items-center justify-between",
-                    paymentMethod === "transfer" && "border-blue-500 bg-blue-50"
+                    paymentMethod === "transfer" && "border-primary bg-blue-50"
                   )}
                 >
                   <div className="space-y-0.5">
@@ -205,7 +202,7 @@ export default function DepositDialog({
                 </div>
               </RadioGroup>
               <Button
-                className="w-full bg-blue-500 hover:bg-blue-600"
+                className="w-full "
                 onClick={() => setStep(3)}
                 disabled={!paymentMethod}
               >
@@ -220,24 +217,24 @@ export default function DepositDialog({
             <DialogHeader>
               <div className="flex justify-center mb-2">
                 <div className="flex items-center">
-                  <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white">
+                  <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white">
                     <Check className="h-4 w-4" />
                   </div>
-                  <div className="w-12 h-1 bg-blue-500">
-                    <div className="w-full h-1 bg-blue-500"></div>
+                  <div className="w-12 h-1 bg-primary">
+                    <div className="w-full h-1 bg-primary"></div>
                   </div>
-                  <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white">
+                  <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white">
                     <Check className="h-4 w-4" />
                   </div>
-                  <div className="w-12 h-1 bg-blue-500">
-                    <div className="w-full h-1 bg-blue-500"></div>
+                  <div className="w-12 h-1 bg-primary">
+                    <div className="w-full h-1 bg-primary"></div>
                   </div>
-                  <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white">
+                  <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white">
                     3
                   </div>
                 </div>
               </div>
-              <div className="w-full border-b border-blue-500 pb-2">
+              <div className="w-full border-b border-primary pb-2">
                 <DialogTitle className="text-center">Make Payments</DialogTitle>
               </div>
             </DialogHeader>
@@ -331,10 +328,7 @@ export default function DepositDialog({
                 <p>Please make transfer to the account details above</p>
               </div>
 
-              <Button
-                className="w-full bg-blue-500 hover:bg-blue-600"
-                onClick={handleComplete}
-              >
+              <Button className="w-full " onClick={handleComplete}>
                 Funds have been transferred
               </Button>
             </div>

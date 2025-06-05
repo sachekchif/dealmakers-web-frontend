@@ -14,6 +14,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Package2, Star } from "lucide-react";
 import { useEffect, useState } from "react";
+import { HistoryTable } from "../history-table";
 
 interface Transaction {
   id: string;
@@ -246,6 +247,7 @@ export default function TransactionHistory({
           </Table>
         </CardContent>
       </Card>
+      {/* <HistorsyTable columns={recentTransactionsColumns} data={transactions}  */}
     </div>
   );
 }

@@ -140,7 +140,8 @@ export default function WalletOverview({
                 onWithdrawComplete={handleWithdrawComplete}
                 trigger={
                   <Button
-                    className="w-full bg-blue-500 hover:bg-blue-600"
+                    variant={"defaultOutline"}
+                    className="w-full "
                     disabled={!isKYCCompleted || banks.length === 0}
                   >
                     Withdraw
@@ -154,7 +155,8 @@ export default function WalletOverview({
                 trigger={
                   <Button
                     disabled={!isKYCCompleted}
-                    className="w-full bg-blue-500 hover:bg-blue-600"
+                    className="w-full"
+                    variant={"defaultOutline"}
                   >
                     Deposit
                   </Button>
@@ -168,11 +170,7 @@ export default function WalletOverview({
                 onBankAdded={handleBankAdded}
                 existingBanks={banks}
                 trigger={
-                  <Button
-                    variant="outline"
-                    className="w-full border-gray-200 text-gray-700 hover:bg-gray-50"
-                    disabled={!canAddMoreBanks}
-                  >
+                  <Button className="w-full " disabled={!canAddMoreBanks}>
                     {canAddMoreBanks ? "Add Bank" : "Maximum Banks Added"}
                   </Button>
                 }
@@ -180,11 +178,7 @@ export default function WalletOverview({
             ) : (
               <KycDialog
                 onSubmit={handleKYCStatusChange}
-                trigger={
-                  <Button className="bg-blue-500 hover:bg-blue-600">
-                    Complete KYC
-                  </Button>
-                }
+                trigger={<Button className="">Complete KYC</Button>}
               />
               // <Button
               //   variant="outline"
