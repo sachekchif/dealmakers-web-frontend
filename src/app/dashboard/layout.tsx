@@ -43,7 +43,7 @@ export default function DashboardLayout({
         </header>
         {children}
       </SidebarInset>
-      <SidebarRight />
+      {/* <SidebarRight /> */}
     </SidebarProvider>
   );
 }
