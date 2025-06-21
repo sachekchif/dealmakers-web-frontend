@@ -5,7 +5,7 @@ import { PiLinkedinLogoBold } from "react-icons/pi";
 import { RiFacebookBoxLine } from "react-icons/ri";
 import Link from "next/link";
 import Image from "next/image";
-import ContactForm from "@/components/beta/ContactForm";
+import ContactForm from "@/components/website/beta/ContactForm";
 
 function BetaPage() {
   return (

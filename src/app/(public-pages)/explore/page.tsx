@@ -1,6 +1,6 @@
-import ProductList from "@/components/explore/ProductList";
-import FilterMenu from "@/components/explore/FilterMenu";
-import SearchBarFIlter from "@/components/explore/SearchBarFIlter";
+import ProductList from "@/components/website/explore/ProductList";
+import FilterMenu from "@/components/website/explore/FilterMenu";
+import SearchBarFIlter from "@/components/website/explore/SearchBarFIlter";
 
 export default function ExlorePage() {
   return (

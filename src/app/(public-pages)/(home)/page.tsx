@@ -19,11 +19,11 @@ import clsx from "clsx";
 import Link from "next/link";
 import { EnvelopeIcon } from "@heroicons/react/24/outline";
 import { FaRegCircleCheck } from "react-icons/fa6";
-import HeroSection from "@/components/home/HeroSection";
-import Title from "@/components/global/Title";
-import Cbutton from "@/components/global/Cbutton";
-import GetApp from "@/components/global/GetApp";
-import FAQs from "@/components/global/FAQS";
+import HeroSection from "@/components/website/home/HeroSection";
+import Title from "@/components/website/Title";
+import Cbutton from "@/components/website/Cbutton";
+import GetApp from "@/components/website/GetApp";
+import FAQs from "@/components/website/FAQS";
 
 export const metadata: Metadata = {
   title: "Home | Trusted Deal Makers",
