@@ -3,6 +3,7 @@
 // import WalletOverview from "@/components/wallet/wallet-overview";
 import TransactionHistory from "@/app/dashboard/us/transactions/transactions-history";
 import { use, useState } from "react";
+import TransactionOverview from "./transaction-overview";
 
 export default function WalletContainer() {
   const [isKYCCompleted, setIsKYCCompleted] = useState(false);
@@ -13,10 +14,10 @@ export default function WalletContainer() {
 
   return (
     <>
-      {/* <TransactionOverview
+      <TransactionOverview
         isKYCCompleted={isKYCCompleted}
         handleKYCStatusChange={handleKYCStatusChange}
-      /> */}
+      />
       <TransactionHistory isKYCCompleted={isKYCCompleted} />
     </>
   );

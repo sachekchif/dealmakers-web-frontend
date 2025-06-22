@@ -44,3 +44,40 @@ export function StatCard({ title, value, change, index }: StatCardProps) {
     </Card>
   );
 }
+
+interface StatCardV1Props {
+  title: string;
+  value: string | number;
+  className?: string;
+  currency?: string;
+}
+
+export function StatCardV1({
+  title,
+  value,
+  className,
+  currency = "₦",
+}: StatCardV1Props) {
+  const formattedValue =
+    typeof value === "number" ? value.toLocaleString() : value;
+
+  return (
+    <Card
+      className={cn(
+        "border-2 border-cyan-400 bg-gray-50/50 rounded-2xl p-6",
+        className
+      )}
+    >
+      <CardContent className="p-0 space-y-3">
+        <div className="space-y-1">
+          <h3 className="text-gray-500 text-base font-normal">{title}</h3>
+          <div className="w-8 h-1 bg-blue-600 rounded-full" />
+        </div>
+        <div className="text-4xl font-bold text-gray-800">
+          {currency}
+          {formattedValue}
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
