@@ -19,6 +19,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { LocationData } from "@/app/dashboard/us/customers-location";
 
 type MoneyFlowChartProps = {
   chartData: {
@@ -134,7 +135,7 @@ export function LocationChart({
   chartData,
 }: {
   title?: string;
-  chartData: any[];
+  chartData: LocationData[];
 }) {
   const chartConfig = {
     percentage: {
@@ -166,7 +167,7 @@ export function LocationChart({
         </CardTitle>
       </CardHeader>
       <CardContent className="flex flex-col md:flex-row gap-6 items-center">
-        {/* <ChartContainer
+        <ChartContainer
           config={chartConfig}
           className="w-40 h-40 flex-shrink-0"
         >
@@ -193,7 +194,7 @@ export function LocationChart({
               paddingAngle={2}
             />
           </PieChart>
-        </ChartContainer> */}
+        </ChartContainer>
 
         <div className="flex-1 space-y-2">
           {chartData.map((location) => {
