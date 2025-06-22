@@ -10,6 +10,7 @@ export interface BreadcrumbItem {
 // Configuration for custom breadcrumb labels and routes
 const BREADCRUMB_CONFIG: Record<string, string> = {
   dashboard: "Dashboard",
+  users: "Users",
   disputes: "Disputes",
   profile: "Profile",
   wallet: "Wallet",

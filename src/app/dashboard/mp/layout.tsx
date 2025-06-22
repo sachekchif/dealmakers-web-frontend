@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/sidebar";
 import { Bell, History } from "lucide-react";
 import { ModeToggle } from "../mode-toogle";
-import { AppSidebar } from "@/components/dashboard/us/app-sidebar";
+import { AppSidebar } from "@/components/dashboard/mp/app-sidebar";
 
 export default function DashboardLayout({
   children,
