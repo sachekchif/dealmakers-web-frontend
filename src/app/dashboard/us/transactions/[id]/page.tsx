@@ -1,8 +1,6 @@
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { notFound } from "next/navigation";
-import DisputeDialog from "@/app/dashboard/us/disputes/dispute-dialog";
 import DialogContainer from "@/app/dashboard/us/disputes/dialog-container";
 
 // This would typically come from a database or API
@@ -44,7 +42,7 @@ export default async function TransactionDetailsPage({
   }
 
   return (
-    <div className="container mx-auto p-6 max-w-4xl">
+    <div className="container p-6 max-w-5xl">
       <h1 className="text-2xl font-bold mb-6">Transaction Details</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
@@ -161,5 +159,9 @@ export const generateStaticParams = async () => {
     { id: "11723456793" },
     { id: "11723456794" },
     { id: "11723456795" },
+    { id: "11723456796" },
+    { id: "11723456797" },
+    { id: "11723456798" },
+    { id: "11723456799" },
   ];
 };

@@ -188,10 +188,10 @@ export default function WalletOverview({
         />
       </div>
 
-      {/* Bank Cards */}
+      {/* Bank Cards
       {banks.length > 0 && (
         <BankCards banks={banks} onRemoveBank={handleRemoveBank} />
-      )}
+      )} */}
     </div>
   );
 }
