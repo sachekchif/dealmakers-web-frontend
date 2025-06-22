@@ -1,5 +1,5 @@
 import { WalletTransactionsColumns } from "./_columns/wallet-transactions-table-column";
-import RecentTableContainer from "@/components/dashboard/recent-table-container";
+import { RecentTableContainer } from "@/components/dashboard/tables";
 
 export interface WalletTransaction {
   id: string;

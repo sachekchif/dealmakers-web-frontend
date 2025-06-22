@@ -4,12 +4,12 @@ import { toast } from "sonner";
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import AddBankDialog from "@/components/wallet/add-bank-dialog";
-import DepositDialog from "@/components/wallet/deposit-dialog";
-import WithdrawDialog from "@/components/wallet/withdraw-dialog";
-import BankCards from "@/components/wallet/bank-cards";
-import MoneyFlowChart from "@/components/wallet/money-flow-chart";
-import KycDialog from "@/components/wallet/kyc-dialog";
+import AddBankDialog from "@/app/dashboard/us/wallet/_dialogues/add-bank-dialog";
+import DepositDialog from "@/app/dashboard/us/wallet/_dialogues/deposit-dialog";
+import WithdrawDialog from "@/app/dashboard/us/wallet/_dialogues/withdraw-dialog";
+import BankCards from "@/app/dashboard/us/wallet/bank-cards";
+import KycDialog from "@/app/dashboard/us/wallet/_dialogues/kyc-dialog";
+import { MoneyFlowChart } from "@/components/dashboard/charts";
 
 interface BankAccount {
   id: string;

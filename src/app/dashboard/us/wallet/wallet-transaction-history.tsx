@@ -1,9 +1,8 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
-import { TransactionsColumns } from "@/app/dashboard/us/_columns/transactions-table-column";
+import { useState } from "react";
 import { Input } from "@/components/ui/input";
-import { HistoryTable } from "@/components/dashboard/history-table";
+import { HistoryTable } from "@/components/dashboard/tables";
 import { WalletTransaction } from "../recent-transactions";
 import { WalletTransactionsColumns } from "../_columns/wallet-transactions-table-column";
 

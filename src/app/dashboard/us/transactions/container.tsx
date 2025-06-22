@@ -1,6 +1,6 @@
 "use client";
 
-import WalletOverview from "@/components/wallet/wallet-overview";
+// import WalletOverview from "@/components/wallet/wallet-overview";
 import TransactionHistory from "@/app/dashboard/us/transactions/transactions-history";
 import { use, useState } from "react";
 

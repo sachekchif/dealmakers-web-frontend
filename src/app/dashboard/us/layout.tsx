@@ -1,4 +1,4 @@
-import { DynamicBreadcrumb } from "@/components/dashboard/dynamic-breadcrumbs";
+import { DynamicBreadcrumb } from "@/app/dashboard/dynamic-breadcrumbs";
 import { SearchForm } from "@/components/dashboard/search-form";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";

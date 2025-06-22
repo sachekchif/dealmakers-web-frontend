@@ -1,4 +1,4 @@
-import { LocationChart } from "@/components/dashboard/location-chart";
+import { LocationChart } from "@/components/dashboard/charts";
 
 export default function CustomersLocation() {
   const chartData = [

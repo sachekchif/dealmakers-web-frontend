@@ -1,5 +1,5 @@
 import { DisputesColumns } from "./_columns/disputes-table-column";
-import RecentTableContainer from "@/components/dashboard/recent-table-container";
+import { RecentTableContainer } from "@/components/dashboard/tables";
 
 export interface Dispute {
   id: string;

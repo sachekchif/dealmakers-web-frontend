@@ -1,7 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { HistoryTable } from "@/components/dashboard/history-table";
+import { HistoryTable } from "@/components/dashboard/tables";
 import { TransactionsColumns } from "@/app/dashboard/us/_columns/transactions-table-column";
 import { Input } from "@/components/ui/input";
 

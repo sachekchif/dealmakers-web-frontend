@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import TransactionContainer from "./container";
 
 export const metadata: Metadata = {
-  title: "Wallet | Dashboard",
-  description: "Manage your wallet, view balance and transaction history",
+  title: "Transaction | Dashboard",
+  description: "Manage your Transaction, view balance and transaction history",
 };
 
 export default function WalletPage() {

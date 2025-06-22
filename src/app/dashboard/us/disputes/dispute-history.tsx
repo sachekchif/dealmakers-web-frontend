@@ -1,6 +1,6 @@
 "use client";
 
-import { HistoryTable } from "@/components/dashboard/history-table";
+import { HistoryTable } from "@/components/dashboard/tables";
 import { DisputesColumns } from "../_columns/disputes-table-column";
 import { Input } from "@/components/ui/input";
 
