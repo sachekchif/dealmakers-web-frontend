@@ -21,11 +21,16 @@ const getTransactionDetails = (id: string) => {
   };
 };
 
-export default function WalletTransactionDetailsPage({
-  transactionId = "default",
+export default async function WalletTransactionDetailsPage({
+  params,
 }: {
-  transactionId?: string;
+  params: Promise<{ id: string }>;
 }) {
+  const { id } = await params;
+  // Remove the # if it's included in the ID
+  const transactionId = id.startsWith("#") ? id.substring(1) : id;
+
+  // In a real app, you would fetch this data from an API or database
   const transaction = getTransactionDetails(transactionId);
 
   if (!transaction) {
