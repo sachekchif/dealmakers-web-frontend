@@ -1,8 +1,6 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import UserStats from "./user-stats";
-import UserDialog from "./user-dialog";
 import UserHistory from "./user-history";
 import CustomersLocation from "../customers-location";
 import { InviteUserDialog } from "./invite-user-dialog";

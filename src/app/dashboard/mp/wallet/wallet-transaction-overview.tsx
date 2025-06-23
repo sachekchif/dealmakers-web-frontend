@@ -144,7 +144,7 @@ export default function WalletOverview({
                     </Button>
                   }
                 />
-                <DepositDialog
+                {/* <DepositDialog
                   open={depositDialogOpen}
                   onOpenChange={setDepositDialogOpen}
                   onComplete={handleDepositComplete}
@@ -157,26 +157,26 @@ export default function WalletOverview({
                       Deposit
                     </Button>
                   }
-                />
+                /> */}
+                {isKYCCompleted ? (
+                  <AddBankDialog
+                    open={addBankDialogOpen}
+                    onOpenChange={setAddBankDialogOpen}
+                    onBankAdded={handleBankAdded}
+                    existingBanks={banks}
+                    trigger={
+                      <Button className="w-full " disabled={!canAddMoreBanks}>
+                        {canAddMoreBanks ? "Add Bank" : "Maximum Banks Added"}
+                      </Button>
+                    }
+                  />
+                ) : (
+                  <KycDialog
+                    onSubmit={handleKYCStatusChange}
+                    trigger={<Button className="">Complete KYC</Button>}
+                  />
+                )}
               </div>
-              {isKYCCompleted ? (
-                <AddBankDialog
-                  open={addBankDialogOpen}
-                  onOpenChange={setAddBankDialogOpen}
-                  onBankAdded={handleBankAdded}
-                  existingBanks={banks}
-                  trigger={
-                    <Button className="w-full " disabled={!canAddMoreBanks}>
-                      {canAddMoreBanks ? "Add Bank" : "Maximum Banks Added"}
-                    </Button>
-                  }
-                />
-              ) : (
-                <KycDialog
-                  onSubmit={handleKYCStatusChange}
-                  trigger={<Button className="">Complete KYC</Button>}
-                />
-              )}
             </div>
           </CardContent>
         </Card>
