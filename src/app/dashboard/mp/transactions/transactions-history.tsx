@@ -154,7 +154,7 @@ export default function TransactionHistory({
 
   useEffect(() => {
     if (isKYCCompleted) {
-      setTtransactions(transactions);
+      setTtransactions(transactions as Transaction[]);
     } else {
       setTtransactions([]);
     }
@@ -183,7 +183,7 @@ export default function TransactionHistory({
         </div>
       </div>
 
-      <HistoryTable columns={TransactionsColumns} data={transactions} />
+      <HistoryTable columns={TransactionsColumns} data={Ttransactions} />
     </div>
   );
 }

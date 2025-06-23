@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import UserStats from "./user-stats";
 import UserDialog from "./user-dialog";
 import UserHistory from "./user-history";
+import CustomersLocation from "../customers-location";
 
 export default function ClientUsersPage() {
   return (
@@ -21,6 +22,7 @@ export default function ClientUsersPage() {
       </div>
 
       <UserHistory />
+      <CustomersLocation />
     </div>
   );
 }

@@ -137,7 +137,7 @@ export const UsersColumns: ColumnDef<User>[] = [
                 className="text-primary h-auto p-0"
               >
                 <Link
-                  href={`/dashboard/us/users/${user.id}`}
+                  href={`/dashboard/mp/users/${user.id}`}
                   className="flex items-center gap-1"
                 >
                   View details

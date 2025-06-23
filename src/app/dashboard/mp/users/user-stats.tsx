@@ -3,7 +3,7 @@ import { StatCard } from "@/components/dashboard/stats-card";
 export default function UserStats() {
   const stats = [
     {
-      title: "All Users",
+      title: "Total Users",
       value: "12",
       change: { value: "-0.33%", trend: "down" as const },
     },
@@ -18,7 +18,7 @@ export default function UserStats() {
       change: { value: "+6.08%", trend: "up" as const },
     },
     {
-      title: "Urgent Disputes",
+      title: "Active Disputes",
       value: "2",
       change: { value: "+15.03%", trend: "up" as const },
     },
