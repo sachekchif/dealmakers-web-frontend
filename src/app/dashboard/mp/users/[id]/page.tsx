@@ -205,7 +205,7 @@ interface UserInformationCardProps {
   className?: string;
 }
 
-export const UserInformationCard = ({
+const UserInformationCard = ({
   userInfo,
   title = "User Information",
   showCard = true,
@@ -260,7 +260,7 @@ interface User {
 // Updated getUserDetails function
 const getUserDetails = (id: string): User | null => {
   return {
-    id: `#${id}`,
+    id: id,
     stats: [
       {
         title: "Balance",
