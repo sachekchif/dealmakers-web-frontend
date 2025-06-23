@@ -8,17 +8,17 @@ export default function StatCards() {
       change: { value: "-0.03%", trend: "down" as const },
     },
     {
-      title: "Purchase Made",
+      title: "Total Users",
       value: "12",
       change: { value: "+15.03%", trend: "up" as const },
     },
     {
-      title: "Pending Purchase",
+      title: "New Users",
       value: "2",
       change: { value: "+6.08%", trend: "up" as const },
     },
     {
-      title: "Canceled Purchase",
+      title: "Pending Users",
       value: "6",
       change: { value: "+0%", trend: "neutral" as const },
     },

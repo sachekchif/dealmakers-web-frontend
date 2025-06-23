@@ -63,7 +63,7 @@ const data: {
           icon: Coins,
         },
         {
-          title: "Manage Dispute",
+          title: "Disputes",
           url: "/dashboard/us/disputes",
           icon: HandshakeIcon,
         },

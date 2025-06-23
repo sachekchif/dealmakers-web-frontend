@@ -1,102 +1,91 @@
 "use client";
 
 import { HistoryTable } from "@/components/dashboard/tables";
-import { DisputesColumns } from "../_columns/disputes-table-column";
 import { Input } from "@/components/ui/input";
+import { User, UsersColumns } from "../_columns/users-table-column";
 
-export interface Dispute {
-  id: string;
-  disputeType: string;
-  date: string;
-  hoursLeft: number;
-  resolution: string;
-  transactionId: string;
-  amount: number;
-}
-
-export default function DisputeHistory() {
-  // Inside your DisputeHistory component
-  const disputes: Dispute[] = [
+export default function UserHistory() {
+  // Inside your UserHistory component
+  const users: User[] = [
     {
       id: "1",
-      disputeType: "Product Not Received",
-      date: "15th May, 2024",
-      hoursLeft: 24,
-      resolution: "Pending",
-      transactionId: "#124567890",
-      amount: 15000,
+      name: "David Abolaji Victor",
+      email: "davidabolaji2014@google.com",
+      phone: "+234-812-345-234",
+      status: "Suspended",
+      avatar: "/avatars/david-1.jpg",
     },
     {
       id: "2",
-      disputeType: "Incorrect Item Sent",
-      date: "12th May, 2024",
-      hoursLeft: 12,
-      resolution: "Replacement Sent",
-      transactionId: "#124567801",
-      amount: 8500,
+      name: "David Abolaji Victor",
+      email: "davidabolaji2014@google.com",
+      phone: "+234-812-345-234",
+      status: "Suspended",
+      avatar: "/avatars/david-2.jpg",
     },
     {
       id: "3",
-      disputeType: "Damaged Product",
-      date: "10th May, 2024",
-      hoursLeft: 3,
-      resolution: "Refund",
-      transactionId: "#9ac0d9112",
-      amount: 32000,
+      name: "David Abolaji Victor",
+      email: "davidabolaji2014@google.com",
+      phone: "+234-812-345-234",
+      status: "Active",
+      avatar: "/avatars/david-3.jpg",
     },
     {
       id: "4",
-      disputeType: "Service Not Rendered",
-      date: "5th May, 2024",
-      hoursLeft: 72,
-      resolution: "In Review",
-      transactionId: "#124567345",
-      amount: 5500,
+      name: "David Abolaji Victor",
+      email: "davidabolaji2014@google.com",
+      phone: "+234-812-345-234",
+      status: "Suspended",
+      avatar: "/avatars/david-4.jpg",
     },
     {
       id: "5",
-      disputeType: "Late Delivery",
-      date: "2nd May, 2024",
-      hoursLeft: 48,
-      resolution: "Partial Refund",
-      transactionId: "#124567999",
-      amount: 1250,
+      name: "Sarah Johnson",
+      email: "sarah.johnson@gmail.com",
+      phone: "+234-803-567-890",
+      status: "Active",
+      avatar: "/avatars/sarah.jpg",
     },
     {
       id: "6",
-      disputeType: "Duplicate Charge",
-      date: "28th April, 2024",
-      hoursLeft: 96,
-      resolution: "Refunded",
-      transactionId: "#124567001",
-      amount: 4999,
+      name: "Michael Chen",
+      email: "m.chen@yahoo.com",
+      phone: "+234-901-234-567",
+      status: "Active",
+      avatar: "/avatars/michael.jpg",
     },
     {
       id: "7",
-      disputeType: "Product Not as Described",
-      date: "25th April, 2024",
-      hoursLeft: 6,
-      resolution: "In Review",
-      transactionId: "#124567432",
-      amount: 25000,
+      name: "Aisha Bello",
+      email: "aisha.bello@outlook.com",
+      phone: "+234-706-789-012",
+      status: "Suspended",
+      avatar: "/avatars/aisha.jpg",
     },
     {
       id: "8",
-      disputeType: "Damaged Product",
-      date: "20th April, 2024",
-      hoursLeft: 1,
-      resolution: "Closed",
-      transactionId: "#124567876",
-      amount: 18000,
+      name: "James Wilson",
+      email: "james.wilson@hotmail.com",
+      phone: "+234-813-456-789",
+      status: "Active",
+      avatar: "/avatars/james.jpg",
     },
     {
       id: "9",
-      disputeType: "Product Not Received",
-      date: "15th April, 2024",
-      hoursLeft: 120,
-      resolution: "Pending",
-      transactionId: "#124567111",
-      amount: 75000,
+      name: "Fatima Ibrahim",
+      email: "fatima.ibrahim@gmail.com",
+      phone: "+234-805-123-456",
+      status: "Active",
+      avatar: "/avatars/fatima.jpg",
+    },
+    {
+      id: "10",
+      name: "Emmanuel Okafor",
+      email: "e.okafor@yahoo.com",
+      phone: "+234-702-987-654",
+      status: "Suspended",
+      avatar: "/avatars/emmanuel.jpg",
     },
   ];
   const handleFilterDispute = (value: string) => {
@@ -118,7 +107,7 @@ export default function DisputeHistory() {
         </div>
       </div>
 
-      <HistoryTable columns={DisputesColumns} data={disputes} />
+      <HistoryTable columns={UsersColumns} data={users} />
     </div>
   );
 }

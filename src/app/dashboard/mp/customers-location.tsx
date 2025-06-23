@@ -18,5 +18,5 @@ export default function CustomersLocation() {
     { country: "Other", percentage: 8.1, fill: "var(--color-other)" },
   ];
 
-  return <LocationChart title="Customers" chartData={chartData} />;
+  return <LocationChart title="Users" chartData={chartData} />;
 }
