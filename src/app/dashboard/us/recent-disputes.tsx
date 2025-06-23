@@ -1,15 +1,5 @@
-import { DisputesColumns } from "./_columns/disputes-table-column";
+import { Dispute, DisputesColumns } from "./_columns/disputes-table-column";
 import { RecentTableContainer } from "@/components/dashboard/tables";
-
-export interface Dispute {
-  id: string;
-  disputeType: string;
-  date: string;
-  hoursLeft: number;
-  resolution: string;
-  transactionId: string;
-  amount: number;
-}
 
 export default function RecentDisputes() {
   const disputes: Dispute[] = [

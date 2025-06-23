@@ -16,8 +16,20 @@ import { ColumnDef } from "@tanstack/react-table";
 import { ArrowUpDown, MoreHorizontal, Star } from "lucide-react";
 import React from "react";
 import Link from "next/link";
-import { WalletTransaction } from "../recent-transactions";
-import { Transaction } from "../transactions/transactions-history";
+
+export interface Transaction {
+  id: string;
+  customerName: string;
+  marketplace: {
+    name: string;
+    logo: string;
+  };
+  date: string;
+  category: string;
+  transactionId: string;
+  amount: string;
+  status: "Completed" | "Pending";
+}
 
 export const TransactionsColumns: ColumnDef<Transaction>[] = [
   {

@@ -3,22 +3,11 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { HistoryTable } from "@/components/dashboard/tables";
-import { WalletTransaction } from "../recent-transactions";
-import { WalletTransactionsColumns } from "../_columns/wallet-transactions-table-column";
+import {
+  WalletTransactionsColumns,
+  WalletTransaction,
+} from "../_columns/wallet-transactions-table-column";
 
-interface Transaction {
-  id: string;
-  marketplace: {
-    name: string;
-    rating: number;
-    logo: string;
-  };
-  date: string;
-  category: string;
-  transactionId: string;
-  amount: string;
-  status: "Completed" | "Pending";
-}
 type TransactionHistoryProps = {
   isKYCCompleted: boolean;
 };
@@ -27,7 +16,7 @@ export default function WalletTransactionHistory({
   isKYCCompleted,
 }: TransactionHistoryProps) {
   const router = useRouter();
-  const [Ttransactions, setTtransactions] = useState<Transaction[]>([]);
+  const [Ttransactions, setTtransactions] = useState<WalletTransaction[]>([]);
   // Sample transaction data
   const walletTransactions: WalletTransaction[] = [
     {

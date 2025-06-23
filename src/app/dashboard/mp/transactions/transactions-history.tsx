@@ -2,22 +2,12 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { HistoryTable } from "@/components/dashboard/tables";
-import { TransactionsColumns } from "@/app/dashboard/us/_columns/transactions-table-column";
+import {
+  TransactionsColumns,
+  Transaction,
+} from "@/app/dashboard/us/_columns/transactions-table-column";
 import { Input } from "@/components/ui/input";
 
-export interface Transaction {
-  id: string;
-  customerName: string;
-  marketplace: {
-    name: string;
-    logo: string;
-  };
-  date: string;
-  category: string;
-  transactionId: string;
-  amount: string;
-  status: "Completed" | "Pending";
-}
 type TransactionHistoryProps = {
   isKYCCompleted: boolean;
 };

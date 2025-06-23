@@ -12,8 +12,16 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { ArrowUpDown, MoreHorizontal } from "lucide-react";
-import { Dispute } from "../recent-disputes";
 
+export interface Dispute {
+  id: string;
+  disputeType: string;
+  date: string;
+  hoursLeft: number;
+  resolution: string;
+  transactionId: string;
+  amount: number;
+}
 export const DisputesColumns: ColumnDef<Dispute>[] = [
   {
     accessorKey: "disputeType",

@@ -1,18 +1,8 @@
 "use client";
 
 import { HistoryTable } from "@/components/dashboard/tables";
-import { DisputesColumns } from "../_columns/disputes-table-column";
+import { Dispute, DisputesColumns } from "../_columns/disputes-table-column";
 import { Input } from "@/components/ui/input";
-
-export interface Dispute {
-  id: string;
-  disputeType: string;
-  date: string;
-  hoursLeft: number;
-  resolution: string;
-  transactionId: string;
-  amount: number;
-}
 
 export default function DisputeHistory() {
   // Inside your DisputeHistory component

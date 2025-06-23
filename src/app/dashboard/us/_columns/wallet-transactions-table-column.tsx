@@ -15,8 +15,20 @@ import {
 import { ColumnDef } from "@tanstack/react-table";
 import { ArrowUpDown, MoreHorizontal } from "lucide-react";
 import React from "react";
-import { WalletTransaction } from "../recent-transactions";
 import Link from "next/link";
+
+export interface WalletTransaction {
+  id: string;
+  user: {
+    name: string;
+    bank: string;
+    avatar: string;
+  };
+  date: string;
+  type: "Withdrawal" | "Deposit";
+  transactionId: string;
+  amount: number;
+}
 
 export const WalletTransactionsColumns: ColumnDef<WalletTransaction>[] = [
   {

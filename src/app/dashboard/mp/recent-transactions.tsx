@@ -1,18 +1,8 @@
-import { WalletTransactionsColumns } from "./_columns/wallet-transactions-table-column";
+import {
+  WalletTransactionsColumns,
+  WalletTransaction,
+} from "./_columns/wallet-transactions-table-column";
 import { RecentTableContainer } from "@/components/dashboard/tables";
-
-export interface WalletTransaction {
-  id: string;
-  user: {
-    name: string;
-    bank: string;
-    avatar: string;
-  };
-  date: string;
-  type: "Withdrawal" | "Deposit";
-  transactionId: string;
-  amount: number;
-}
 
 export default function RecentTransactions() {
   const walletTransactions: WalletTransaction[] = [
