@@ -5,6 +5,7 @@ import UserStats from "./user-stats";
 import UserDialog from "./user-dialog";
 import UserHistory from "./user-history";
 import CustomersLocation from "../customers-location";
+import { InviteUserDialog } from "./invite-user-dialog";
 
 export default function ClientUsersPage() {
   return (
@@ -12,13 +13,7 @@ export default function ClientUsersPage() {
       <UserStats />
 
       <div>
-        <UserDialog
-          trigger={<Button>Invite User</Button>}
-          onSubmit={async (values) => {
-            // In a real app, this would be an API call
-            console.log("User invited:", values);
-          }}
-        />
+        <InviteUserDialog />
       </div>
 
       <UserHistory />
