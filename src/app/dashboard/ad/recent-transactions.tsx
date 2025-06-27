@@ -14,7 +14,7 @@ export default function RecentTransactions() {
         avatar: "/placeholder.svg?height=40&width=40",
       },
       date: "27th March, 2024. 2:39 PM",
-      type: "Withdrawal",
+      type: "withdrawal",
       transactionId: "11723456790",
       amount: 5000,
     },
@@ -26,7 +26,7 @@ export default function RecentTransactions() {
         avatar: "/placeholder.svg?height=40&width=40",
       },
       date: "27th March, 2024. 2:39 PM",
-      type: "Deposit",
+      type: "deposit",
       transactionId: "11723456793",
       amount: 25000,
     },
@@ -38,7 +38,7 @@ export default function RecentTransactions() {
         avatar: "/placeholder.svg?height=40&width=40",
       },
       date: "27th March, 2024. 2:39 PM",
-      type: "Withdrawal",
+      type: "withdrawal",
       transactionId: "11723456795",
       amount: 85000,
     },
@@ -49,7 +49,7 @@ export default function RecentTransactions() {
       title="Recent Transactions"
       data={walletTransactions}
       columns={WalletTransactionsColumns} // your existing columns
-      seeAllHref="/dashboard/us/wallet"
+      seeAllHref="/dashboard/ad/wallet"
       seeAllText="See All"
       showSeeAll={true}
     />

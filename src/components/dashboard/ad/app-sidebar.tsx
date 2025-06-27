@@ -30,6 +30,7 @@ import {
   Upload,
   PenBoxIcon,
   Settings,
+  Wallet2Icon,
 } from "lucide-react";
 import {
   Collapsible,
@@ -48,6 +49,8 @@ type NavItem = {
 type NavGroup = {
   title: string;
   url: string;
+  icon?: React.ElementType; // Optional icon component type for the item
+
   items: NavItem[];
 };
 
@@ -76,16 +79,16 @@ const data: {
     {
       title: "Wallet Transactions",
       url: "/dashboard/ad/wallet",
+      icon: Wallet2Icon,
+
       items: [
         {
           title: "Deposits",
           url: "/dashboard/ad/wallet?transactionType=deposit",
-          icon: Download,
         },
         {
           title: "Withdrawals",
-          url: "/dashboard/ad/wallet?transactionType=withdraw",
-          icon: Upload,
+          url: "/dashboard/ad/wallet?transactionType=withdrawal",
         },
       ],
     },
@@ -154,20 +157,23 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                     <SidebarMenuItem key={item.title + i + "main"}>
                       <CollapsibleTrigger asChild>
                         <SidebarMenuButton className="pl-6">
-                          {item.title}
+                          <span className="flex items-center gap-2">
+                            {item.icon && <item.icon className="size-4" />}
+                            {item.title}
+                          </span>
                         </SidebarMenuButton>
                       </CollapsibleTrigger>
                       <CollapsibleContent>
                         <SidebarMenuSub>
-                          {item.items.map((item, j) => (
-                            <SidebarMenuSubItem key={item.title + j}>
+                          {item.items.map((subItem, j) => (
+                            <SidebarMenuSubItem key={subItem.title + j}>
                               <SidebarMenuSubButton
                                 asChild
                                 className="pl-6 hover:bg-background"
                               >
-                                <a href={item.url}>
-                                  {item.icon && <item.icon />}
-                                  <span>{item.title}</span>
+                                <a href={subItem.url}>
+                                  {subItem.icon && <subItem.icon />}
+                                  <span>{subItem.title}</span>
                                 </a>
                               </SidebarMenuSubButton>
                             </SidebarMenuSubItem>
@@ -179,15 +185,15 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 </SidebarMenu>
               ) : (
                 <SidebarMenu>
-                  {item.items.map((item, j) => (
-                    <SidebarMenuItem key={item.title + j}>
+                  {item.items.map((subItem, j) => (
+                    <SidebarMenuItem key={subItem.title + j}>
                       <SidebarMenuButton
                         asChild
                         className="pl-6 hover:bg-background"
                       >
-                        <a href={item.url}>
-                          {item.icon && <item.icon />}
-                          <span>{item.title}</span>
+                        <a href={subItem.url}>
+                          {subItem.icon && <subItem.icon />}
+                          <span>{subItem.title}</span>
                         </a>
                       </SidebarMenuButton>
                     </SidebarMenuItem>

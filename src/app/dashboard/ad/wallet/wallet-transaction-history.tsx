@@ -1,30 +1,17 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Input } from "@/components/ui/input";
 import { HistoryTable } from "@/components/dashboard/tables";
-import { WalletTransactionsColumns } from "../_columns/wallet-transactions-table-column";
-
-type TransactionHistoryProps = {
-  isKYCCompleted: boolean;
-};
-
-export interface WalletTransaction {
-  id: string;
-  user: {
-    name: string;
-    bank: string;
-    avatar: string;
-  };
-  date: string;
-  type: "Withdrawal" | "Deposit";
-  transactionId: string;
-  amount: number;
-}
+import {
+  WalletTransaction,
+  WalletTransactionsColumns,
+} from "../_columns/wallet-transactions-table-column";
+import { TransactionType } from "./page";
 
 export default function WalletTransactionHistory({
-  isKYCCompleted,
-}: TransactionHistoryProps) {
+  transactionType,
+}: TransactionType) {
   const router = useRouter();
   const [Ttransactions, setTtransactions] = useState<WalletTransaction[]>([]);
   // Sample transaction data
@@ -37,7 +24,7 @@ export default function WalletTransactionHistory({
         avatar: "/placeholder.svg?height=40&width=40",
       },
       date: "27th March, 2024. 2:39 PM",
-      type: "Withdrawal",
+      type: "withdrawal",
       transactionId: "11723456790",
       amount: 5000,
     },
@@ -49,7 +36,7 @@ export default function WalletTransactionHistory({
         avatar: "/placeholder.svg?height=40&width=40",
       },
       date: "27th March, 2024. 2:39 PM",
-      type: "Deposit",
+      type: "deposit",
       transactionId: "11723456793",
       amount: 25000,
     },
@@ -61,7 +48,7 @@ export default function WalletTransactionHistory({
         avatar: "/placeholder.svg?height=40&width=40",
       },
       date: "27th March, 2024. 2:39 PM",
-      type: "Withdrawal",
+      type: "withdrawal",
       transactionId: "11723456795",
       amount: 85000,
     },
@@ -73,7 +60,7 @@ export default function WalletTransactionHistory({
         avatar: "/placeholder.svg?height=40&width=40",
       },
       date: "12th April, 2024. 10:12 AM",
-      type: "Deposit",
+      type: "deposit",
       transactionId: "11723456801",
       amount: 120000,
     },
@@ -85,7 +72,7 @@ export default function WalletTransactionHistory({
         avatar: "/placeholder.svg?height=40&width=40",
       },
       date: "15th April, 2024. 4:50 PM",
-      type: "Withdrawal",
+      type: "withdrawal",
       transactionId: "11723456807",
       amount: 15000,
     },
@@ -97,7 +84,7 @@ export default function WalletTransactionHistory({
         avatar: "/placeholder.svg?height=40&width=40",
       },
       date: "20th April, 2024. 11:45 AM",
-      type: "Deposit",
+      type: "deposit",
       transactionId: "11723456815",
       amount: 60000,
     },
@@ -109,7 +96,7 @@ export default function WalletTransactionHistory({
         avatar: "/placeholder.svg?height=40&width=40",
       },
       date: "25th April, 2024. 9:00 AM",
-      type: "Withdrawal",
+      type: "withdrawal",
       transactionId: "11723456821",
       amount: 20000,
     },
@@ -121,7 +108,7 @@ export default function WalletTransactionHistory({
         avatar: "/placeholder.svg?height=40&width=40",
       },
       date: "1st May, 2024. 3:18 PM",
-      type: "Deposit",
+      type: "deposit",
       transactionId: "11723456830",
       amount: 75000,
     },
@@ -133,7 +120,7 @@ export default function WalletTransactionHistory({
         avatar: "/placeholder.svg?height=40&width=40",
       },
       date: "5th May, 2024. 7:30 PM",
-      type: "Withdrawal",
+      type: "withdrawal",
       transactionId: "11723456845",
       amount: 30000,
     },
@@ -145,19 +132,23 @@ export default function WalletTransactionHistory({
         avatar: "/placeholder.svg?height=40&width=40",
       },
       date: "9th May, 2024. 1:15 PM",
-      type: "Deposit",
+      type: "deposit",
       transactionId: "11723456858",
       amount: 45000,
     },
   ];
 
-  // useEffect(() => {
-  //   if (isKYCCompleted) {
-  //     setTtransactions(transactions);
-  //   } else {
-  //     setTtransactions([]);
-  //   }
-  // }, [isKYCCompleted]);
+  useEffect(() => {
+    if (transactionType) {
+      setTtransactions(
+        walletTransactions.filter(
+          (tx) => tx.type.toLowerCase() === transactionType
+        )
+      );
+    } else {
+      setTtransactions(walletTransactions);
+    }
+  }, [transactionType]);
 
   const handleRowClick = (transactionId: string) => {
     router.push(`wallet/transaction/${transactionId}`);
@@ -182,10 +173,7 @@ export default function WalletTransactionHistory({
         </div>
       </div>
 
-      <HistoryTable
-        data={walletTransactions}
-        columns={WalletTransactionsColumns}
-      />
+      <HistoryTable data={Ttransactions} columns={WalletTransactionsColumns} />
     </div>
   );
 }

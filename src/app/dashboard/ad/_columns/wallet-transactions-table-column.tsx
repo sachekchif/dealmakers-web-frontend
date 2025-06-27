@@ -25,7 +25,7 @@ export interface WalletTransaction {
     avatar: string;
   };
   date: string;
-  type: "Withdrawal" | "Deposit";
+  type: "withdrawal" | "deposit";
   transactionId: string;
   amount: number;
 }
@@ -88,10 +88,10 @@ export const WalletTransactionsColumns: ColumnDef<WalletTransaction>[] = [
     cell: ({ row }) => (
       <Badge
         variant={
-          row.getValue("type") === "Withdrawal" ? "destructive" : "default"
+          row.getValue("type") === "withdrawal" ? "destructive" : "default"
         }
         className={
-          row.getValue("type") === "Withdrawal"
+          row.getValue("type") === "withdrawal"
             ? "bg-red-100 text-red-600 hover:bg-red-100"
             : "bg-green-100 text-green-600 hover:bg-green-100"
         }
