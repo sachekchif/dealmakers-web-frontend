@@ -1,6 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import DisputeDialog from "@/app/dashboard/us/disputes/dispute-dialog";
+import DisputeDialog from "@/app/dashboard/ad/disputes/dispute-dialog";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -16,7 +16,7 @@ export default function DialogContainer({
     // In a real app, this would be an API call
     console.log("Dispute created for transaction:", transactionId, values);
     setDisputeDialogOpen(false);
-    router.push("/dashboard/us/disputes");
+    router.push("/dashboard/ad/disputes");
   };
   return (
     <DisputeDialog

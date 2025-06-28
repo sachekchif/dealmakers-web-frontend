@@ -2,7 +2,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { notFound } from "next/navigation";
-import DialogContainer from "@/app/dashboard/us/disputes/dialog-container";
 
 // Updated interface to match the new transaction structure
 interface TransactionDetails {

@@ -3,6 +3,7 @@
 import { ColumnDef } from "@tanstack/react-table";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,80 +13,95 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { ArrowUpDown, MoreHorizontal } from "lucide-react";
-// import { Dispute } from "../recent-users";
 
 export interface Dispute {
   id: string;
-  disputeType: string;
-  date: string;
-  hoursLeft: number;
-  resolution: string;
   transactionId: string;
+  dateTime: string;
+  transactionType: string;
+  buyerName: string;
+  sellerName: string;
   amount: number;
+  preferredResolution: string;
+  status: "Completed" | "Pending" | "In Progress" | "Failed";
 }
 
 export const DisputesColumns: ColumnDef<Dispute>[] = [
   {
-    accessorKey: "disputeType",
-    header: "Dispute Type",
+    id: "select",
+    header: ({ table }) => (
+      <Checkbox
+        checked={
+          table.getIsAllPageRowsSelected() ||
+          (table.getIsSomePageRowsSelected() && "indeterminate")
+        }
+        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
+        aria-label="Select all"
+      />
+    ),
     cell: ({ row }) => (
-      <div className="capitalize font-semibold">
-        {row.getValue("disputeType")}
-      </div>
+      <Checkbox
+        checked={row.getIsSelected()}
+        onCheckedChange={(value) => row.toggleSelected(!!value)}
+        aria-label="Select row"
+      />
+    ),
+    enableSorting: false,
+    enableHiding: false,
+  },
+  {
+    accessorKey: "transactionId",
+    header: "Transaction ID",
+    cell: ({ row }) => (
+      <Badge
+        variant="outline"
+        className="border border-blue-200 text-blue-600 hover:bg-blue-50 font-mono"
+      >
+        {row.getValue("transactionId")}
+      </Badge>
     ),
   },
   {
-    accessorKey: "date",
+    accessorKey: "dateTime",
     header: ({ column }) => {
       return (
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Date
-          <ArrowUpDown className="ml-2 h-4 w-4" />{" "}
-          {/* Added spacing and size for icon */}
+          Date/Time
+          <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       );
     },
-    cell: ({ row }) => {
-      // Access the full original data for the row
-      const dispute = row.original as Dispute;
-      return (
-        <div className="lowercase">
-          {/* You can get 'date' using getValue or directly from 'dispute' */}
-          {dispute.date}.{" "}
-          <span className="text-red-600 font-medium">
-            {" "}
-            {/* Added font-medium for emphasis */}
-            {dispute.hoursLeft} Hours Left
-          </span>
-        </div>
-      );
-    },
+    cell: ({ row }) => (
+      <div className="text-sm">{row.getValue("dateTime")}</div>
+    ),
   },
   {
-    accessorKey: "resolution",
-    header: "Dispute Resolution",
+    accessorKey: "transactionType",
+    header: "Transaction Type",
     cell: ({ row }) => (
       <Badge
-        variant="outline"
-        className="bg-gray-100 text-gray-600 hover:bg-gray-100"
+        variant="secondary"
+        className="bg-gray-100 text-gray-700 hover:bg-gray-200"
       >
-        {row.getValue("resolution")}
+        • {row.getValue("transactionType")}
       </Badge>
     ),
   },
   {
-    accessorKey: "transactionId",
-    header: "Transaction ID", // Consistent casing
+    accessorKey: "buyerName",
+    header: "Buyer's Name",
     cell: ({ row }) => (
-      <Badge
-        variant="outline"
-        className="border border-primary text-primary hover:bg-primary/15"
-      >
-        {row.getValue("transactionId")}
-      </Badge>
+      <div className="font-medium">{row.getValue("buyerName")}</div>
+    ),
+  },
+  {
+    accessorKey: "sellerName",
+    header: "Seller's Name",
+    cell: ({ row }) => (
+      <div className="font-medium">{row.getValue("sellerName")}</div>
     ),
   },
   {
@@ -93,8 +109,6 @@ export const DisputesColumns: ColumnDef<Dispute>[] = [
     header: () => <div className="text-left">Amount</div>,
     cell: ({ row }) => {
       const amount = parseFloat(row.getValue("amount"));
-
-      // Ensure 'en-NG' locale is supported or use a fallback like 'en-US' if only symbol matters
       const formatted = new Intl.NumberFormat("en-NG", {
         style: "currency",
         currency: "NGN",
@@ -104,31 +118,85 @@ export const DisputesColumns: ColumnDef<Dispute>[] = [
     },
   },
   {
-    id: "actions",
-    enableHiding: false,
+    accessorKey: "preferredResolution",
+    header: "Preferred Resolution",
+    cell: ({ row }) => (
+      <div className="font-medium text-gray-900">
+        {row.getValue("preferredResolution")}
+      </div>
+    ),
+  },
+  {
+    accessorKey: "status",
+    header: "Status",
     cell: ({ row }) => {
-      const dispute = row.original as Dispute;
+      const status = row.getValue("status") as string;
+
+      const statusStyles = {
+        Completed: "bg-green-100 text-green-800 border-green-200",
+        Pending: "bg-yellow-100 text-yellow-800 border-yellow-200",
+        "In Progress": "bg-blue-100 text-blue-800 border-blue-200",
+        Failed: "bg-red-100 text-red-800 border-red-200",
+      };
 
       return (
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="h-8 w-8 p-0">
-              <span className="sr-only">Open menu</span>
-              <MoreHorizontal className="h-4 w-4" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(dispute.id)}
-            >
-              Copy Dispute ID
-            </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>View Customer</DropdownMenuItem>
-            <DropdownMenuItem>View Details</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <Badge
+          variant="outline"
+          className={`${
+            statusStyles[status as keyof typeof statusStyles]
+          } hover:bg-opacity-80`}
+        >
+          • {status}
+        </Badge>
+      );
+    },
+  },
+  {
+    id: "actions",
+    // header: "Action",
+    enableHiding: false,
+    cell: ({ row }) => {
+      const transaction = row.original as Dispute;
+
+      return (
+        <div className="flex items-center gap-2">
+          {/* <Button
+            variant="outline"
+            size="sm"
+            className="text-blue-600 border-blue-200 hover:bg-blue-50"
+          >
+            Assign
+          </Button> */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" className="h-8 w-8 p-0">
+                <span className="sr-only">Open menu</span>
+                <MoreHorizontal className="h-4 w-4" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuLabel>Actions</DropdownMenuLabel>
+              <DropdownMenuItem
+                onClick={() =>
+                  navigator.clipboard.writeText(transaction.transactionId)
+                }
+              >
+                Copy Transaction ID
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>View Buyer Details</DropdownMenuItem>
+              <DropdownMenuItem>View Seller Details</DropdownMenuItem>
+              <DropdownMenuItem>View Transaction Details</DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem className="text-blue-600">
+                Reassign
+              </DropdownMenuItem>
+              <DropdownMenuItem className="text-red-600">
+                Mark as Priority
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
       );
     },
   },
