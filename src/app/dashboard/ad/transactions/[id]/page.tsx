@@ -1,28 +1,81 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { notFound } from "next/navigation";
 import DialogContainer from "@/app/dashboard/us/disputes/dialog-container";
 
+// Updated interface to match the new transaction structure
+interface TransactionDetails {
+  dateTime: string;
+  escrowNumber: string;
+  marketplace: {
+    name: string;
+    rating: number;
+    logo?: string;
+  };
+  type: string;
+  amount: string;
+  charge: string;
+  status: "Completed" | "Pending" | "Failed";
+  buyer: {
+    name: string;
+    username: string;
+    userId: string;
+    bankAccountName: string;
+    avatar?: string;
+  };
+  seller: {
+    name: string;
+    username: string;
+    userId: string;
+    bankAccountName: string;
+    avatar?: string;
+  };
+}
+
 // This would typically come from a database or API
-const getTransactionDetails = (id: string) => {
+const getTransactionDetails = (id: string): TransactionDetails | null => {
   // Mock data for demonstration
   return {
-    date: "2025-02-16 12:20 AM",
-    trxNumber: "OQLWHSIRFAIIJI92911",
+    dateTime: "27th March, 2024. 2:39 PM",
+    escrowNumber: id,
     marketplace: {
-      name: "Jumia King",
-      rating: 4.9,
+      name: "Jiji",
+      rating: 4.8,
+      logo: "/logos/jiji.png",
     },
-    category: "Fashion",
-    amount: "₦5,000",
-    charge: "₦1,500",
-    status: "Pending",
-    client: {
-      name: "Joshua King",
-      userId: "ORWFQP1681",
-      bankAccountName: "Jacob Chris Elvis",
+    type: "Service",
+    amount: "₦5,000.00",
+    charge: "₦150.00",
+    status: "Completed",
+    buyer: {
+      name: "John Mark",
+      username: "Johnmark012",
+      userId: "BUYER001681",
+      bankAccountName: "John Mark Adebayo",
+      avatar: "/avatars/john-mark.jpg",
+    },
+    seller: {
+      name: "Sarah Johnson",
+      username: "sarahj_seller",
+      userId: "SELLER002456",
+      bankAccountName: "Sarah Johnson Enterprises",
+      avatar: "/avatars/sarah-johnson.jpg",
     },
   };
+};
+
+const getStatusStyle = (status: string) => {
+  switch (status) {
+    case "Completed":
+      return "bg-green-100 text-green-700 hover:bg-green-100";
+    case "Pending":
+      return "bg-yellow-100 text-yellow-700 hover:bg-yellow-100";
+    case "Failed":
+      return "bg-red-100 text-red-700 hover:bg-red-100";
+    default:
+      return "bg-gray-100 text-gray-700 hover:bg-gray-100";
+  }
 };
 
 export default async function TransactionDetailsPage({
@@ -42,126 +95,214 @@ export default async function TransactionDetailsPage({
   }
 
   return (
-    <div className="container p-6 max-w-5xl">
+    <div className="container p-6 max-w-6xl">
       <h1 className="text-2xl font-bold mb-6">Transaction Details</h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
         {/* Transaction Details Card */}
-        <Card>
+        <Card className="lg:col-span-2">
           <CardHeader className="pb-2">
             <CardTitle className="text-lg font-medium">
-              Transaction Details
+              Transaction Information
             </CardTitle>
           </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="grid grid-cols-2 gap-2">
-              <div className="text-sm text-gray-500">Date</div>
-              <div className="text-sm font-medium text-right">
-                {transaction.date}
-              </div>
-            </div>
-
-            <div className="grid grid-cols-2 gap-2">
-              <div className="text-sm text-gray-500">Trx Number</div>
-              <div className="text-sm font-medium text-right">
-                {transaction.trxNumber}
-              </div>
-            </div>
-
-            <div className="grid grid-cols-2 gap-2">
-              <div className="text-sm text-gray-500">Marketplace/Client</div>
-              <div className="text-sm font-medium text-right flex items-center justify-end">
-                <div className="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center mr-1">
-                  <span className="text-white text-[10px]">JK</span>
-                </div>
-                <span>{transaction.marketplace.name}</span>
-                <div className="flex items-center text-xs text-yellow-500 ml-1">
-                  <span>({transaction.marketplace.rating})</span>
+          <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="space-y-4">
+              <div className="grid grid-cols-2 gap-2">
+                <div className="text-sm text-gray-500">Date/Time</div>
+                <div className="text-sm font-medium text-right">
+                  {transaction.dateTime}
                 </div>
               </div>
-            </div>
 
-            <div className="grid grid-cols-2 gap-2">
-              <div className="text-sm text-gray-500">Category</div>
-              <div className="text-sm font-medium text-right">
-                {transaction.category}
+              <div className="grid grid-cols-2 gap-2">
+                <div className="text-sm text-gray-500">Escrow Number</div>
+                <div className="text-sm font-medium text-right">
+                  <Badge
+                    variant="outline"
+                    className="border border-blue-300 text-blue-600 bg-blue-50"
+                  >
+                    #{transaction.escrowNumber}
+                  </Badge>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-2">
+                <div className="text-sm text-gray-500">Marketplace</div>
+                <div className="text-sm font-medium text-right flex items-center justify-end">
+                  <Avatar className="w-5 h-5 mr-2">
+                    <AvatarImage
+                      src={transaction.marketplace.logo}
+                      alt={transaction.marketplace.name}
+                    />
+                    <AvatarFallback className="text-[10px]">
+                      {transaction.marketplace.name
+                        .substring(0, 2)
+                        .toUpperCase()}
+                    </AvatarFallback>
+                  </Avatar>
+                  <span>{transaction.marketplace.name}</span>
+                  <div className="flex items-center text-xs text-yellow-500 ml-1">
+                    <span>({transaction.marketplace.rating})</span>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-2">
-              <div className="text-sm text-gray-500">Amount</div>
-              <div className="text-sm font-medium text-right">
-                {transaction.amount}
+            <div className="space-y-4">
+              <div className="grid grid-cols-2 gap-2">
+                <div className="text-sm text-gray-500">Type</div>
+                <div className="text-sm font-medium text-right flex items-center justify-end">
+                  <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                  {transaction.type}
+                </div>
               </div>
-            </div>
 
-            <div className="grid grid-cols-2 gap-2">
-              <div className="text-sm text-gray-500">Charge</div>
-              <div className="text-sm font-medium text-right">
-                {transaction.charge}
+              <div className="grid grid-cols-2 gap-2">
+                <div className="text-sm text-gray-500">Amount</div>
+                <div className="text-sm font-medium text-right font-semibold">
+                  {transaction.amount}
+                </div>
               </div>
-            </div>
 
-            <div className="grid grid-cols-2 gap-2">
-              <div className="text-sm text-gray-500">Status</div>
-              <div className="text-right">
-                <Badge className="bg-orange-100 text-orange-600 hover:bg-orange-100">
-                  {transaction.status}
-                </Badge>
+              <div className="grid grid-cols-2 gap-2">
+                <div className="text-sm text-gray-500">Service Charge</div>
+                <div className="text-sm font-medium text-right">
+                  {transaction.charge}
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-2">
+                <div className="text-sm text-gray-500">Status</div>
+                <div className="text-right">
+                  <Badge className={getStatusStyle(transaction.status)}>
+                    • {transaction.status}
+                  </Badge>
+                </div>
               </div>
             </div>
           </CardContent>
         </Card>
 
-        {/* Client Information Card */}
+        {/* Buyer Information Card */}
         <Card>
           <CardHeader className="pb-2">
-            <CardTitle className="text-lg font-medium">
-              Client Information
+            <CardTitle className="text-lg font-medium flex items-center">
+              <Avatar className="w-8 h-8 mr-3">
+                <AvatarImage
+                  src={transaction.buyer.avatar}
+                  alt={transaction.buyer.name}
+                />
+                <AvatarFallback>
+                  {transaction.buyer.name
+                    .split(" ")
+                    .map((n) => n[0])
+                    .join("")
+                    .toUpperCase()}
+                </AvatarFallback>
+              </Avatar>
+              Buyer Information
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="grid grid-cols-2 gap-2">
-              <div className="text-sm text-gray-500">Client&#39;s Name</div>
-              <div className="text-sm font-medium">
-                {transaction.client.name}
+              <div className="text-sm text-gray-500">Full Name</div>
+              <div className="text-sm font-medium text-right">
+                {transaction.buyer.name}
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-2">
+              <div className="text-sm text-gray-500">Username</div>
+              <div className="text-sm font-medium text-right text-blue-600">
+                @{transaction.buyer.username}
               </div>
             </div>
 
             <div className="grid grid-cols-2 gap-2">
               <div className="text-sm text-gray-500">User ID</div>
-              <div className="text-sm font-medium">
-                {transaction.client.userId}
+              <div className="text-sm font-medium text-right">
+                {transaction.buyer.userId}
               </div>
             </div>
 
             <div className="grid grid-cols-2 gap-2">
               <div className="text-sm text-gray-500">Bank Account Name</div>
-              <div className="text-sm font-medium">
-                {transaction.client.bankAccountName}
+              <div className="text-sm font-medium text-right">
+                {transaction.buyer.bankAccountName}
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Seller Information Card */}
+        <Card>
+          <CardHeader className="pb-2">
+            <CardTitle className="text-lg font-medium flex items-center">
+              <Avatar className="w-8 h-8 mr-3">
+                <AvatarImage
+                  src={transaction.seller.avatar}
+                  alt={transaction.seller.name}
+                />
+                <AvatarFallback>
+                  {transaction.seller.name
+                    .split(" ")
+                    .map((n) => n[0])
+                    .join("")
+                    .toUpperCase()}
+                </AvatarFallback>
+              </Avatar>
+              Seller Information
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="grid grid-cols-2 gap-2">
+              <div className="text-sm text-gray-500">Full Name</div>
+              <div className="text-sm font-medium text-right">
+                {transaction.seller.name}
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-2">
+              <div className="text-sm text-gray-500">Username</div>
+              <div className="text-sm font-medium text-right text-blue-600">
+                @{transaction.seller.username}
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-2">
+              <div className="text-sm text-gray-500">User ID</div>
+              <div className="text-sm font-medium text-right">
+                {transaction.seller.userId}
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-2">
+              <div className="text-sm text-gray-500">Bank Account Name</div>
+              <div className="text-sm font-medium text-right">
+                {transaction.seller.bankAccountName}
               </div>
             </div>
           </CardContent>
         </Card>
       </div>
-
-      <DialogContainer transactionId={transactionId} />
     </div>
   );
 }
 
 export const generateStaticParams = async () => {
   return [
-    { id: "11723456789" },
-    { id: "11723456790" },
-    { id: "11723456791" },
-    { id: "11723456792" },
-    { id: "11723456793" },
-    { id: "11723456794" },
-    { id: "11723456795" },
-    { id: "11723456796" },
-    { id: "11723456797" },
-    { id: "11723456798" },
-    { id: "11723456799" },
+    { id: "019234890" },
+    { id: "019234891" },
+    { id: "019234892" },
+    { id: "019234893" },
+    { id: "019234894" },
+    { id: "019234895" },
+    { id: "019234896" },
+    { id: "019234897" },
+    { id: "019234898" },
+    { id: "019234899" },
+    { id: "019234900" },
+    { id: "019234901" },
   ];
 };

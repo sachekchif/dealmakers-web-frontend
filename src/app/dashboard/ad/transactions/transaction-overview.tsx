@@ -8,15 +8,7 @@ import { Button } from "@/components/ui/button";
 import { MoneyFlowChart } from "@/components/dashboard/charts";
 import StatCards from "./commissions-card";
 
-type TransactionOverviewProps = {
-  handleKYCStatusChange: () => void;
-  isKYCCompleted: boolean;
-};
-
-export default function TransactionOverview({
-  handleKYCStatusChange,
-  isKYCCompleted,
-}: TransactionOverviewProps) {
+export default function TransactionOverview({}) {
   // Sample data for the chart
   const chartData = {
     percentage: "+12%",
