@@ -2,8 +2,7 @@
 
 import UserStats from "./user-stats";
 import UserHistory from "./user-history";
-import CustomersLocation from "../ecrow-dispute-stats";
-import { InviteUserDialog } from "./invite-user-dialog";
+import CustomersLocation from "./customers-location";
 
 export default function ClientUsersPage() {
   return (
