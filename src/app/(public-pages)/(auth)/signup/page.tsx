@@ -138,7 +138,7 @@ export default function SignUpPage() {
         type="button"
         className="btn btn-block text-white rounded-xs btn-primary mt-4 uppercase"
       >
-        Sign In
+        Sign up
         <LiaArrowRightSolid className="text-black text-xl" />
       </button>
     </form>

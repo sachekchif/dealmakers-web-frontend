@@ -129,11 +129,11 @@ export default function Navbar() {
             href={"/signin"}
             className="btn btn-link w-fit no-underline text-primary/65 hover:text-primary hover:no-underline "
           >
-            Sign up
+            Sign in
           </Link>
           <HoverCard>
             <HoverCardTrigger className="btn btn-link w-fit no-underline text-primary/65 hover:text-primary hover:no-underline ">
-              Sign In
+              Sign up
             </HoverCardTrigger>{" "}
             <HoverCardContent>
               <Link

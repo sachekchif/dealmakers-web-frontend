@@ -81,10 +81,10 @@ export default function SignInPage() {
         type="button"
         className="btn btn-block text-white rounded-xs btn-primary mt-4 uppercase"
         onClick={() => {
-          router.push("/dashboard");
+          router.push("/dashboard/us");
         }}
       >
-        Sign up
+        Sign in
         <LiaArrowRightSolid className="text-black text-xl" />
       </button>
     </form>
