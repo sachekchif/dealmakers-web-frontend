@@ -226,3 +226,139 @@ export function LocationChart({
     </Card>
   );
 }
+
+// Types for the transaction data
+export type TransactionData = {
+  category: string;
+  percentage: number;
+  amount: number;
+  fill: string;
+};
+// Reusable Transaction Chart Component
+export function TransactionChart({
+  title,
+  chartData,
+  total,
+}: {
+  title: string;
+  chartData: TransactionData[];
+  total: number;
+}) {
+  const chartConfig = {
+    percentage: {
+      label: "Percentage",
+    },
+    "total-deposited": {
+      label: "Total Deposited",
+      color: "#10b981", // green-500
+    },
+    "deposited-charge": {
+      label: "Deposited Charge",
+      color: "#3b82f6", // blue-500
+    },
+    "pending-deposits": {
+      label: "Pending Deposits",
+      color: "#f59e0b", // amber-500
+    },
+    "rejected-deposits": {
+      label: "Rejected Deposits",
+      color: "#ef4444", // red-500
+    },
+    "total-withdrawals": {
+      label: "Total Withdrawals",
+      color: "#10b981", // green-500
+    },
+    "withdrawals-charge": {
+      label: "Withdrawals Charge",
+      color: "#3b82f6", // blue-500
+    },
+    "pending-withdrawals": {
+      label: "Pending Withdrawals",
+      color: "#f59e0b", // amber-500
+    },
+    "rejected-withdrawals": {
+      label: "Rejected Withdrawals",
+      color: "#ef4444", // red-500
+    },
+  } satisfies ChartConfig;
+
+  const formatCurrency = (amount: number) => {
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(amount);
+  };
+
+  return (
+    <div className="flex flex-col items-center space-y-4">
+      <h3 className="text-base font-medium text-gray-700 w-full text-left">
+        {title}
+      </h3>
+
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+        <ChartContainer
+          config={chartConfig}
+          className="w-32 h-32 flex-shrink-0"
+        >
+          <PieChart>
+            <ChartTooltip
+              cursor={false}
+              content={
+                <ChartTooltipContent
+                  hideLabel
+                  formatter={(value, name) => [
+                    `${value}%`,
+                    chartConfig[name as keyof typeof chartConfig]?.label ||
+                      name,
+                  ]}
+                />
+              }
+            />
+            <Pie
+              data={chartData}
+              dataKey="percentage"
+              nameKey="category"
+              innerRadius={25}
+              outerRadius={55}
+              paddingAngle={2}
+            />
+          </PieChart>
+        </ChartContainer>
+
+        <div className="space-y-2 w-full max-w-xs">
+          {chartData.map((item) => {
+            const configKey = item.category
+              .toLowerCase()
+              .replace(/\s+/g, "-") as keyof typeof chartConfig;
+            const config = chartConfig[configKey];
+            const color =
+              config && "color" in config ? config.color : "#6b7280";
+
+            return (
+              <div
+                key={item.category}
+                className="flex items-center justify-between text-sm"
+              >
+                <div className="flex items-center gap-2">
+                  <div
+                    className="w-2 h-2 rounded-full"
+                    style={{ backgroundColor: color }}
+                  />
+                  <span className="text-gray-600">{item.category}</span>
+                </div>
+                <div className="text-right">
+                  <div className="font-medium">{item.percentage}%</div>
+                  <div className="text-xs text-gray-500">
+                    {formatCurrency(item.amount)}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+    </div>
+  );
+}

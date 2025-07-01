@@ -1,15 +1,15 @@
-import RecentUsers from "./recent-users";
+import DepositsWithdrawalReport from "./deposit-withdrawal-report";
 import RecentTransactions from "./recent-transactions";
 import StatCards from "./recent-stats";
-import CustomersLocation from "./customers-location";
+import { EcrowDisputeStats } from "./ecrow-dispute-stats";
 
 export default function Page() {
   return (
     <section className="p-8 flex flex-col">
       <StatCards />
-      <RecentUsers />
+      <EcrowDisputeStats />
+      <DepositsWithdrawalReport />
       <RecentTransactions />
-      <CustomersLocation />
     </section>
   );
 }

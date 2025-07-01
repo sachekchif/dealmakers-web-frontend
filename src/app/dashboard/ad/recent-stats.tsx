@@ -3,23 +3,23 @@ import { StatCard } from "@/components/dashboard/stats-card";
 export default function StatCards() {
   const stats = [
     {
-      title: "Wallet Balance",
-      value: "0",
+      title: "Total Users",
+      value: "2770",
       change: { value: "-0.03%", trend: "down" as const },
     },
     {
-      title: "Total Users",
-      value: "12",
+      title: "Active Users",
+      value: "1288",
       change: { value: "+15.03%", trend: "up" as const },
     },
     {
       title: "New Users",
-      value: "2",
+      value: "200",
       change: { value: "+6.08%", trend: "up" as const },
     },
     {
-      title: "Pending Users",
-      value: "6",
+      title: "Unverified Users",
+      value: "60",
       change: { value: "+0%", trend: "neutral" as const },
     },
   ];
