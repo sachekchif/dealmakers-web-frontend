@@ -35,7 +35,7 @@ export default function WalletTransactionHistory({
       id: "2",
       user: {
         name: "Joshua King",
-        bank: "GTBANK",
+        bank: "FIRST BANK",
         avatar: "/placeholder.svg?height=40&width=40",
       },
       date: "27th March, 2024. 2:39 PM",
@@ -47,7 +47,7 @@ export default function WalletTransactionHistory({
       id: "3",
       user: {
         name: "Joshua King",
-        bank: "GTBANK",
+        bank: "GT BANK",
         avatar: "/placeholder.svg?height=40&width=40",
       },
       date: "27th March, 2024. 2:39 PM",
@@ -58,8 +58,8 @@ export default function WalletTransactionHistory({
     {
       id: "4",
       user: {
-        name: "Amina Bello",
-        bank: "ACCESS BANK",
+        name: "Joshua King",
+        bank: "GT BANK",
         avatar: "/placeholder.svg?height=40&width=40",
       },
       date: "12th April, 2024. 10:12 AM",
@@ -70,8 +70,8 @@ export default function WalletTransactionHistory({
     {
       id: "5",
       user: {
-        name: "Chinedu Okafor",
-        bank: "UBA",
+        name: "Joshua King",
+        bank: "GT Bank",
         avatar: "/placeholder.svg?height=40&width=40",
       },
       date: "15th April, 2024. 4:50 PM",
@@ -82,8 +82,8 @@ export default function WalletTransactionHistory({
     {
       id: "6",
       user: {
-        name: "Ngozi Adeyemi",
-        bank: "ZENITH BANK",
+        name: "Joshua King",
+        bank: "GT BANK",
         avatar: "/placeholder.svg?height=40&width=40",
       },
       date: "20th April, 2024. 11:45 AM",
@@ -94,7 +94,7 @@ export default function WalletTransactionHistory({
     {
       id: "7",
       user: {
-        name: "Bola Martins",
+        name: "Joshua King",
         bank: "FIRST BANK",
         avatar: "/placeholder.svg?height=40&width=40",
       },
@@ -106,8 +106,8 @@ export default function WalletTransactionHistory({
     {
       id: "8",
       user: {
-        name: "Musa Ibrahim",
-        bank: "STANBIC IBTC",
+        name: "Joshua King",
+        bank: "FIRST BANK",
         avatar: "/placeholder.svg?height=40&width=40",
       },
       date: "1st May, 2024. 3:18 PM",
@@ -118,8 +118,8 @@ export default function WalletTransactionHistory({
     {
       id: "9",
       user: {
-        name: "Adaeze Uche",
-        bank: "FIDELITY BANK",
+        name: "Joshua King",
+        bank: "FIRST BANK",
         avatar: "/placeholder.svg?height=40&width=40",
       },
       date: "5th May, 2024. 7:30 PM",
@@ -131,7 +131,7 @@ export default function WalletTransactionHistory({
       id: "10",
       user: {
         name: "Joshua King",
-        bank: "GTBANK",
+        bank: "GT BANK",
         avatar: "/placeholder.svg?height=40&width=40",
       },
       date: "9th May, 2024. 1:15 PM",
@@ -160,7 +160,7 @@ export default function WalletTransactionHistory({
   return (
     <div className="space-y-4">
       <div className="flex justify-between items-center">
-        <h2 className="text-xl font-bold">Transactions History</h2>
+        <h2 className="text-xl font-bold">Wallet Transactions History</h2>
 
         <div className="flex items-center">
           <Input
