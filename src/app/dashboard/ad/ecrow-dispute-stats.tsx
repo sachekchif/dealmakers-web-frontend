@@ -54,10 +54,10 @@ interface StatsSectionProps {
 
 function StatsSection({ title, stats }: StatsSectionProps) {
   return (
-    <Card className="bg-white border-none shadow-none">
-      <CardContent className="p-6">
+    <Card className="bg-white border-none shadow-none ">
+      <CardContent className="p-6 px-0 ">
         <h3 className="text-lg font-semibold text-gray-900 mb-4">{title}</h3>
-        <div className="space-y-2 grid grid-cols-1 sm:grid-cols-2  gap-4">
+        <div className="space-y-2 grid grid-cols-1 sm:grid-cols-2  gap-4 rounded-sm border-gray-200 border py-4">
           {stats.map((stat, index) => (
             <StatItem key={index} {...stat} />
           ))}
