@@ -33,7 +33,7 @@ export interface WalletTransaction {
 export const WalletTransactionsColumns: ColumnDef<WalletTransaction>[] = [
   {
     accessorKey: "user", // This correctly provides the whole 'user' object to the cell
-    header: "User",
+    header: "Account Name/Bank",
     cell: ({ row }) => {
       // Retrieve the user object from the row.
       // The 'as WalletTransaction["user"]' part provides type safety.

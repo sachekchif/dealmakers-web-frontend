@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowDown, ArrowUp } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn, formatCountValue, formatCurrency } from "@/lib/utils";
 import { CardHeader, CardTitle } from "@/components/ui/card";
 
 export interface StatCardProps {
@@ -10,23 +10,43 @@ export interface StatCardProps {
     value: string;
     trend: "up" | "down" | "neutral";
   };
+  count?: number;
   index: number;
 }
 
-export function StatCard({ title, value, change, index }: StatCardProps) {
+export function StatCard({
+  title,
+  value,
+  change,
+  index,
+  count,
+}: StatCardProps) {
   return (
     <Card
       className={cn(
         index % 2 === 0 ? "bg-secondary" : "bg-accent",
-        " shadow-none gap-4"
+        " shadow-none gap-4 min-w-3xs"
       )}
     >
-      <CardHeader className="pb-2">
-        <CardTitle className="text-sm font-medium">{title}</CardTitle>
+      <CardHeader className="pb-2 px-3">
+        <CardTitle className="text-sm font-medium">
+          {title}{" "}
+          {count !== undefined && count > 0 && (
+            <span className="text-xs font-normal text-muted-foreground">
+              ({formatCountValue(count)})
+            </span>
+          )}
+        </CardTitle>
       </CardHeader>
-      <CardContent>
+      <CardContent className="px-3">
         <div className="flex items-baseline justify-between">
-          <div className="text-3xl font-bold">{value}</div>
+          <p className="text-2xl font-bold">
+            {formatCurrency(value).amount}
+            <span className="text-sm font-medium">
+              {"."}
+              {formatCurrency(value).decimal}
+            </span>
+          </p>
           {change && (
             <div
               className={cn(
