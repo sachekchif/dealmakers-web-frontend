@@ -1,4 +1,4 @@
-import { StatCard } from "@/components/dashboard/stats-card";
+import { GeneralStatCard, StatCard } from "@/components/dashboard/stats-card";
 
 export default function DisputeStats() {
   const stats = [
@@ -8,8 +8,8 @@ export default function DisputeStats() {
       change: { value: "-0.33%", trend: "down" as const },
     },
     {
-      title: "Completed Users",
-      value: "0",
+      title: "Resolved Disputes",
+      value: "4",
       change: { value: "0%", trend: "neutral" as const },
     },
     {
@@ -27,7 +27,7 @@ export default function DisputeStats() {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
       {stats.map((stat, index) => (
-        <StatCard
+        <GeneralStatCard
           key={stat.title}
           title={stat.title}
           value={stat.value}

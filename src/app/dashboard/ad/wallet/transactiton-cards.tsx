@@ -1,4 +1,4 @@
-import { StatCard } from "@/components/dashboard/stats-card";
+import { CurrencyStatCard, StatCard } from "@/components/dashboard/stats-card";
 import { TransactionType } from "./page";
 
 const WithdrawData = [
@@ -27,22 +27,22 @@ const WithdrawData = [
 const DepositData = [
   {
     title: "Successful Deposits",
-    value: "0",
+    value: "50000000",
     change: { value: "-0.03%", trend: "down" as const },
   },
   {
     title: "Pending Deposits",
-    value: "12",
+    value: "10000000",
     change: { value: "+15.03%", trend: "up" as const },
   },
   {
     title: "Rejected Deposits",
-    value: "2",
+    value: "200",
     change: { value: "+6.08%", trend: "up" as const },
   },
   {
     title: "Initiated Deposits",
-    value: "6",
+    value: "600",
     change: { value: "+0%", trend: "neutral" as const },
   },
 ];
@@ -52,7 +52,7 @@ export default function TransactionCards({ transactionType }: TransactionType) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
       {stats.map((stat, index) => (
-        <StatCard
+        <CurrencyStatCard
           key={stat.title}
           title={stat.title}
           value={stat.value}
