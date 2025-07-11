@@ -244,7 +244,11 @@ const UserInformationCard = ({
 
 // Updated User Details Page using the reusable component
 import { notFound } from "next/navigation";
-import { GeneralStatCard, StatCard } from "@/components/dashboard/stats-card";
+import {
+  CurrencyStatCard,
+  GeneralStatCard,
+  StatCard,
+} from "@/components/dashboard/stats-card";
 
 // Updated User interface
 interface User {
@@ -320,13 +324,22 @@ export default async function UserDetailsPage({
   }
 
   return (
-    <div className="container p-6 max-w-5xl">
+    <div className="container p-6 max-w-6xl">
       <h1 className="text-2xl font-bold mb-6">User Details - {user.id}</h1>
 
       <section className="flex flex-col items-start justify-between gap-4">
         {/* Stats Section */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 justify-start">
-          {user.stats.map((stat, index) => (
+          {user.stats.slice(0, 3).map((stat, index) => (
+            <CurrencyStatCard
+              key={stat.title}
+              title={stat.title}
+              value={stat.value}
+              change={stat.change}
+              index={index}
+            />
+          ))}
+          {user.stats.slice(3, 4).map((stat, index) => (
             <GeneralStatCard
               key={stat.title}
               title={stat.title}

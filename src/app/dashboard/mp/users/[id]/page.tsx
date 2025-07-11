@@ -324,7 +324,7 @@ export default async function UserDetailsPage({
   }
 
   return (
-    <div className="container p-6 max-w-5xl">
+    <div className="container p-6 max-w-6xl">
       <h1 className="text-2xl font-bold mb-6">User Details - {user.id}</h1>
 
       <section className="flex flex-col items-start justify-between gap-4">
