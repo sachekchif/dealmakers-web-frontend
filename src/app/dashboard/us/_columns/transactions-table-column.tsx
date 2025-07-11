@@ -18,7 +18,11 @@ import React from "react";
 import Link from "next/link";
 export interface Transaction {
   id: string;
-  customerName: string;
+  customer: {
+    name: string;
+    role?: "Buyer" | "Seller";
+    image: string;
+  };
   marketplace: {
     name: string;
     logo: string;
@@ -30,6 +34,40 @@ export interface Transaction {
   status: "Completed" | "Pending";
 }
 export const TransactionsColumns: ColumnDef<Transaction>[] = [
+  {
+    accessorKey: "customer",
+    header: "Buyer/Seller",
+    cell: ({ row }) => {
+      const transaction = row.original;
+      const customer = transaction.customer;
+      // Generate initials for AvatarFallback
+      const initials = customer?.name
+        ? customer?.name
+            .split(" ")
+            .map((n) => n[0])
+            .join("")
+            .toUpperCase()
+        : "U"; // Default fallback if name is empty
+
+      return (
+        <div className="flex items-center gap-3">
+          <Avatar className="h-10 w-10 bg-blue-500">
+            <AvatarImage
+              src={customer?.image || "/placeholder.svg"}
+              alt={customer?.name || "Customer avatar"}
+            />
+            <AvatarFallback>{initials}</AvatarFallback>
+          </Avatar>
+          <div className="flex flex-col justify-end items-start gap-1 ">
+            <p className="font-medium">{customer.name}</p>
+            <span className="text-muted-foreground font-bold text-xs">
+              ({customer?.role})
+            </span>
+          </div>
+        </div>
+      );
+    },
+  },
   {
     accessorKey: "marketplace",
     header: "Marketplace",
@@ -47,7 +85,7 @@ export const TransactionsColumns: ColumnDef<Transaction>[] = [
 
       return (
         <div className="flex items-center gap-3">
-          <Avatar className="h-10 w-10 bg-blue-500">
+          <Avatar className="h-7 w-7 bg-blue-500">
             <AvatarImage
               src={marketplace?.logo || "/placeholder.svg"}
               alt={marketplace?.name || "Marketplace logo"}
@@ -55,10 +93,7 @@ export const TransactionsColumns: ColumnDef<Transaction>[] = [
             <AvatarFallback>{initials}</AvatarFallback>
           </Avatar>
           <div className="flex flex-col justify-end items-start gap-1 ">
-            <p className="font-medium">{transaction?.customerName}</p>
-            <span className="text-muted-foreground font-bold text-xs">
-              ({marketplace?.name})
-            </span>
+            <p className="font-medium">{marketplace?.name}</p>
           </div>
         </div>
       );

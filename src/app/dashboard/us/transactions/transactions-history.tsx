@@ -21,7 +21,11 @@ export default function TransactionHistory({
   const transactions: Transaction[] = [
     {
       id: "1",
-      customerName: "Joshua King",
+      customer: {
+        name: "Joshua King",
+        role: "Buyer",
+        image: "/placeholder.svg?height=40&width=40",
+      },
       marketplace: {
         name: "Jumia",
         logo: "/placeholder.svg?height=40&width=40",
@@ -34,7 +38,11 @@ export default function TransactionHistory({
     },
     {
       id: "2",
-      customerName: "Elizabeth Blessing",
+      customer: {
+        name: "Elizabeth Blessing",
+        role: "Buyer",
+        image: "/placeholder.svg?height=40&width=40",
+      },
       marketplace: {
         name: "Jiji",
         logo: "/placeholder.svg?height=40&width=40",
@@ -47,7 +55,11 @@ export default function TransactionHistory({
     },
     {
       id: "3",
-      customerName: "Kingsley Eze",
+      customer: {
+        name: "Kingsley Eze",
+        role: "Seller",
+        image: "/placeholder.svg?height=40&width=40",
+      },
       marketplace: {
         name: "Konga",
         logo: "/placeholder.svg?height=40&width=40",
@@ -60,7 +72,11 @@ export default function TransactionHistory({
     },
     {
       id: "4",
-      customerName: "Ada Umeh",
+      customer: {
+        name: "Ada Umeh",
+        role: "Buyer",
+        image: "/placeholder.svg?height=40&width=40",
+      },
       marketplace: {
         name: "PayPorte",
         logo: "/placeholder.svg?height=40&width=40",
@@ -73,7 +89,11 @@ export default function TransactionHistory({
     },
     {
       id: "5",
-      customerName: "Tolu Adeyemi",
+      customer: {
+        name: "Tolu Adeyemi",
+        role: "Buyer",
+        image: "/placeholder.svg?height=40&width=40",
+      },
       marketplace: {
         name: "Jumia",
         logo: "/placeholder.svg?height=40&width=40",
@@ -86,7 +106,11 @@ export default function TransactionHistory({
     },
     {
       id: "6",
-      customerName: "Chioma Obi",
+      customer: {
+        name: "Chioma Obi",
+        role: "Buyer",
+        image: "/placeholder.svg?height=40&width=40",
+      },
       marketplace: {
         name: "Slot",
         logo: "/placeholder.svg?height=40&width=40",
@@ -99,7 +123,11 @@ export default function TransactionHistory({
     },
     {
       id: "7",
-      customerName: "David Mark",
+      customer: {
+        name: "David Mark",
+        role: "Seller",
+        image: "/placeholder.svg?height=40&width=40",
+      },
       marketplace: {
         name: "Pointek",
         logo: "/placeholder.svg?height=40&width=40",
@@ -110,10 +138,13 @@ export default function TransactionHistory({
       amount: "₦45,999.00",
       status: "Completed",
     },
-    // --- Newly added entries ---
     {
       id: "8",
-      customerName: "Fatima Sanni",
+      customer: {
+        name: "Fatima Sanni",
+        role: "Buyer",
+        image: "/placeholder.svg?height=40&width=40",
+      },
       marketplace: {
         name: "Amazon NG",
         logo: "/placeholder.svg?height=40&width=40",
@@ -126,7 +157,11 @@ export default function TransactionHistory({
     },
     {
       id: "9",
-      customerName: "Emeka Nwosu",
+      customer: {
+        name: "Emeka Nwosu",
+        role: "Seller",
+        image: "/placeholder.svg?height=40&width=40",
+      },
       marketplace: {
         name: "AliExpress",
         logo: "/placeholder.svg?height=40&width=40",
@@ -139,7 +174,11 @@ export default function TransactionHistory({
     },
     {
       id: "10",
-      customerName: "Rukayat Balogun",
+      customer: {
+        name: "Rukayat Balogun",
+        role: "Buyer",
+        image: "/placeholder.svg?height=40&width=40",
+      },
       marketplace: {
         name: "Supermart",
         logo: "/placeholder.svg?height=40&width=40",
@@ -171,7 +210,7 @@ export default function TransactionHistory({
   return (
     <div className="space-y-4">
       <div className="flex justify-between items-center">
-        <h2 className="text-xl font-bold">Transactions History</h2>
+        <h2 className="text-xl font-bold">Escrow Transactions History</h2>
 
         <div className="flex items-center">
           <Input
