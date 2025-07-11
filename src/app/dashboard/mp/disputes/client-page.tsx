@@ -10,7 +10,7 @@ export default function ClientDisputesPage() {
     <div className="container mx-auto p-6 space-y-6">
       <DisputeStats />
 
-      <div>
+      {/* <div>
         <DisputeDialog
           trigger={<Button>Create Dispute</Button>}
           onSubmit={async (values) => {
@@ -18,7 +18,7 @@ export default function ClientDisputesPage() {
             console.log("Dispute created:", values);
           }}
         />
-      </div>
+      </div> */}
 
       <DisputeHistory />
     </div>

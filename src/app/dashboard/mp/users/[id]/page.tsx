@@ -244,7 +244,11 @@ const UserInformationCard = ({
 
 // Updated User Details Page using the reusable component
 import { notFound } from "next/navigation";
-import { StatCard } from "@/components/dashboard/stats-card";
+import {
+  CurrencyStatCard,
+  GeneralStatCard,
+  StatCard,
+} from "@/components/dashboard/stats-card";
 
 // Updated User interface
 interface User {
@@ -264,22 +268,22 @@ const getUserDetails = (id: string): User | null => {
     stats: [
       {
         title: "Balance",
-        value: "₦27,800.00",
+        value: "855000",
       },
       {
         title: "Deposits",
-        value: "2773",
+        value: "277500",
         change: { value: "+15.03%", trend: "up" as const },
       },
       {
-        title: "Transactions",
-        value: "12",
-        change: { value: "0%", trend: "neutral" as const },
+        title: "Withdrawals",
+        value: "400000",
+        change: { value: "+6.08%", trend: "up" as const },
       },
       {
-        title: "Withdrawals",
-        value: "4",
-        change: { value: "+6.08%", trend: "up" as const },
+        title: "Transactions",
+        value: "120",
+        change: { value: "0%", trend: "neutral" as const },
       },
     ],
     userInfo: {
@@ -326,8 +330,17 @@ export default async function UserDetailsPage({
       <section className="flex flex-col items-start justify-between gap-4">
         {/* Stats Section */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 justify-start">
-          {user.stats.map((stat, index) => (
-            <StatCard
+          {user.stats.slice(0, 3).map((stat, index) => (
+            <CurrencyStatCard
+              key={stat.title}
+              title={stat.title}
+              value={stat.value}
+              change={stat.change}
+              index={index}
+            />
+          ))}
+          {user.stats.slice(3, 4).map((stat, index) => (
+            <GeneralStatCard
               key={stat.title}
               title={stat.title}
               value={stat.value}

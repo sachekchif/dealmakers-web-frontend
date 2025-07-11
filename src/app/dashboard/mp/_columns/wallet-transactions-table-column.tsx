@@ -25,7 +25,7 @@ export interface WalletTransaction {
     avatar: string;
   };
   date: string;
-  type: "Withdrawal" | "Deposit";
+  type: "Withdrawal" | "Commission";
   transactionId: string;
   amount: number;
 }
@@ -33,7 +33,7 @@ export interface WalletTransaction {
 export const WalletTransactionsColumns: ColumnDef<WalletTransaction>[] = [
   {
     accessorKey: "user", // This correctly provides the whole 'user' object to the cell
-    header: "User",
+    header: "Account Name/Bank",
     cell: ({ row }) => {
       // Retrieve the user object from the row.
       // The 'as WalletTransaction["user"]' part provides type safety.
@@ -156,7 +156,7 @@ export const WalletTransactionsColumns: ColumnDef<WalletTransaction>[] = [
                 className="text-primary h-auto p-0"
               >
                 <Link
-                  href={`/dashboard/us/wallet/transaction/${payment.transactionId}`}
+                  href={`/dashboard/mp/wallet/transaction/${payment.transactionId}`}
                   className="flex items-center gap-1"
                 >
                   View details

@@ -1,33 +1,33 @@
-import { StatCard } from "@/components/dashboard/stats-card";
+import { GeneralStatCard, StatCard } from "@/components/dashboard/stats-card";
 
 export default function UserStats() {
   const stats = [
     {
       title: "Total Users",
-      value: "12",
+      value: "18000",
       change: { value: "-0.33%", trend: "down" as const },
     },
     {
-      title: "Completed Users",
-      value: "0",
+      title: "Active Users",
+      value: "16150",
+      change: { value: "+15.03%", trend: "up" as const },
+    },
+    {
+      title: "New Users",
+      value: "1500",
       change: { value: "0%", trend: "neutral" as const },
     },
     {
       title: "Pending Users",
-      value: "6",
+      value: "350",
       change: { value: "+6.08%", trend: "up" as const },
-    },
-    {
-      title: "Active Disputes",
-      value: "2",
-      change: { value: "+15.03%", trend: "up" as const },
     },
   ];
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
       {stats.map((stat, index) => (
-        <StatCard
+        <GeneralStatCard
           key={stat.title}
           title={stat.title}
           value={stat.value}

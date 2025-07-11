@@ -1,4 +1,4 @@
-import { StatCard } from "@/components/dashboard/stats-card";
+import { CurrencyStatCard, StatCard } from "@/components/dashboard/stats-card";
 
 export default function StatCards() {
   const stats = [
@@ -30,13 +30,13 @@ export default function StatCards() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
       {stats.map((stat, index) => (
-        <StatCard
+        <CurrencyStatCard
+          index={index}
           key={stat.title}
           title={stat.title}
           value={stat.value}
           change={stat.change}
           count={stat.count}
-          index={index}
         />
       ))}
     </div>

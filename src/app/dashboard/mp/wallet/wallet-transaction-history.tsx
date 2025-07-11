@@ -3,24 +3,14 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { HistoryTable } from "@/components/dashboard/tables";
-import { WalletTransactionsColumns } from "../_columns/wallet-transactions-table-column";
+import {
+  WalletTransaction,
+  WalletTransactionsColumns,
+} from "../_columns/wallet-transactions-table-column";
 
 type TransactionHistoryProps = {
   isKYCCompleted: boolean;
 };
-
-export interface WalletTransaction {
-  id: string;
-  user: {
-    name: string;
-    bank: string;
-    avatar: string;
-  };
-  date: string;
-  type: "Withdrawal" | "Deposit";
-  transactionId: string;
-  amount: number;
-}
 
 export default function WalletTransactionHistory({
   isKYCCompleted,
@@ -49,7 +39,7 @@ export default function WalletTransactionHistory({
         avatar: "/placeholder.svg?height=40&width=40",
       },
       date: "27th March, 2024. 2:39 PM",
-      type: "Deposit",
+      type: "Commission",
       transactionId: "11723456793",
       amount: 25000,
     },
@@ -73,7 +63,7 @@ export default function WalletTransactionHistory({
         avatar: "/placeholder.svg?height=40&width=40",
       },
       date: "12th April, 2024. 10:12 AM",
-      type: "Deposit",
+      type: "Commission",
       transactionId: "11723456801",
       amount: 120000,
     },
@@ -97,7 +87,7 @@ export default function WalletTransactionHistory({
         avatar: "/placeholder.svg?height=40&width=40",
       },
       date: "20th April, 2024. 11:45 AM",
-      type: "Deposit",
+      type: "Commission",
       transactionId: "11723456815",
       amount: 60000,
     },
@@ -121,7 +111,7 @@ export default function WalletTransactionHistory({
         avatar: "/placeholder.svg?height=40&width=40",
       },
       date: "1st May, 2024. 3:18 PM",
-      type: "Deposit",
+      type: "Commission",
       transactionId: "11723456830",
       amount: 75000,
     },
@@ -145,7 +135,7 @@ export default function WalletTransactionHistory({
         avatar: "/placeholder.svg?height=40&width=40",
       },
       date: "9th May, 2024. 1:15 PM",
-      type: "Deposit",
+      type: "Commission",
       transactionId: "11723456858",
       amount: 45000,
     },
@@ -170,7 +160,7 @@ export default function WalletTransactionHistory({
   return (
     <div className="space-y-4">
       <div className="flex justify-between items-center">
-        <h2 className="text-xl font-bold">Transactions History</h2>
+        <h2 className="text-xl font-bold">Wallet Transactions History</h2>
 
         <div className="flex items-center">
           <Input

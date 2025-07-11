@@ -5,164 +5,212 @@ import { HistoryTable } from "@/components/dashboard/tables";
 import {
   TransactionsColumns,
   Transaction,
-} from "@/app/dashboard/us/_columns/transactions-table-column";
+} from "../_columns/transactions-table-column";
 import { Input } from "@/components/ui/input";
 
-type TransactionHistoryProps = {
-  isKYCCompleted: boolean;
-};
-
-export default function TransactionHistory({
-  isKYCCompleted,
-}: TransactionHistoryProps) {
+export default function TransactionHistory({}) {
   const router = useRouter();
   const [Ttransactions, setTtransactions] = useState<Transaction[]>([]);
-  // Sample transaction data
+
+  // Sample transaction data that matches the refactored interface
   const transactions: Transaction[] = [
     {
       id: "1",
-      customerName: "Joshua King",
-      marketplace: {
-        name: "Jumia",
-        logo: "/placeholder.svg?height=40&width=40",
-      },
-      date: "27th March, 2024, 2:39 PM",
-      category: "Fashion",
-      transactionId: "11723456789",
+      escrowNumber: "019234890",
+      buyerName: "John Mark",
+      buyerUsername: "Johnmark012",
+      sellerName: "John Mark",
+      sellerUsername: "Johnmark012",
       amount: "₦5,000.00",
+      type: "Service",
+      dateTime: "27th March, 2024. 2:39 PM",
+      marketplace: {
+        name: "Jiji",
+        logo: "/logos/jiji.png",
+      },
       status: "Completed",
     },
     {
       id: "2",
-      customerName: "Elizabeth Blessing",
+      escrowNumber: "019234891",
+      buyerName: "Sarah Johnson",
+      buyerUsername: "sarahj_buyer",
+      sellerName: "Mike Thompson",
+      sellerUsername: "mikeseller",
+      amount: "₦12,500.00",
+      type: "Product",
+      dateTime: "26th March, 2024. 4:15 PM",
       marketplace: {
-        name: "Jiji",
-        logo: "/placeholder.svg?height=40&width=40",
+        name: "Konga",
+        logo: "/logos/konga.png",
       },
-      date: "27th March, 2024, 2:39 PM",
-      category: "Electronics",
-      transactionId: "11723456790",
-      amount: "₦15,000.00",
       status: "Pending",
     },
     {
       id: "3",
-      customerName: "Kingsley Eze",
+      escrowNumber: "019234892",
+      buyerName: "David Wilson",
+      buyerUsername: "davidw123",
+      sellerName: "Emma Davis",
+      sellerUsername: "emmad_seller",
+      amount: "₦8,750.00",
+      type: "Service",
+      dateTime: "25th March, 2024. 11:30 AM",
       marketplace: {
-        name: "Konga",
-        logo: "/placeholder.svg?height=40&width=40",
+        name: "Jumia",
+        logo: "/logos/jumia.png",
       },
-      date: "28th March, 2024, 1:15 PM",
-      category: "Groceries",
-      transactionId: "11723456791",
-      amount: "₦12,750.00",
       status: "Completed",
     },
     {
       id: "4",
-      customerName: "Ada Umeh",
+      escrowNumber: "019234893",
+      buyerName: "Lisa Anderson",
+      buyerUsername: "lisa_buyer",
+      sellerName: "Robert Chen",
+      sellerUsername: "robchen",
+      amount: "₦25,000.00",
+      type: "Product",
+      dateTime: "24th March, 2024. 9:45 AM",
       marketplace: {
-        name: "PayPorte",
-        logo: "/placeholder.svg?height=40&width=40",
+        name: "OLX",
+        logo: "/logos/olx.png",
       },
-      date: "29th March, 2024, 11:02 AM",
-      category: "Beauty",
-      transactionId: "11723456792",
-      amount: "₦8,000.00",
-      status: "Completed",
+      status: "Failed",
     },
     {
       id: "5",
-      customerName: "Tolu Adeyemi",
+      escrowNumber: "019234894",
+      buyerName: "Alex Rodriguez",
+      buyerUsername: "alexr2024",
+      sellerName: "Jennifer Lee",
+      sellerUsername: "jenlee_seller",
+      amount: "₦15,300.00",
+      type: "Service",
+      dateTime: "23rd March, 2024. 3:20 PM",
       marketplace: {
-        name: "Jumia",
-        logo: "/placeholder.svg?height=40&width=40",
+        name: "PayPorte",
+        logo: "/logos/payporte.png",
       },
-      date: "30th March, 2024, 3:45 PM",
-      category: "Home & Living",
-      transactionId: "11723456793",
-      amount: "₦22,400.00",
-      status: "Pending",
+      status: "Completed",
     },
     {
       id: "6",
-      customerName: "Chioma Obi",
+      escrowNumber: "019234895",
+      buyerName: "Michael Brown",
+      buyerUsername: "mikeb_buyer",
+      sellerName: "Sophie Turner",
+      sellerUsername: "sophiet",
+      amount: "₦42,000.00",
+      type: "Product",
+      dateTime: "22nd March, 2024. 1:10 PM",
       marketplace: {
-        name: "Slot",
-        logo: "/placeholder.svg?height=40&width=40",
+        name: "Kara",
+        logo: "/logos/kara.png",
       },
-      date: "1st April, 2024, 9:10 AM",
-      category: "Mobile Phones",
-      transactionId: "11723456794",
-      amount: "₦60,000.00",
-      status: "Completed",
-    },
-    {
-      id: "7",
-      customerName: "David Mark",
-      marketplace: {
-        name: "Pointek",
-        logo: "/placeholder.svg?height=40&width=40",
-      },
-      date: "2nd April, 2024, 5:00 PM",
-      category: "Computing",
-      transactionId: "11723456795",
-      amount: "₦45,999.00",
-      status: "Completed",
-    },
-    // --- Newly added entries ---
-    {
-      id: "8",
-      customerName: "Fatima Sanni",
-      marketplace: {
-        name: "Amazon NG",
-        logo: "/placeholder.svg?height=40&width=40",
-      },
-      date: "3rd April, 2024, 12:45 PM",
-      category: "Books",
-      transactionId: "11723456796",
-      amount: "₦3,600.00",
       status: "Pending",
     },
     {
-      id: "9",
-      customerName: "Emeka Nwosu",
+      id: "7",
+      escrowNumber: "019234896",
+      buyerName: "Grace Okafor",
+      buyerUsername: "graceo123",
+      sellerName: "James Miller",
+      sellerUsername: "jamesmiller",
+      amount: "₦7,800.00",
+      type: "Service",
+      dateTime: "21st March, 2024. 10:55 AM",
       marketplace: {
-        name: "AliExpress",
-        logo: "/placeholder.svg?height=40&width=40",
+        name: "Jiji",
+        logo: "/logos/jiji.png",
       },
-      date: "4th April, 2024, 10:30 AM",
-      category: "Gadgets",
-      transactionId: "11723456797",
-      amount: "₦19,200.00",
       status: "Completed",
     },
     {
-      id: "10",
-      customerName: "Rukayat Balogun",
+      id: "8",
+      escrowNumber: "019234897",
+      buyerName: "Tony Stark",
+      buyerUsername: "tonystark",
+      sellerName: "Natasha Romanoff",
+      sellerUsername: "blackwidow",
+      amount: "₦18,900.00",
+      type: "Product",
+      dateTime: "20th March, 2024. 5:30 PM",
       marketplace: {
-        name: "Supermart",
-        logo: "/placeholder.svg?height=40&width=40",
+        name: "Jumia",
+        logo: "/logos/jumia.png",
       },
-      date: "5th April, 2024, 4:22 PM",
-      category: "Groceries",
-      transactionId: "11723456798",
-      amount: "₦10,500.00",
+      status: "Completed",
+    },
+    {
+      id: "9",
+      escrowNumber: "019234898",
+      buyerName: "Angela White",
+      buyerUsername: "angelaw",
+      sellerName: "Peter Parker",
+      sellerUsername: "spiderman",
+      amount: "₦33,500.00",
+      type: "Service",
+      dateTime: "19th March, 2024. 8:15 AM",
+      marketplace: {
+        name: "Konga",
+        logo: "/logos/konga.png",
+      },
+      status: "Pending",
+    },
+    {
+      id: "10",
+      escrowNumber: "019234899",
+      buyerName: "Daniel Kim",
+      buyerUsername: "danielkim",
+      sellerName: "Rachel Green",
+      sellerUsername: "rachelg",
+      amount: "₦9,200.00",
+      type: "Product",
+      dateTime: "18th March, 2024. 12:45 PM",
+      marketplace: {
+        name: "OLX",
+        logo: "/logos/olx.png",
+      },
+      status: "Completed",
+    },
+    {
+      id: "11",
+      escrowNumber: "019234900",
+      buyerName: "Kevin Hart",
+      buyerUsername: "kevinhart",
+      sellerName: "Dwayne Johnson",
+      sellerUsername: "therock",
+      amount: "₦55,000.00",
+      type: "Service",
+      dateTime: "17th March, 2024. 2:20 PM",
+      marketplace: {
+        name: "PayPorte",
+        logo: "/logos/payporte.png",
+      },
+      status: "Failed",
+    },
+    {
+      id: "12",
+      escrowNumber: "019234901",
+      buyerName: "Maya Patel",
+      buyerUsername: "mayap",
+      sellerName: "Carlos Santos",
+      sellerUsername: "carloss",
+      amount: "₦14,600.00",
+      type: "Product",
+      dateTime: "16th March, 2024. 11:05 AM",
+      marketplace: {
+        name: "Kara",
+        logo: "/logos/kara.png",
+      },
       status: "Completed",
     },
   ];
 
   useEffect(() => {
-    if (isKYCCompleted) {
-      setTtransactions(transactions as Transaction[]);
-    } else {
-      setTtransactions([]);
-    }
-  }, [isKYCCompleted]);
-
-  const handleRowClick = (transactionId: string) => {
-    router.push(`wallet/transaction/${transactionId}`);
-  };
+    setTtransactions(transactions as Transaction[]);
+  }, []);
 
   const handleFilterTransactions = (value: string) => {
     return;
@@ -171,7 +219,7 @@ export default function TransactionHistory({
   return (
     <div className="space-y-4">
       <div className="flex justify-between items-center">
-        <h2 className="text-xl font-bold">Transactions History</h2>
+        <h2 className="text-xl font-bold">Escrow Transactions History</h2>
 
         <div className="flex items-center">
           <Input

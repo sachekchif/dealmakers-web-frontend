@@ -2,30 +2,64 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ArrowDown, ArrowUp } from "lucide-react";
 import { cn, formatCountValue, formatCurrency } from "@/lib/utils";
 import { CardHeader, CardTitle } from "@/components/ui/card";
-
-export interface StatCardProps {
+// Base interface for common props
+interface BaseStatCardProps {
   title: string;
-  value: string | number;
-  change?: {
-    value: string;
-    trend: "up" | "down" | "neutral";
-  };
-  count?: number;
   index: number;
+  count?: number;
+  change?: {
+    trend: "up" | "down" | "neutral";
+    value: string;
+  };
 }
 
-export function StatCard({
-  title,
-  value,
-  change,
-  index,
-  count,
-}: StatCardProps) {
+// Currency-specific props
+interface CurrencyStatCardProps extends BaseStatCardProps {
+  type: "currency";
+  value: string | number;
+}
+
+// General value props (for non-currency data)
+interface GeneralStatCardProps extends BaseStatCardProps {
+  type: "general";
+  value: string | number;
+  formatter?: (value: string | number) => string;
+}
+
+// Union type for all possible props
+type StatCardProps = CurrencyStatCardProps | GeneralStatCardProps;
+
+// Main StatCard component
+export function StatCard(props: StatCardProps) {
+  const { title, index, count, change } = props;
+
+  // Render value based on type
+  const renderValue = () => {
+    if (props.type === "currency") {
+      const { amount, decimal } = formatCurrency(props.value);
+      return (
+        <p className="text-2xl font-bold">
+          {amount}
+          <span className="text-sm font-medium">
+            {"."}
+            {decimal}
+          </span>
+        </p>
+      );
+    } else {
+      const displayValue = props.formatter
+        ? props.formatter(props.value)
+        : props.value.toString();
+
+      return <p className="text-2xl font-bold">{displayValue}</p>;
+    }
+  };
+
   return (
     <Card
       className={cn(
         index % 2 === 0 ? "bg-secondary" : "bg-accent",
-        " shadow-none gap-4 min-w-3xs"
+        "shadow-none gap-4 min-w-3xs"
       )}
     >
       <CardHeader className="pb-2 px-3">
@@ -40,13 +74,7 @@ export function StatCard({
       </CardHeader>
       <CardContent className="px-3">
         <div className="flex items-baseline justify-between">
-          <p className="text-2xl font-bold">
-            {formatCurrency(value).amount}
-            <span className="text-sm font-medium">
-              {"."}
-              {formatCurrency(value).decimal}
-            </span>
-          </p>
+          {renderValue()}
           {change && (
             <div
               className={cn(
@@ -66,6 +94,60 @@ export function StatCard({
         </div>
       </CardContent>
     </Card>
+  );
+}
+
+// Alternative: Separate components approach
+export function CurrencyStatCard({
+  title,
+  value,
+  change,
+  index,
+  count,
+}: {
+  title: string;
+  value: number | string;
+  change?: { trend: "up" | "down" | "neutral"; value: string };
+  index: number;
+  count?: number;
+}) {
+  return (
+    <StatCard
+      type="currency"
+      title={title}
+      value={value}
+      change={change}
+      index={index}
+      count={count}
+    />
+  );
+}
+
+export function GeneralStatCard({
+  title,
+  value,
+  change,
+  index,
+  count,
+  formatter,
+}: {
+  title: string;
+  value: string | number;
+  change?: { trend: "up" | "down" | "neutral"; value: string };
+  index: number;
+  count?: number;
+  formatter?: (value: string | number) => string;
+}) {
+  return (
+    <StatCard
+      type="general"
+      title={title}
+      value={value}
+      change={change}
+      index={index}
+      count={count}
+      formatter={formatter}
+    />
   );
 }
 
@@ -97,7 +179,7 @@ export function StatCardV1({
           <h3 className="text-gray-500 text-base font-normal">{title}</h3>
           <div className="w-8 h-1 bg-blue-600 rounded-full" />
         </div>
-        <div className="text-4xl font-bold text-gray-800">
+        <div className="text-2xl font-bold text-gray-800">
           {currency}
           {formattedValue}
         </div>

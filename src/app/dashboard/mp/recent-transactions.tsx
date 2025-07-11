@@ -22,11 +22,11 @@ export default function RecentTransactions() {
       id: "2",
       user: {
         name: "Joshua King",
-        bank: "GTBANK",
+        bank: "First BANK",
         avatar: "/placeholder.svg?height=40&width=40",
       },
       date: "27th March, 2024. 2:39 PM",
-      type: "Deposit",
+      type: "Commission",
       transactionId: "11723456793",
       amount: 25000,
     },
@@ -46,7 +46,7 @@ export default function RecentTransactions() {
 
   return (
     <RecentTableContainer
-      title="Recent Transactions"
+      title="Recent Wallet Transactions"
       data={walletTransactions}
       columns={WalletTransactionsColumns} // your existing columns
       seeAllHref="/dashboard/us/wallet"
