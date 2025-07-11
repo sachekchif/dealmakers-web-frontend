@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { FaApple } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import { LiaArrowRightSolid } from "react-icons/lia";
@@ -229,6 +229,7 @@ function AuthForm({
 }) {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const router = useRouter();
 
   const fields = formConfigs[userType][authMode];
 
@@ -236,6 +237,7 @@ function AuthForm({
     e.preventDefault();
     // Handle form submission
     console.log(`${authMode} form submitted for ${userType} user`);
+    router.push(`/${authMode === "signin" ? "dashboard/us" : "dashboard/us"}`);
   };
 
   return (
