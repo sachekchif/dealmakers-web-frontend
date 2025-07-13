@@ -122,22 +122,22 @@ export default function MarketplacePage() {
       );
     };
 
-    const handleDeleteMarketplace = (event: CustomEvent) => {
-      const marketplaceId = event.detail as number;
-      if (confirm("Are you sure you want to delete this marketplace?")) {
-        setMarketplaces((prev) => prev.filter((m) => m.id !== marketplaceId));
-      }
-    };
+    // const handleDeleteMarketplace = (event: CustomEvent) => {
+    //   const marketplaceId = event.detail as number;
+    //   if (confirm("Are you sure you want to delete this marketplace?")) {
+    //     setMarketplaces((prev) => prev.filter((m) => m.id !== marketplaceId));
+    //   }
+    // };
 
-    const handleDuplicateMarketplace = (event: CustomEvent) => {
-      const marketplace = event.detail as Marketplace;
-      const duplicatedMarketplace: Marketplace = {
-        ...marketplace,
-        id: Math.max(...marketplaces.map((m) => m.id)) + 1,
-        marketplaceId: `${marketplace.marketplaceId}_COPY`,
-      };
-      setMarketplaces((prev) => [...prev, duplicatedMarketplace]);
-    };
+    // const handleDuplicateMarketplace = (event: CustomEvent) => {
+    //   const marketplace = event.detail as Marketplace;
+    //   const duplicatedMarketplace: Marketplace = {
+    //     ...marketplace,
+    //     id: Math.max(...marketplaces.map((m) => m.id)) + 1,
+    //     marketplaceId: `${marketplace.marketplaceId}_COPY`,
+    //   };
+    //   setMarketplaces((prev) => [...prev, duplicatedMarketplace]);
+    // };
 
     const handleViewMarketplaceDetails = (event: CustomEvent) => {
       const marketplaceId = event.detail as number;
@@ -160,14 +160,14 @@ export default function MarketplacePage() {
       "toggleMarketplaceStatus",
       handleToggleMarketplaceStatus as EventListener
     );
-    window.addEventListener(
-      "deleteMarketplace",
-      handleDeleteMarketplace as EventListener
-    );
-    window.addEventListener(
-      "duplicateMarketplace",
-      handleDuplicateMarketplace as EventListener
-    );
+    // window.addEventListener(
+    //   "deleteMarketplace",
+    //   handleDeleteMarketplace as EventListener
+    // );
+    // window.addEventListener(
+    //   "duplicateMarketplace",
+    //   handleDuplicateMarketplace as EventListener
+    // );
     window.addEventListener(
       "viewMarketplaceDetails",
       handleViewMarketplaceDetails as EventListener
@@ -187,14 +187,14 @@ export default function MarketplacePage() {
         "toggleMarketplaceStatus",
         handleToggleMarketplaceStatus as EventListener
       );
-      window.removeEventListener(
-        "deleteMarketplace",
-        handleDeleteMarketplace as EventListener
-      );
-      window.removeEventListener(
-        "duplicateMarketplace",
-        handleDuplicateMarketplace as EventListener
-      );
+      // window.removeEventListener(
+      //   "deleteMarketplace",
+      //   handleDeleteMarketplace as EventListener
+      // );
+      // window.removeEventListener(
+      //   "duplicateMarketplace",
+      //   handleDuplicateMarketplace as EventListener
+      // );
       window.removeEventListener(
         "viewMarketplaceDetails",
         handleViewMarketplaceDetails as EventListener
@@ -215,7 +215,7 @@ export default function MarketplacePage() {
             Manage marketplace integrations and commissions
           </p>
         </div>
-        <Button
+        {/* <Button
           onClick={() => {
             setSelectedMarketplace(null);
             setIsMarketplaceDialogOpen(true);
@@ -224,7 +224,7 @@ export default function MarketplacePage() {
         >
           <Plus className="mr-2 h-4 w-4" />
           Add Marketplace
-        </Button>
+        </Button> */}
       </div>
 
       <div className="space-y-4">

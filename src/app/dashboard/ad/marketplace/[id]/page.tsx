@@ -60,10 +60,10 @@ export default async function MarketplaceDetailsPage({
     <div className="container p-6 max-w-5xl">
       <div className="flex items-center justify-between mb-6">
         <h1 className="text-2xl font-bold">Marketplace Details</h1>
-        <Button className="bg-cyan-500 hover:bg-cyan-600 text-white">
+        {/* <Button className="bg-cyan-500 hover:bg-cyan-600 text-white">
           <Edit className="h-4 w-4 mr-2" />
           Edit Marketplace
-        </Button>
+        </Button> */}
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

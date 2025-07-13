@@ -133,16 +133,17 @@ export const MarketplaceColumns: ColumnDef<Marketplace>[] = [
             size="sm"
             className="text-cyan-600 border-cyan-200 hover:bg-cyan-50"
             onClick={() => {
-              const event = new CustomEvent("editMarketplace", {
+              const event = new CustomEvent("assignCommissions", {
                 detail: marketplace,
               });
               window.dispatchEvent(event);
             }}
           >
-            <Edit className="h-4 w-4 mr-1" />
-            Edit
+            <Percent className="h-4 w-4 mr-2" />
+            Set Commission
           </Button>
-          <Button
+
+          {/* <Button
             variant="outline"
             size="sm"
             className={
@@ -168,7 +169,7 @@ export const MarketplaceColumns: ColumnDef<Marketplace>[] = [
                 Enable
               </>
             )}
-          </Button>
+          </Button> */}
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -196,7 +197,7 @@ export const MarketplaceColumns: ColumnDef<Marketplace>[] = [
                 Copy Commission Amount
               </DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem
+              {/* <DropdownMenuItem
                 className="text-purple-600"
                 onClick={() => {
                   const event = new CustomEvent("assignCommissions", {
@@ -207,20 +208,20 @@ export const MarketplaceColumns: ColumnDef<Marketplace>[] = [
               >
                 <Percent className="h-4 w-4 mr-2" />
                 Assign Commissions
-              </DropdownMenuItem>
-              <DropdownMenuSeparator />
+              </DropdownMenuItem> */}
+              {/* <DropdownMenuSeparator />s */}
               <DropdownMenuItem
                 className="text-cyan-600"
                 onClick={() => {
-                  const event = new CustomEvent("editMarketplace", {
+                  const event = new CustomEvent("toggleMarketplaceStatus", {
                     detail: marketplace,
                   });
                   window.dispatchEvent(event);
                 }}
               >
-                Edit Marketplace
+                Toggle Marketplace
               </DropdownMenuItem>
-              <DropdownMenuItem
+              {/* <DropdownMenuItem
                 className="text-blue-600"
                 onClick={() => {
                   const event = new CustomEvent("duplicateMarketplace", {
@@ -230,9 +231,9 @@ export const MarketplaceColumns: ColumnDef<Marketplace>[] = [
                 }}
               >
                 Duplicate Marketplace
-              </DropdownMenuItem>
+              </DropdownMenuItem> */}
               <DropdownMenuSeparator />
-              <DropdownMenuItem
+              {/* <DropdownMenuItem
                 className="text-red-600"
                 onClick={() => {
                   const event = new CustomEvent("deleteMarketplace", {
@@ -242,7 +243,7 @@ export const MarketplaceColumns: ColumnDef<Marketplace>[] = [
                 }}
               >
                 Delete Marketplace
-              </DropdownMenuItem>
+              </DropdownMenuItem> */}
               <DropdownMenuItem>
                 {" "}
                 <Button

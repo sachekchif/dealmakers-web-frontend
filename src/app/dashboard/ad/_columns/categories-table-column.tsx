@@ -177,7 +177,7 @@ export const CategoriesColumns: ColumnDef<Category>[] = [
                 Copy Description
               </DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem
+              {/* <DropdownMenuItem
                 className="text-cyan-600"
                 onClick={() => {
                   const event = new CustomEvent("editCategory", {
@@ -187,7 +187,7 @@ export const CategoriesColumns: ColumnDef<Category>[] = [
                 }}
               >
                 Edit Category
-              </DropdownMenuItem>
+              </DropdownMenuItem> */}
               <DropdownMenuItem
                 className="text-blue-600"
                 onClick={() => {
