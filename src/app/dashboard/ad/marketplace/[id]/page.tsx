@@ -1,8 +1,9 @@
-// marketplace-details-page.tsx
+// marketplace-details-page.tsx (Updated with Charge Settings)
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Edit } from "lucide-react";
+import { ChargeSettings } from "./charge-settings";
 
 // This would typically come from a database or API
 const getMarketplaceDetails = (id: string) => {
@@ -15,6 +16,7 @@ const getMarketplaceDetails = (id: string) => {
     amount: "₦223,871,000",
     charge: "₦21,000.00",
     status: "Active",
+    marketplaceId: "JIJI", // Added marketplace ID for charge settings
     representative: {
       name: "Jacob Chris Elvis",
       bvn: "02893727823",
@@ -57,7 +59,7 @@ export default async function MarketplaceDetailsPage({
   };
 
   return (
-    <div className="container p-6 max-w-5xl">
+    <div className="container p-6 max-w-7xl">
       <div className="flex items-center justify-between mb-6">
         <h1 className="text-2xl font-bold">Marketplace Details</h1>
         {/* <Button className="bg-cyan-500 hover:bg-cyan-600 text-white">
@@ -66,100 +68,109 @@ export default async function MarketplaceDetailsPage({
         </Button> */}
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* Marketplace Information Card */}
-        <Card className="shadow-lg">
-          <CardHeader className="pb-3">
-            <CardTitle className="text-lg font-semibold text-gray-800">
-              Marketplace Information
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="grid grid-cols-2 gap-2">
-              <div className="text-sm text-gray-500">Date</div>
-              <div className="text-sm font-medium text-right">
-                {marketplace.date}
+      <div className="space-y-6">
+        {/* Marketplace Information Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Marketplace Information Card */}
+          <Card className="shadow-lg">
+            <CardHeader className="pb-3">
+              <CardTitle className="text-lg font-semibold text-gray-800">
+                Marketplace Information
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="grid grid-cols-2 gap-2">
+                <div className="text-sm text-gray-500">Date</div>
+                <div className="text-sm font-medium text-right">
+                  {marketplace.date}
+                </div>
               </div>
-            </div>
 
-            <div className="grid grid-cols-2 gap-2">
-              <div className="text-sm text-gray-500">ID Number</div>
-              <div className="text-sm font-medium text-right">
-                {marketplace.idNumber}
+              <div className="grid grid-cols-2 gap-2">
+                <div className="text-sm text-gray-500">ID Number</div>
+                <div className="text-sm font-medium text-right">
+                  {marketplace.idNumber}
+                </div>
               </div>
-            </div>
 
-            <div className="grid grid-cols-2 gap-2">
-              <div className="text-sm text-gray-500">Username</div>
-              <div className="text-sm font-medium text-right text-blue-600">
-                {marketplace.username}
+              <div className="grid grid-cols-2 gap-2">
+                <div className="text-sm text-gray-500">Username</div>
+                <div className="text-sm font-medium text-right text-blue-600">
+                  {marketplace.username}
+                </div>
               </div>
-            </div>
 
-            <div className="grid grid-cols-2 gap-2">
-              <div className="text-sm text-gray-500">Users</div>
-              <div className="text-sm font-medium text-right">
-                {marketplace.users}
+              <div className="grid grid-cols-2 gap-2">
+                <div className="text-sm text-gray-500">Users</div>
+                <div className="text-sm font-medium text-right">
+                  {marketplace.users}
+                </div>
               </div>
-            </div>
 
-            <div className="grid grid-cols-2 gap-2">
-              <div className="text-sm text-gray-500">Amount</div>
-              <div className="text-sm font-medium text-right">
-                {marketplace.amount}
+              <div className="grid grid-cols-2 gap-2">
+                <div className="text-sm text-gray-500">Amount</div>
+                <div className="text-sm font-medium text-right">
+                  {marketplace.amount}
+                </div>
               </div>
-            </div>
 
-            <div className="grid grid-cols-2 gap-2">
-              <div className="text-sm text-gray-500">Charge</div>
-              <div className="text-sm font-medium text-right">
-                {marketplace.charge}
+              <div className="grid grid-cols-2 gap-2">
+                <div className="text-sm text-gray-500">Charge</div>
+                <div className="text-sm font-medium text-right">
+                  {marketplace.charge}
+                </div>
               </div>
-            </div>
 
-            <div className="grid grid-cols-2 gap-2">
-              <div className="text-sm text-gray-500">Status</div>
-              <div className="text-right">
-                <Badge className={getStatusColor()}>
-                  • {marketplace.status}
-                </Badge>
+              <div className="grid grid-cols-2 gap-2">
+                <div className="text-sm text-gray-500">Status</div>
+                <div className="text-right">
+                  <Badge className={getStatusColor()}>
+                    • {marketplace.status}
+                  </Badge>
+                </div>
               </div>
-            </div>
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
 
-        {/* Representative Details Card */}
-        <Card className="shadow-lg">
-          <CardHeader className="pb-3">
-            <CardTitle className="text-lg font-semibold text-gray-800">
-              Representative Details
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="space-y-1">
-              <div className="text-sm text-gray-500">Representative Name</div>
-              <div className="text-sm font-medium">
-                {marketplace.representative.name}
+          {/* Representative Details Card */}
+          <Card className="shadow-lg">
+            <CardHeader className="pb-3">
+              <CardTitle className="text-lg font-semibold text-gray-800">
+                Representative Details
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="space-y-1">
+                <div className="text-sm text-gray-500">Representative Name</div>
+                <div className="text-sm font-medium">
+                  {marketplace.representative.name}
+                </div>
               </div>
-            </div>
 
-            <div className="space-y-1">
-              <div className="text-sm text-gray-500">BVN</div>
-              <div className="text-sm font-medium text-gray-600">
-                {marketplace.representative.bvn}
+              <div className="space-y-1">
+                <div className="text-sm text-gray-500">BVN</div>
+                <div className="text-sm font-medium text-gray-600">
+                  {marketplace.representative.bvn}
+                </div>
               </div>
-            </div>
 
-            <div className="space-y-1">
-              <div className="text-sm text-gray-500">Status</div>
-              <div>
-                <Badge className={getRepresentativeStatusColor()}>
-                  • {marketplace.representative.status}
-                </Badge>
+              <div className="space-y-1">
+                <div className="text-sm text-gray-500">Status</div>
+                <div>
+                  <Badge className={getRepresentativeStatusColor()}>
+                    • {marketplace.representative.status}
+                  </Badge>
+                </div>
               </div>
-            </div>
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Charge Settings Section */}
+        <div>
+          <h2 className="text-xl font-semibold mb-4">Charge Settings</h2>
+          <ChargeSettings marketplaceId={marketplace.marketplaceId} />
+        </div>
       </div>
     </div>
   );
