@@ -114,26 +114,38 @@ export default function TransactionFlowPage() {
           onValueChange={(value) => setActiveTab(value as TransactionFlowTab)}
           className="w-full"
         >
-          <TabsList className="grid w-full grid-cols-4">
-            <TabsTrigger value="milestones" className="relative">
+          <TabsList className="grid w-full grid-cols-4 bg-gray-100 p-1 rounded-lg">
+            <TabsTrigger
+              value="milestones"
+              className="relative data-[state=active]:bg-cyan-500 data-[state=active]:text-white"
+            >
               Milestones
               <span className="ml-2 px-2 py-0.5 text-xs bg-blue-100 text-blue-800 rounded-full">
                 {getTabCount("milestones")}
               </span>
             </TabsTrigger>
-            <TabsTrigger value="bids" className="relative">
+            <TabsTrigger
+              value="bids"
+              className="relative data-[state=active]:bg-cyan-500 data-[state=active]:text-white"
+            >
               Bids
               <span className="ml-2 px-2 py-0.5 text-xs bg-green-100 text-green-800 rounded-full">
                 {getTabCount("bids")}
               </span>
             </TabsTrigger>
-            <TabsTrigger value="orders" className="relative">
+            <TabsTrigger
+              value="orders"
+              className="relative data-[state=active]:bg-cyan-500 data-[state=active]:text-white"
+            >
               Orders
               <span className="ml-2 px-2 py-0.5 text-xs bg-purple-100 text-purple-800 rounded-full">
                 {getTabCount("orders")}
               </span>
             </TabsTrigger>
-            <TabsTrigger value="payments" className="relative">
+            <TabsTrigger
+              value="payments"
+              className="relative data-[state=active]:bg-cyan-500 data-[state=active]:text-white"
+            >
               Payments
               <span className="ml-2 px-2 py-0.5 text-xs bg-orange-100 text-orange-800 rounded-full">
                 {getTabCount("payments")}

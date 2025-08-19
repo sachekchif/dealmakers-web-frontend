@@ -242,9 +242,17 @@ export default function DisputeManagementPage() {
             setActiveTab(value as DisputeManagementType)
           }
         >
-          <TabsList className="grid w-full grid-cols-2">
-            <TabsTrigger value="reason">Reason for Dispute</TabsTrigger>
-            <TabsTrigger value="resolution">
+          <TabsList className="grid w-full grid-cols-2 bg-gray-100 p-1 rounded-lg">
+            <TabsTrigger
+              value="reason"
+              className="data-[state=active]:bg-cyan-500 data-[state=active]:text-white"
+            >
+              Reason for Dispute
+            </TabsTrigger>
+            <TabsTrigger
+              value="resolution"
+              className="data-[state=active]:bg-cyan-500 data-[state=active]:text-white"
+            >
               Dispute Preferred Resolution
             </TabsTrigger>
           </TabsList>

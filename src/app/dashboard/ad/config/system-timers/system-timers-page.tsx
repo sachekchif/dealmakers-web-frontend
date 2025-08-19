@@ -11,7 +11,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { HistoryTable } from "@/components/dashboard/tables";
 import {
@@ -92,7 +98,7 @@ export default function SystemTimersPage() {
     useState<TimerSetting[]>(initialTimerSettings);
   const [filteredSettings, setFilteredSettings] =
     useState<TimerSetting[]>(initialTimerSettings);
-  const [activeTab, setActiveTab] = useState("payment-time");
+  const [activeTab, setActiveTab] = useState("payment");
   const [dialogOpen, setDialogOpen] = useState(false);
   const [editingTimer, setEditingTimer] = useState<TimerSetting | null>(null);
 
@@ -105,11 +111,11 @@ export default function SystemTimersPage() {
     useState<string>("");
 
   const tabTypes = {
-    "payment-time": "payment",
+    payment: "payment",
     rejection: "rejection",
     delivery: "delivery",
     inspection: "inspection",
-    "dispute-resolution": "dispute",
+    resolution: "dispute",
     arbitration: "arbitration",
   };
 
@@ -295,7 +301,6 @@ export default function SystemTimersPage() {
           >
             Add New Timer
           </Button>
-          <span className="text-sm text-gray-500">Default</span>
         </div>
       </div>
 
@@ -306,7 +311,7 @@ export default function SystemTimersPage() {
       >
         <TabsList className="grid w-full grid-cols-6 bg-gray-100 p-1 rounded-lg">
           <TabsTrigger
-            value="payment-time"
+            value="payment"
             className="data-[state=active]:bg-cyan-500 data-[state=active]:text-white"
           >
             Payment Time
@@ -315,46 +320,54 @@ export default function SystemTimersPage() {
             value="rejection"
             className="data-[state=active]:bg-cyan-500 data-[state=active]:text-white"
           >
-            Rejection
+            Rejection Time
           </TabsTrigger>
           <TabsTrigger
             value="delivery"
             className="data-[state=active]:bg-cyan-500 data-[state=active]:text-white"
           >
-            Delivery
+            Delivery Time
           </TabsTrigger>
           <TabsTrigger
             value="inspection"
             className="data-[state=active]:bg-cyan-500 data-[state=active]:text-white"
           >
-            Inspection
+            Inspection Time
           </TabsTrigger>
           <TabsTrigger
             value="dispute-resolution"
             className="data-[state=active]:bg-cyan-500 data-[state=active]:text-white"
           >
-            Dispute resolution
+            Resolution Time
           </TabsTrigger>
           <TabsTrigger
             value="arbitration"
             className="data-[state=active]:bg-cyan-500 data-[state=active]:text-white"
           >
-            Arbitration
+            Arbitration Time
           </TabsTrigger>
         </TabsList>
 
         <TabsContent value={activeTab} className="mt-6">
           {/* Filter Form */}
-          <Card className="mb-6">
-            <CardContent className="p-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <Card className="p-6 mb-6">
+            <CardHeader className=" p-0">
+              <CardTitle className="capitalize">
+                {activeTab} Time Form
+              </CardTitle>
+              <CardDescription>
+                Configure Timer Settings for {activeTab}
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="p-0">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="category">Category</Label>
+                  {/* <Label htmlFor="category">Category</Label> */}
                   <Select
                     value={selectedCategory}
                     onValueChange={setSelectedCategory}
                   >
-                    <SelectTrigger>
+                    <SelectTrigger className="w-full">
                       <SelectValue placeholder="Select Category" />
                     </SelectTrigger>
                     <SelectContent>
@@ -368,12 +381,12 @@ export default function SystemTimersPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="transaction-type">Transaction Type</Label>
+                  {/* <Label htmlFor="transaction-type">Transaction Type</Label> */}
                   <Select
                     value={selectedTransactionType}
                     onValueChange={setSelectedTransactionType}
                   >
-                    <SelectTrigger>
+                    <SelectTrigger className="w-full">
                       <SelectValue placeholder="Select Transaction Type" />
                     </SelectTrigger>
                     <SelectContent>
@@ -385,12 +398,12 @@ export default function SystemTimersPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="apply-globally">Apply Globally</Label>
+                  {/* <Label htmlFor="apply-globally">Apply Globally</Label> */}
                   <Select
                     value={selectedGlobalApply}
                     onValueChange={setSelectedGlobalApply}
                   >
-                    <SelectTrigger>
+                    <SelectTrigger className="w-full">
                       <SelectValue placeholder="Select Transaction Type" />
                     </SelectTrigger>
                     <SelectContent>
@@ -404,12 +417,12 @@ export default function SystemTimersPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="apply-category">Apply To Category</Label>
+                  {/* <Label htmlFor="apply-category">Apply To Category</Label> */}
                   <Select
                     value={selectedCategoryApply}
                     onValueChange={setSelectedCategoryApply}
                   >
-                    <SelectTrigger>
+                    <SelectTrigger className="w-full">
                       <SelectValue placeholder="Select" />
                     </SelectTrigger>
                     <SelectContent>
@@ -422,15 +435,15 @@ export default function SystemTimersPage() {
                     </SelectContent>
                   </Select>
                 </div>
-              </div>
 
-              <div className="mt-6">
-                <Button
-                  onClick={handleSubmit}
-                  className="w-full bg-cyan-500 hover:bg-cyan-600 text-white"
-                >
-                  Submit
-                </Button>
+                <div className="space-y-2">
+                  <Button
+                    onClick={handleSubmit}
+                    className="w-full bg-cyan-500 hover:bg-cyan-600 text-white"
+                  >
+                    Submit
+                  </Button>
+                </div>
               </div>
             </CardContent>
           </Card>

@@ -100,7 +100,7 @@ export function TimerEditDialog({
               Category
             </Label>
             <Select value={category} onValueChange={setCategory}>
-              <SelectTrigger>
+              <SelectTrigger className="w-full">
                 <SelectValue placeholder="Select Category" />
               </SelectTrigger>
               <SelectContent>
@@ -118,7 +118,7 @@ export function TimerEditDialog({
               Transaction Type
             </Label>
             <Select value={transactionType} onValueChange={setTransactionType}>
-              <SelectTrigger>
+              <SelectTrigger className="w-full">
                 <SelectValue placeholder="Select Transaction Type" />
               </SelectTrigger>
               <SelectContent>
@@ -139,8 +139,11 @@ export function TimerEditDialog({
                 setTimerType(value)
               }
             >
-              <SelectTrigger>
-                <SelectValue placeholder="Select Timer Type" />
+              <SelectTrigger className="w-full">
+                <SelectValue
+                  placeholder="Select Timer Type"
+                  className="w-full"
+                />
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="payment">Payment Time</SelectItem>
@@ -161,8 +164,8 @@ export function TimerEditDialog({
               value={applyGlobally.toString()}
               onValueChange={(value) => setApplyGlobally(parseInt(value))}
             >
-              <SelectTrigger>
-                <SelectValue placeholder="Select Days" />
+              <SelectTrigger className="w-full">
+                <SelectValue placeholder="Select Days" className="w-full" />
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="1">1 Day</SelectItem>
@@ -182,7 +185,7 @@ export function TimerEditDialog({
               Apply to Category (Duration)
             </Label>
             <Select value={applyCategory} onValueChange={setApplyCategory}>
-              <SelectTrigger>
+              <SelectTrigger className="w-full">
                 <SelectValue placeholder="Select Duration" />
               </SelectTrigger>
               <SelectContent>
@@ -206,6 +209,7 @@ export function TimerEditDialog({
             <Switch
               id="status"
               checked={status === "enabled"}
+              className=" data-[state=unchecked]:bg-gray-400 data-[state=checked]:bg-cyan-500"
               onCheckedChange={(checked) =>
                 setStatus(checked ? "enabled" : "disabled")
               }

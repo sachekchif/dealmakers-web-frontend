@@ -22,27 +22,6 @@ interface ConfigItem {
 
 const configItems: ConfigItem[] = [
   {
-    title: "General Settings",
-    description: "Configure the fundamental information of the site",
-    href: "#",
-    icon: Settings,
-    color: "bg-cyan-500",
-  },
-  {
-    title: "System Configuration",
-    description: "Control all of the basic modules of the system",
-    href: "#",
-    icon: Wrench,
-    color: "bg-cyan-500",
-  },
-  {
-    title: "Notification Settings",
-    description: "configure overall notification elements of the system",
-    href: "#",
-    icon: Bell,
-    color: "bg-cyan-500",
-  },
-  {
     title: "Dispute Resolution",
     description: "Configure dispute handling and resolution processes",
     href: "/dashboard/ad/config/dispute-resolution",
@@ -61,6 +40,27 @@ const configItems: ConfigItem[] = [
     description: "Configure timing settings for various system processes",
     href: "/dashboard/ad/config/system-timers",
     icon: Clock,
+    color: "bg-cyan-500",
+  },
+  {
+    title: "General Settings",
+    description: "Configure the fundamental information of the site",
+    href: "#",
+    icon: Settings,
+    color: "bg-cyan-500",
+  },
+  {
+    title: "System Configuration",
+    description: "Control all of the basic modules of the system",
+    href: "#",
+    icon: Wrench,
+    color: "bg-cyan-500",
+  },
+  {
+    title: "Notification Settings",
+    description: "configure overall notification elements of the system",
+    href: "#",
+    icon: Bell,
     color: "bg-cyan-500",
   },
 ];
