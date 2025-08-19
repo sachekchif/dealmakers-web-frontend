@@ -118,7 +118,7 @@ const data: {
         },
         {
           title: "Config",
-          url: "#",
+          url: "/dashboard/ad/config",
           icon: Settings,
         },
       ],
