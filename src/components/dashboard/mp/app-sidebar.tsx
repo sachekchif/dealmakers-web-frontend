@@ -22,6 +22,7 @@ import {
   UserCircle,
   Coins,
   UserIcon,
+  Building2,
 } from "lucide-react";
 
 // This is sample data.
@@ -75,8 +76,8 @@ const data: {
         },
         {
           title: "Profile",
-          url: "#",
-          icon: UserCircle,
+          url: "/dashboard/mp/profile",
+          icon: Building2, // Import from lucide-react
         },
       ],
     },
