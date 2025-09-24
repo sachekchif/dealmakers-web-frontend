@@ -69,7 +69,7 @@ const data: {
         },
         {
           title: "Profile",
-          url: "#",
+          url: "/dashboard/us/profile",
           icon: UserCircle,
         },
       ],
