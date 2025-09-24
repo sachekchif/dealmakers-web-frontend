@@ -11,6 +11,7 @@ import {
   ArrowRightLeft,
   Clock,
   DollarSign,
+  Users,
 } from "lucide-react";
 
 interface ConfigItem {
@@ -50,7 +51,13 @@ const configItems: ConfigItem[] = [
     icon: DollarSign,
     color: "bg-cyan-500",
   },
-
+  {
+    title: "Social Login Credentials",
+    description: "Configure OAuth providers and social login integrations",
+    href: "/dashboard/ad/config/social-credentials",
+    icon: Users,
+    color: "bg-cyan-500",
+  },
   {
     title: "General Settings",
     description: "Configure the fundamental information of the site",
@@ -58,20 +65,20 @@ const configItems: ConfigItem[] = [
     icon: Settings,
     color: "bg-cyan-500",
   },
-  {
-    title: "System Configuration",
-    description: "Control all of the basic modules of the system",
-    href: "#",
-    icon: Wrench,
-    color: "bg-cyan-500",
-  },
-  {
-    title: "Notification Settings",
-    description: "configure overall notification elements of the system",
-    href: "#",
-    icon: Bell,
-    color: "bg-cyan-500",
-  },
+  // {
+  //   title: "System Configuration",
+  //   description: "Control all of the basic modules of the system",
+  //   href: "#",
+  //   icon: Wrench,
+  //   color: "bg-cyan-500",
+  // },
+  // {
+  //   title: "Notification Settings",
+  //   description: "configure overall notification elements of the system",
+  //   href: "#",
+  //   icon: Bell,
+  //   color: "bg-cyan-500",
+  // },
 ];
 
 export default function ConfigOverviewPage() {
