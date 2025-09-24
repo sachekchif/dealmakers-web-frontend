@@ -10,6 +10,7 @@ import {
   Shield,
   ArrowRightLeft,
   Clock,
+  DollarSign,
 } from "lucide-react";
 
 interface ConfigItem {
@@ -42,6 +43,14 @@ const configItems: ConfigItem[] = [
     icon: Clock,
     color: "bg-cyan-500",
   },
+  {
+    title: "Currency Settings",
+    description: "Manage currencies and exchange rates for the platform",
+    href: "/dashboard/ad/config/currency-settings",
+    icon: DollarSign,
+    color: "bg-cyan-500",
+  },
+
   {
     title: "General Settings",
     description: "Configure the fundamental information of the site",
