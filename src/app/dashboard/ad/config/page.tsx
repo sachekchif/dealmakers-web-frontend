@@ -12,6 +12,7 @@ import {
   Clock,
   DollarSign,
   Users,
+  FileText,
 } from "lucide-react";
 
 interface ConfigItem {
@@ -56,6 +57,13 @@ const configItems: ConfigItem[] = [
     description: "Configure OAuth providers and social login integrations",
     href: "/dashboard/ad/config/social-credentials",
     icon: Users,
+    color: "bg-cyan-500",
+  },
+  {
+    title: "Policy Pages",
+    description: "Manage legal documents and policy content for your platform",
+    href: "/dashboard/ad/config/policy-pages",
+    icon: FileText,
     color: "bg-cyan-500",
   },
   {
