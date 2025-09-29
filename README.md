@@ -1,9 +1,90 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# TrustedDealMaker
+
+A comprehensive escrow and marketplace platform that facilitates secure transactions between buyers and sellers through a trusted intermediary system.
+
+## Overview
+
+TrustedDealMaker bridges the gap between buyers and sellers by providing a secure transaction ecosystem. The platform acts as an escrow service, holding funds until transaction completion, ensuring both parties fulfill their obligations safely.
+
+## Key Features
+
+### 🔒 Secure Escrow System
+- **Payment Protection**: Buyer funds are held in escrow until delivery confirmation
+- **Milestone Payments**: Flexible payment system allowing staged payments for larger projects
+- **Dispute Resolution**: Built-in dispute management system for transaction conflicts
+
+### 👥 Multi-Role Dashboard
+- **User Dashboard**: Transaction management, wallet operations, and profile settings
+- **Marketplace Dashboard**: Vendor tools for managing offers and transactions
+- **Admin Dashboard**: Platform administration and user management
+
+### 💰 Comprehensive Wallet Management
+- **Deposits & Withdrawals**: Secure money transfer operations
+- **Bank Card Integration**: Multiple payment method support
+- **KYC Verification**: Identity verification for enhanced security
+- **Transaction History**: Complete transaction tracking and analytics
+
+### 🛒 Marketplace Features
+- **Request System**: Users create requests, vendors respond with offers
+- **Product Catalog**: Browse and search available products/services
+- **Real-time Chat**: Communication between buyers and sellers
+- **Flexible Pricing**: Budget-based pricing negotiations
+
+## How It Works
+
+1. **Agreement**: Buyer and seller agree on price, delivery terms, and conditions
+2. **Escrow Payment**: Buyer releases agreed amount to escrow account
+3. **Product Delivery**: Seller ships product and notifies the platform
+4. **Confirmation**: Buyer receives and confirms product satisfaction
+5. **Payment Release**: Platform releases payment to seller
+
+## Technology Stack
+
+### Frontend
+- **Next.js 15** - React framework with App Router
+- **TypeScript** - Type-safe development
+- **Tailwind CSS** - Utility-first styling
+- **DaisyUI** - Component library
+
+### UI Components
+- **Radix UI** - Accessible component primitives
+- **Lucide React** - Icon library
+- **Heroicons** - Additional icons
+- **Sonner** - Toast notifications
+
+### Form Management
+- **React Hook Form** - Form handling
+- **Zod** - Schema validation
+- **Formik** - Alternative form solution
+
+### Data Visualization
+- **Recharts** - Chart and analytics components
+- **Tanstack Table** - Advanced table functionality
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+- Node.js 18+
+- npm, yarn, pnpm, or bun
 
+### Installation
+
+1. Clone the repository
+```bash
+git clone <repository-url>
+cd dealmakers
+```
+
+2. Install dependencies
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+3. Run the development server
 ```bash
 npm run dev
 # or
@@ -14,23 +95,70 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```
+src/
+├── app/                          # Next.js App Router
+│   ├── (public-pages)/          # Public website pages
+│   │   ├── (home)/              # Landing page
+│   │   ├── about/               # About page
+│   │   ├── explore/             # Product exploration
+│   │   └── beta/                # Beta features
+│   └── dashboard/               # Dashboard application
+│       ├── us/                  # User dashboard
+│       ├── mp/                  # Marketplace dashboard
+│       └── ad/                  # Admin dashboard
+├── components/                   # Reusable components
+│   ├── ui/                      # Base UI components
+│   ├── dashboard/               # Dashboard-specific components
+│   └── website/                 # Website-specific components
+├── hooks/                       # Custom React hooks
+└── utils/                       # Utility functions
+```
 
-## Learn More
+## Available Scripts
 
-To learn more about Next.js, take a look at the following resources:
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Features in Detail
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Dashboard Capabilities
+- **Transaction Overview**: Real-time transaction monitoring and analytics
+- **Wallet Operations**: Comprehensive financial management
+- **User Management**: Profile, security settings, and KYC verification
+- **Dispute Management**: Handle transaction conflicts and resolutions
+- **Commission Tracking**: Monitor earnings and fees
 
-## Deploy on Vercel
+### Security Features
+- **KYC Verification**: Identity verification for trusted transactions
+- **Secure Payment Processing**: PCI-compliant payment handling
+- **Fraud Prevention**: Advanced security measures and monitoring
+- **Data Protection**: Secure handling of sensitive user information
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Marketplace Integration
+- **Social Login**: Multiple authentication providers
+- **Currency Management**: Multi-currency support
+- **Policy Management**: Configurable terms and conditions
+- **SEO Optimization**: Search engine optimization features
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is private and proprietary.
+
+## Support
+
+For support and questions, please contact the development team.
