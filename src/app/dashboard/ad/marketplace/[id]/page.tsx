@@ -1,9 +1,12 @@
 // marketplace-details-page.tsx (Updated with Charge Settings)
+"use client";
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Edit } from "lucide-react";
+import { Power, PowerOff } from "lucide-react";
 import { ChargeSettings } from "./charge-settings";
+import { useState } from "react";
 
 // This would typically come from a database or API
 const getMarketplaceDetails = (id: string) => {
@@ -25,12 +28,13 @@ const getMarketplaceDetails = (id: string) => {
   };
 };
 
-export default async function MarketplaceDetailsPage({
+export default function MarketplaceDetailsPage({
   params,
 }: {
-  params: Promise<{ id: string }>;
+  params: { id: string };
 }) {
-  const { id } = await params;
+  const { id } = params;
+  const [marketplaceStatus, setMarketplaceStatus] = useState<"Active" | "Disabled">("Active");
 
   // In a real app, you would fetch this data from an API or database
   const marketplace = getMarketplaceDetails(id);
@@ -38,6 +42,12 @@ export default async function MarketplaceDetailsPage({
   if (!marketplace) {
     return <div>Marketplace not found</div>;
   }
+
+  const handleToggleStatus = () => {
+    setMarketplaceStatus((prev) => (prev === "Active" ? "Disabled" : "Active"));
+    // In a real app, make API call here
+    console.log("Toggling marketplace status to:", marketplaceStatus === "Active" ? "Disabled" : "Active");
+  };
 
   // Status color based on status
   const getStatusColor = () => {
@@ -62,10 +72,26 @@ export default async function MarketplaceDetailsPage({
     <div className="container p-6 max-w-7xl">
       <div className="flex items-center justify-between mb-6">
         <h1 className="text-2xl font-bold">Marketplace Details</h1>
-        {/* <Button className="bg-cyan-500 hover:bg-cyan-600 text-white">
-          <Edit className="h-4 w-4 mr-2" />
-          Edit Marketplace
-        </Button> */}
+        <Button
+          onClick={handleToggleStatus}
+          className={
+            marketplaceStatus === "Active"
+              ? "bg-red-500 hover:bg-red-600 text-white"
+              : "bg-green-500 hover:bg-green-600 text-white"
+          }
+        >
+          {marketplaceStatus === "Active" ? (
+            <>
+              <PowerOff className="h-4 w-4 mr-2" />
+              Disable Marketplace
+            </>
+          ) : (
+            <>
+              <Power className="h-4 w-4 mr-2" />
+              Enable Marketplace
+            </>
+          )}
+        </Button>
       </div>
 
       <div className="space-y-6">
@@ -124,8 +150,12 @@ export default async function MarketplaceDetailsPage({
               <div className="grid grid-cols-2 gap-2">
                 <div className="text-sm text-gray-500">Status</div>
                 <div className="text-right">
-                  <Badge className={getStatusColor()}>
-                    • {marketplace.status}
+                  <Badge className={
+                    marketplaceStatus.toLowerCase() === "active"
+                      ? "bg-green-100 text-green-700 hover:bg-green-100"
+                      : "bg-red-100 text-red-600 hover:bg-red-100"
+                  }>
+                    • {marketplaceStatus}
                   </Badge>
                 </div>
               </div>

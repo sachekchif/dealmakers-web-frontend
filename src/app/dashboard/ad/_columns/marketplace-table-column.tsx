@@ -197,53 +197,6 @@ export const MarketplaceColumns: ColumnDef<Marketplace>[] = [
                 Copy Commission Amount
               </DropdownMenuItem>
               <DropdownMenuSeparator />
-              {/* <DropdownMenuItem
-                className="text-purple-600"
-                onClick={() => {
-                  const event = new CustomEvent("assignCommissions", {
-                    detail: marketplace,
-                  });
-                  window.dispatchEvent(event);
-                }}
-              >
-                <Percent className="h-4 w-4 mr-2" />
-                Assign Commissions
-              </DropdownMenuItem> */}
-              {/* <DropdownMenuSeparator />s */}
-              <DropdownMenuItem
-                className="text-cyan-600"
-                onClick={() => {
-                  const event = new CustomEvent("toggleMarketplaceStatus", {
-                    detail: marketplace,
-                  });
-                  window.dispatchEvent(event);
-                }}
-              >
-                Toggle Marketplace
-              </DropdownMenuItem>
-              {/* <DropdownMenuItem
-                className="text-blue-600"
-                onClick={() => {
-                  const event = new CustomEvent("duplicateMarketplace", {
-                    detail: marketplace,
-                  });
-                  window.dispatchEvent(event);
-                }}
-              >
-                Duplicate Marketplace
-              </DropdownMenuItem> */}
-              <DropdownMenuSeparator />
-              {/* <DropdownMenuItem
-                className="text-red-600"
-                onClick={() => {
-                  const event = new CustomEvent("deleteMarketplace", {
-                    detail: marketplace.id,
-                  });
-                  window.dispatchEvent(event);
-                }}
-              >
-                Delete Marketplace
-              </DropdownMenuItem> */}
               <DropdownMenuItem>
                 {" "}
                 <Button
