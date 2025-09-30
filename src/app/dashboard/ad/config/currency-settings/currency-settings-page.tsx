@@ -118,6 +118,8 @@ export default function CurrencySettingsPage() {
 
   const handleDuplicate = async (currency: Currency) => {
     try {
+      // In real implementation, this would call:
+      // POST /api/v1/admin/config/currency-settings/{id}/duplicate
       await simulateApiCall(() => {
         const newId = Math.max(...currencies.map((c) => c.id)) + 1;
         const now = new Date().toISOString();
