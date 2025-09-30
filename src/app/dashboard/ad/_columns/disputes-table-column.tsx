@@ -27,6 +27,45 @@ export interface Dispute {
   status: "Completed" | "Pending" | "In Progress" | "Failed";
 }
 
+// Component for Actions Cell
+function ActionsCell({ dispute }: { dispute: Dispute }) {
+  const router = useRouter();
+
+  return (
+    <div className="flex items-center gap-2">
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button variant="ghost" className="h-8 w-8 p-0">
+            <span className="sr-only">Open menu</span>
+            <MoreHorizontal className="h-4 w-4" />
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="end">
+          <DropdownMenuLabel>Actions</DropdownMenuLabel>
+          <DropdownMenuItem
+            onClick={() =>
+              navigator.clipboard.writeText(dispute.transactionId)
+            }
+          >
+            Copy Transaction ID
+          </DropdownMenuItem>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem
+            onClick={() => router.push(`/dashboard/ad/disputes/${dispute.id}`)}
+          >
+            View Dispute Details
+          </DropdownMenuItem>
+          <DropdownMenuItem
+            onClick={() => router.push(`/dashboard/ad/transactions/${dispute.transactionId.replace('#', '')}`)}
+          >
+            View Transaction Details
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    </div>
+  );
+}
+
 export const DisputesColumns: ColumnDef<Dispute>[] = [
   {
     id: "select",
@@ -158,41 +197,7 @@ export const DisputesColumns: ColumnDef<Dispute>[] = [
     enableHiding: false,
     cell: ({ row }) => {
       const dispute = row.original as Dispute;
-      const router = useRouter();
-
-      return (
-        <div className="flex items-center gap-2">
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="h-8 w-8 p-0">
-                <span className="sr-only">Open menu</span>
-                <MoreHorizontal className="h-4 w-4" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuLabel>Actions</DropdownMenuLabel>
-              <DropdownMenuItem
-                onClick={() =>
-                  navigator.clipboard.writeText(dispute.transactionId)
-                }
-              >
-                Copy Transaction ID
-              </DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem
-                onClick={() => router.push(`/dashboard/ad/disputes/${dispute.id}`)}
-              >
-                View Dispute Details
-              </DropdownMenuItem>
-              <DropdownMenuItem
-                onClick={() => router.push(`/dashboard/ad/transactions/${dispute.transactionId.replace('#', '')}`)}
-              >
-                View Transaction Details
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </div>
-      );
+      return <ActionsCell dispute={dispute} />;
     },
   },
 ];

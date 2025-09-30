@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Power, PowerOff } from "lucide-react";
 import { ChargeSettings } from "./charge-settings";
-import { useState } from "react";
+import { useState, use } from "react";
 
 // This would typically come from a database or API
 const getMarketplaceDetails = (id: string) => {
@@ -31,9 +31,9 @@ const getMarketplaceDetails = (id: string) => {
 export default function MarketplaceDetailsPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  const { id } = params;
+  const { id } = use(params);
   const [marketplaceStatus, setMarketplaceStatus] = useState<"Active" | "Disabled">("Active");
 
   // In a real app, you would fetch this data from an API or database
