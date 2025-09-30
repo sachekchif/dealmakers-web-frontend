@@ -13,6 +13,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { ArrowUpDown, MoreHorizontal } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export interface Dispute {
   id: string;
@@ -156,17 +157,11 @@ export const DisputesColumns: ColumnDef<Dispute>[] = [
     // header: "Action",
     enableHiding: false,
     cell: ({ row }) => {
-      const transaction = row.original as Dispute;
+      const dispute = row.original as Dispute;
+      const router = useRouter();
 
       return (
         <div className="flex items-center gap-2">
-          {/* <Button
-            variant="outline"
-            size="sm"
-            className="text-blue-600 border-blue-200 hover:bg-blue-50"
-          >
-            Assign
-          </Button> */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" className="h-8 w-8 p-0">
@@ -178,21 +173,21 @@ export const DisputesColumns: ColumnDef<Dispute>[] = [
               <DropdownMenuLabel>Actions</DropdownMenuLabel>
               <DropdownMenuItem
                 onClick={() =>
-                  navigator.clipboard.writeText(transaction.transactionId)
+                  navigator.clipboard.writeText(dispute.transactionId)
                 }
               >
                 Copy Transaction ID
               </DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>View Buyer Details</DropdownMenuItem>
-              <DropdownMenuItem>View Seller Details</DropdownMenuItem>
-              <DropdownMenuItem>View Transaction Details</DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem className="text-blue-600">
-                Reassign
+              <DropdownMenuItem
+                onClick={() => router.push(`/dashboard/ad/disputes/${dispute.id}`)}
+              >
+                View Dispute Details
               </DropdownMenuItem>
-              <DropdownMenuItem className="text-red-600">
-                Mark as Priority
+              <DropdownMenuItem
+                onClick={() => router.push(`/dashboard/ad/transactions/${dispute.transactionId.replace('#', '')}`)}
+              >
+                View Transaction Details
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
