@@ -23,8 +23,8 @@ export interface TimerSetting {
   id: number;
   category: string;
   transactionType: string;
-  applyGlobally: number;
-  applyCategory: string;
+  value: number;
+  unit: "minutes" | "hours" | "days";
   status: "enabled" | "disabled";
   timerType: "payment" | "rejection" | "delivery" | "inspection" | "dispute" | "arbitration";
 }
@@ -82,18 +82,16 @@ export const TimersColumns: ColumnDef<TimerSetting>[] = [
     ),
   },
   {
-    accessorKey: "applyGlobally",
-    header: "Apply Globally",
-    cell: ({ row }) => (
-      <div className="text-sm text-center">{row.getValue("applyGlobally")}</div>
-    ),
-  },
-  {
-    accessorKey: "applyCategory",
-    header: "Apply Category",
-    cell: ({ row }) => (
-      <div className="text-sm">{row.getValue("applyCategory")}</div>
-    ),
+    accessorKey: "value",
+    header: "Duration",
+    cell: ({ row }) => {
+      const timer = row.original;
+      return (
+        <div className="text-sm font-medium">
+          {timer.value} {timer.unit}
+        </div>
+      );
+    },
   },
   {
     accessorKey: "status",

@@ -35,8 +35,8 @@ export function TimerEditDialog({
 }: TimerEditDialogProps) {
   const [category, setCategory] = useState("");
   const [transactionType, setTransactionType] = useState("");
-  const [applyGlobally, setApplyGlobally] = useState(1);
-  const [applyCategory, setApplyCategory] = useState("");
+  const [value, setValue] = useState(1);
+  const [unit, setUnit] = useState<"minutes" | "hours" | "days">("hours");
   const [status, setStatus] = useState<"enabled" | "disabled">("enabled");
   const [timerType, setTimerType] =
     useState<TimerSetting["timerType"]>("payment");
@@ -45,27 +45,27 @@ export function TimerEditDialog({
     if (timer) {
       setCategory(timer.category);
       setTransactionType(timer.transactionType);
-      setApplyGlobally(timer.applyGlobally);
-      setApplyCategory(timer.applyCategory);
+      setValue(timer.value);
+      setUnit(timer.unit);
       setStatus(timer.status);
       setTimerType(timer.timerType);
     } else {
       setCategory("");
       setTransactionType("");
-      setApplyGlobally(1);
-      setApplyCategory("");
+      setValue(1);
+      setUnit("hours");
       setStatus("enabled");
       setTimerType("payment");
     }
   }, [timer]);
 
   const handleSave = () => {
-    if (category.trim() && transactionType.trim() && applyCategory.trim()) {
+    if (category.trim() && transactionType.trim() && value > 0) {
       onSave({
         category: category.trim(),
         transactionType: transactionType.trim(),
-        applyGlobally,
-        applyCategory: applyCategory.trim(),
+        value,
+        unit,
         status,
         timerType,
       });
@@ -78,8 +78,8 @@ export function TimerEditDialog({
     // Reset form
     setCategory("");
     setTransactionType("");
-    setApplyGlobally(1);
-    setApplyCategory("");
+    setValue(1);
+    setUnit("hours");
     setStatus("enabled");
     setTimerType("payment");
   };
@@ -104,6 +104,7 @@ export function TimerEditDialog({
                 <SelectValue placeholder="Select Category" />
               </SelectTrigger>
               <SelectContent>
+                <SelectItem value="All Categories">All Categories</SelectItem>
                 <SelectItem value="Autos">Autos</SelectItem>
                 <SelectItem value="Electronics">Electronics</SelectItem>
                 <SelectItem value="Fashion">Fashion</SelectItem>
@@ -122,6 +123,7 @@ export function TimerEditDialog({
                 <SelectValue placeholder="Select Transaction Type" />
               </SelectTrigger>
               <SelectContent>
+                <SelectItem value="All">All</SelectItem>
                 <SelectItem value="Product">Product</SelectItem>
                 <SelectItem value="Service">Service</SelectItem>
                 <SelectItem value="Digital">Digital</SelectItem>
@@ -157,47 +159,32 @@ export function TimerEditDialog({
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="apply-globally" className="text-sm font-medium">
-              Apply Globally (Days)
+            <Label htmlFor="value" className="text-sm font-medium">
+              Duration Value
             </Label>
-            <Select
-              value={applyGlobally.toString()}
-              onValueChange={(value) => setApplyGlobally(parseInt(value))}
-            >
-              <SelectTrigger className="w-full">
-                <SelectValue placeholder="Select Days" className="w-full" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="1">1 Day</SelectItem>
-                <SelectItem value="2">2 Days</SelectItem>
-                <SelectItem value="3">3 Days</SelectItem>
-                <SelectItem value="4">4 Days</SelectItem>
-                <SelectItem value="5">5 Days</SelectItem>
-                <SelectItem value="7">1 Week</SelectItem>
-                <SelectItem value="14">2 Weeks</SelectItem>
-                <SelectItem value="30">1 Month</SelectItem>
-              </SelectContent>
-            </Select>
+            <Input
+              id="value"
+              type="number"
+              min="1"
+              value={value}
+              onChange={(e) => setValue(parseInt(e.target.value) || 1)}
+              placeholder="Enter duration value"
+              className="w-full"
+            />
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="apply-category" className="text-sm font-medium">
-              Apply to Category (Duration)
+            <Label htmlFor="unit" className="text-sm font-medium">
+              Duration Unit
             </Label>
-            <Select value={applyCategory} onValueChange={setApplyCategory}>
+            <Select value={unit} onValueChange={(value: "minutes" | "hours" | "days") => setUnit(value)}>
               <SelectTrigger className="w-full">
-                <SelectValue placeholder="Select Duration" />
+                <SelectValue placeholder="Select Unit" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="30 minutes">30 minutes</SelectItem>
-                <SelectItem value="1 hour">1 hour</SelectItem>
-                <SelectItem value="2 hours">2 hours</SelectItem>
-                <SelectItem value="3 hours">3 hours</SelectItem>
-                <SelectItem value="6 hours">6 hours</SelectItem>
-                <SelectItem value="12 hours">12 hours</SelectItem>
-                <SelectItem value="24 hours">24 hours</SelectItem>
-                <SelectItem value="48 hours">48 hours</SelectItem>
-                <SelectItem value="72 hours">72 hours</SelectItem>
+                <SelectItem value="minutes">Minutes</SelectItem>
+                <SelectItem value="hours">Hours</SelectItem>
+                <SelectItem value="days">Days</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -221,7 +208,7 @@ export function TimerEditDialog({
           onClick={handleSave}
           className="w-full bg-cyan-500 hover:bg-cyan-600 text-white"
           disabled={
-            !category.trim() || !transactionType.trim() || !applyCategory.trim()
+            !category.trim() || !transactionType.trim() || value < 1
           }
         >
           {timer ? "Update Timer Setting" : "Create Timer Setting"}

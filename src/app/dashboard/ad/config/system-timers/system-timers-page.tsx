@@ -32,64 +32,64 @@ const initialTimerSettings: TimerSetting[] = [
     id: 1,
     category: "Autos",
     transactionType: "Product",
-    applyGlobally: 3,
-    applyCategory: "2 hours",
+    value: 2,
+    unit: "hours",
     status: "enabled",
     timerType: "payment",
   },
   {
     id: 2,
-    category: "Autos",
-    transactionType: "Product",
-    applyGlobally: 3,
-    applyCategory: "2 hours",
+    category: "Electronics",
+    transactionType: "All",
+    value: 3,
+    unit: "days",
     status: "enabled",
     timerType: "payment",
   },
   {
     id: 3,
-    category: "Autos",
-    transactionType: "Product",
-    applyGlobally: 3,
-    applyCategory: "2 hours",
+    category: "All Categories",
+    transactionType: "All",
+    value: 48,
+    unit: "hours",
     status: "enabled",
-    timerType: "payment",
+    timerType: "delivery",
   },
   {
     id: 4,
-    category: "Autos",
+    category: "Fashion",
     transactionType: "Product",
-    applyGlobally: 3,
-    applyCategory: "2 hours",
+    value: 24,
+    unit: "hours",
     status: "enabled",
-    timerType: "payment",
+    timerType: "inspection",
   },
   {
     id: 5,
     category: "Autos",
-    transactionType: "Product",
-    applyGlobally: 3,
-    applyCategory: "2 hours",
-    status: "enabled",
-    timerType: "payment",
+    transactionType: "Service",
+    value: 6,
+    unit: "hours",
+    status: "disabled",
+    timerType: "rejection",
   },
   {
     id: 6,
-    category: "Autos",
-    transactionType: "Product",
-    applyGlobally: 3,
-    applyCategory: "2 hours",
+    category: "All Categories",
+    transactionType: "Digital",
+    value: 30,
+    unit: "minutes",
     status: "enabled",
     timerType: "payment",
   },
   {
     id: 7,
-    category: "Autos",
-    transactionType: "Product",
-    applyGlobally: 3,
-    applyCategory: "2 hours",
+    category: "Sports",
+    transactionType: "All",
+    value: 7,
+    unit: "days",
     status: "enabled",
-    timerType: "payment",
+    timerType: "dispute",
   },
 ];
 
@@ -105,9 +105,6 @@ export default function SystemTimersPage() {
   // Filter form states
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [selectedTransactionType, setSelectedTransactionType] =
-    useState<string>("");
-  const [selectedGlobalApply, setSelectedGlobalApply] = useState<string>("");
-  const [selectedCategoryApply, setSelectedCategoryApply] =
     useState<string>("");
 
   const tabTypes = {
@@ -137,14 +134,14 @@ export default function SystemTimersPage() {
         setting.timerType === tabTypes[activeTab as keyof typeof tabTypes]
     );
 
-    if (selectedCategory) {
+    if (selectedCategory && selectedCategory !== "All Categories") {
       filtered = filtered.filter(
         (setting) =>
           setting.category.toLowerCase() === selectedCategory.toLowerCase()
       );
     }
 
-    if (selectedTransactionType) {
+    if (selectedTransactionType && selectedTransactionType !== "All") {
       filtered = filtered.filter(
         (setting) =>
           setting.transactionType.toLowerCase() ===
@@ -159,8 +156,6 @@ export default function SystemTimersPage() {
   const handleClearFilters = () => {
     setSelectedCategory("");
     setSelectedTransactionType("");
-    setSelectedGlobalApply("");
-    setSelectedCategoryApply("");
     const timerType = tabTypes[activeTab as keyof typeof tabTypes];
     const filtered = timerSettings.filter(
       (setting) => setting.timerType === timerType
@@ -248,14 +243,14 @@ export default function SystemTimersPage() {
       (setting) => setting.timerType === timerType
     );
 
-    if (selectedCategory) {
+    if (selectedCategory && selectedCategory !== "All Categories") {
       filtered = filtered.filter(
         (setting) =>
           setting.category.toLowerCase() === selectedCategory.toLowerCase()
       );
     }
 
-    if (selectedTransactionType) {
+    if (selectedTransactionType && selectedTransactionType !== "All") {
       filtered = filtered.filter(
         (setting) =>
           setting.transactionType.toLowerCase() ===
@@ -360,9 +355,8 @@ export default function SystemTimersPage() {
               </CardDescription>
             </CardHeader>
             <CardContent className="p-0">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 <div className="space-y-2">
-                  {/* <Label htmlFor="category">Category</Label> */}
                   <Select
                     value={selectedCategory}
                     onValueChange={setSelectedCategory}
@@ -371,17 +365,17 @@ export default function SystemTimersPage() {
                       <SelectValue placeholder="Select Category" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="autos">Autos</SelectItem>
-                      <SelectItem value="electronics">Electronics</SelectItem>
-                      <SelectItem value="fashion">Fashion</SelectItem>
-                      <SelectItem value="home">Home & Garden</SelectItem>
-                      <SelectItem value="sports">Sports</SelectItem>
+                      <SelectItem value="All Categories">All Categories</SelectItem>
+                      <SelectItem value="Autos">Autos</SelectItem>
+                      <SelectItem value="Electronics">Electronics</SelectItem>
+                      <SelectItem value="Fashion">Fashion</SelectItem>
+                      <SelectItem value="Home & Garden">Home & Garden</SelectItem>
+                      <SelectItem value="Sports">Sports</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
 
                 <div className="space-y-2">
-                  {/* <Label htmlFor="transaction-type">Transaction Type</Label> */}
                   <Select
                     value={selectedTransactionType}
                     onValueChange={setSelectedTransactionType}
@@ -390,48 +384,10 @@ export default function SystemTimersPage() {
                       <SelectValue placeholder="Select Transaction Type" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="product">Product</SelectItem>
-                      <SelectItem value="service">Service</SelectItem>
-                      <SelectItem value="digital">Digital</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div className="space-y-2">
-                  {/* <Label htmlFor="apply-globally">Apply Globally</Label> */}
-                  <Select
-                    value={selectedGlobalApply}
-                    onValueChange={setSelectedGlobalApply}
-                  >
-                    <SelectTrigger className="w-full">
-                      <SelectValue placeholder="Select Transaction Type" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="1">1</SelectItem>
-                      <SelectItem value="2">2</SelectItem>
-                      <SelectItem value="3">3</SelectItem>
-                      <SelectItem value="4">4</SelectItem>
-                      <SelectItem value="5">5</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div className="space-y-2">
-                  {/* <Label htmlFor="apply-category">Apply To Category</Label> */}
-                  <Select
-                    value={selectedCategoryApply}
-                    onValueChange={setSelectedCategoryApply}
-                  >
-                    <SelectTrigger className="w-full">
-                      <SelectValue placeholder="Select" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="1-hour">1 hour</SelectItem>
-                      <SelectItem value="2-hours">2 hours</SelectItem>
-                      <SelectItem value="3-hours">3 hours</SelectItem>
-                      <SelectItem value="6-hours">6 hours</SelectItem>
-                      <SelectItem value="12-hours">12 hours</SelectItem>
-                      <SelectItem value="24-hours">24 hours</SelectItem>
+                      <SelectItem value="All">All</SelectItem>
+                      <SelectItem value="Product">Product</SelectItem>
+                      <SelectItem value="Service">Service</SelectItem>
+                      <SelectItem value="Digital">Digital</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -441,7 +397,7 @@ export default function SystemTimersPage() {
                     onClick={handleSubmit}
                     className="w-full bg-cyan-500 hover:bg-cyan-600 text-white"
                   >
-                    Submit
+                    Apply Filters
                   </Button>
                 </div>
               </div>
