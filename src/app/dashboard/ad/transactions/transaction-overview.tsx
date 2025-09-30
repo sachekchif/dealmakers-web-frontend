@@ -6,7 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 import { MoneyFlowChart } from "@/components/dashboard/charts";
-import StatCards from "./commissions-card";
+import StatCards from "./transaction-stats-card";
 
 export default function TransactionOverview({}) {
   // Sample data for the chart
