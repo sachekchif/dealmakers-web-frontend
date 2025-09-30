@@ -4,7 +4,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Plus, Filter, Download, Search } from "lucide-react";
+import { Plus, Filter, Search } from "lucide-react";
 import { HistoryTable } from "@/components/dashboard/tables";
 import {
   Category,
@@ -191,10 +191,6 @@ export default function CategoriesPage() {
     setEditingCategory(null);
   };
 
-  const handleExport = () => {
-    // Implement export functionality
-    console.log("Exporting categories...");
-  };
 
   return (
     <div className="container mx-auto p-6 space-y-6">
@@ -231,46 +227,8 @@ export default function CategoriesPage() {
             </Button>
           </div>
 
-          <div className="flex items-center gap-2">
-            <Button variant="outline" size="sm" onClick={handleExport}>
-              <Download className="h-4 w-4 mr-2" />
-              Export
-            </Button>
-          </div>
         </div>
 
-        {/* Statistics
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          <div className="bg-white p-4 rounded-lg border">
-            <div className="text-2xl font-bold text-gray-900">
-              {categories.length}
-            </div>
-            <div className="text-sm text-gray-600">Total Categories</div>
-          </div>
-          <div className="bg-white p-4 rounded-lg border">
-            <div className="text-2xl font-bold text-green-600">
-              {categories.filter((cat) => cat.status === "enabled").length}
-            </div>
-            <div className="text-sm text-gray-600">Enabled</div>
-          </div>
-          <div className="bg-white p-4 rounded-lg border">
-            <div className="text-2xl font-bold text-red-600">
-              {categories.filter((cat) => cat.status === "disabled").length}
-            </div>
-            <div className="text-sm text-gray-600">Disabled</div>
-          </div>
-          <div className="bg-white p-4 rounded-lg border">
-            <div className="text-2xl font-bold text-blue-600">
-              {Math.round(
-                (categories.filter((cat) => cat.status === "enabled").length /
-                  categories.length) *
-                  100
-              )}
-              %
-            </div>
-            <div className="text-sm text-gray-600">Enabled Rate</div>
-          </div>
-        </div> */}
 
         {/* Table */}
         <div className="bg-white rounded-lg border">
