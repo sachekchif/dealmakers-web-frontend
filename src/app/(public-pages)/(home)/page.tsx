@@ -51,9 +51,9 @@ const HowitWorksItems = [
     img: work1,
   },
   {
-    heading: "Buyer releases payment to the escrow",
+    heading: "Buyer makes payment on the system",
     description:
-      "The buyer then releases the agreed price to the escrow for delivery to commence.",
+      "The buyer then releases the agreed price to the seller for delivery to commence.",
     img: work2,
   },
   {
@@ -69,7 +69,7 @@ const HowitWorksItems = [
   },
   {
     heading: "DealMaker releases payment",
-    description: "The escrow releases payment to the seller.",
+    description: "The payment releases payment to the seller.",
     img: work5,
   },
 ];

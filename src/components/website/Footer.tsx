@@ -52,7 +52,7 @@ function FooterLinks() {
   return (
     <nav className="flex my-2 flex-1 justify-between">
       <div className="py-2 flex-1">
-        <h3 className="py-3 font-bold text-white text-lg">About TDM</h3>
+        <h3 className="py-3 font-bold text-black dark:text-white text-lg">About TDM</h3>
         <ul className="flex-col pt-2">
           <li className="pb-4 ">
             <Link className="text-gray-400" href={"#"}>
@@ -80,11 +80,11 @@ function FooterLinks() {
         </ul>
       </div>
       <div className="py-2 flex-1">
-        <h3 className="py-3 font-bold text-white text-lg">Our Services</h3>
+        <h3 className="py-3 font-bold text-black dark:text-white text-lg">Our Services</h3>
         <ul className="flex-col pt-2">
           <li className="pb-4">
             <Link className="text-gray-400" href={"#"}>
-              Escrow Service
+              Listing Service
             </Link>
           </li>
           <li className="pb-4">

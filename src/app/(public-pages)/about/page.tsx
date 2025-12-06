@@ -63,7 +63,7 @@ function Hero() {
             About Us
           </h1>
           <p className="my-4 text-center max-w-xl">
-            Trusteddealmaker is an escrow and deal-making platform owned by
+            Trusteddealmaker is a trading marketplace owned by
             TrustedPayer LLC, which aims to provide trust for trades in markets
             lacking structures for secure transactions between parties.
           </p>
