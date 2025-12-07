@@ -1,7 +1,7 @@
 "use client";
 
 import type React from "react";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import {
   Dialog,
   DialogContent,
@@ -261,6 +261,31 @@ export default function AddBankDialog({
   const isOpen = isControlled ? controlledOpen : open;
   const setIsOpen = isControlled ? onOpenChange : setOpen;
 
+  // Memoize verifyAccountDetails with useCallback to prevent recreation
+  const verifyAccountDetails = useCallback(async () => {
+    if (!selectedBank || accountNumber.length !== 10) return;
+
+    setIsVerifyingAccount(true);
+    setVerificationError("");
+
+    try {
+      const name = await verifyAccount(accountNumber, selectedBank.code);
+      if (name) {
+        setAccountName(name);
+      } else {
+        setVerificationError(
+          "Could not verify account details. Please check and try again."
+        );
+        setAccountName("");
+      }
+    } catch (error) {
+      setVerificationError("Error verifying account. Please try again.");
+      setAccountName("");
+    } finally {
+      setIsVerifyingAccount(false);
+    }
+  }, [selectedBank, accountNumber]);
+
   // Determine initial view based on existing banks
   useEffect(() => {
     if (isOpen) {
@@ -285,7 +310,7 @@ export default function AddBankDialog({
       setAccountName("");
       setVerificationError("");
     }
-  }, [accountNumber, selectedBank]);
+  }, [accountNumber, selectedBank, verifyAccountDetails]); // Added verifyAccountDetails to dependencies
 
   const loadBanks = async (search?: string) => {
     setIsLoadingBanks(true);
@@ -297,30 +322,6 @@ export default function AddBankDialog({
       setBanks([]);
     } finally {
       setIsLoadingBanks(false);
-    }
-  };
-
-  const verifyAccountDetails = async () => {
-    if (!selectedBank || accountNumber.length !== 10) return;
-
-    setIsVerifyingAccount(true);
-    setVerificationError("");
-
-    try {
-      const name = await verifyAccount(accountNumber, selectedBank.code);
-      if (name) {
-        setAccountName(name);
-      } else {
-        setVerificationError(
-          "Could not verify account details. Please check and try again."
-        );
-        setAccountName("");
-      }
-    } catch (error) {
-      setVerificationError("Error verifying account. Please try again.");
-      setAccountName("");
-    } finally {
-      setIsVerifyingAccount(false);
     }
   };
 

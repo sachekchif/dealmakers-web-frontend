@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -107,19 +107,23 @@ export default function SystemTimersPage() {
   const [selectedTransactionType, setSelectedTransactionType] =
     useState<string>("");
 
-  const tabTypes = {
-    payment: "payment",
-    rejection: "rejection",
-    delivery: "delivery",
-    inspection: "inspection",
-    resolution: "dispute",
-    arbitration: "arbitration",
-  };
+  // Define tabTypes as a useMemo to avoid recreating it on every render
+  const tabTypes = useMemo(
+    () => ({
+      payment: "payment",
+      rejection: "rejection",
+      delivery: "delivery",
+      inspection: "inspection",
+      resolution: "dispute", // Note: "resolution" maps to "dispute" timerType
+      arbitration: "arbitration",
+    }),
+    []
+  );
 
   // Handle tab changes and filter data
   const handleTabChange = (value: string) => {
     setActiveTab(value);
-    const timerType = tabTypes[value as keyof typeof tabTypes];
+    const timerType = tabTypes[value as keyof typeof tabTypes] || value;
     const filtered = timerSettings.filter(
       (setting) => setting.timerType === timerType
     );
@@ -131,7 +135,7 @@ export default function SystemTimersPage() {
     // Apply filters based on form values
     let filtered = timerSettings.filter(
       (setting) =>
-        setting.timerType === tabTypes[activeTab as keyof typeof tabTypes]
+        setting.timerType === (tabTypes[activeTab as keyof typeof tabTypes] || activeTab)
     );
 
     if (selectedCategory && selectedCategory !== "All Categories") {
@@ -156,7 +160,7 @@ export default function SystemTimersPage() {
   const handleClearFilters = () => {
     setSelectedCategory("");
     setSelectedTransactionType("");
-    const timerType = tabTypes[activeTab as keyof typeof tabTypes];
+    const timerType = tabTypes[activeTab as keyof typeof tabTypes] || activeTab;
     const filtered = timerSettings.filter(
       (setting) => setting.timerType === timerType
     );
@@ -238,7 +242,7 @@ export default function SystemTimersPage() {
 
   // Update filtered data when timer settings change
   useEffect(() => {
-    const timerType = tabTypes[activeTab as keyof typeof tabTypes];
+    const timerType = tabTypes[activeTab as keyof typeof tabTypes] || activeTab;
     let filtered = timerSettings.filter(
       (setting) => setting.timerType === timerType
     );
@@ -259,7 +263,13 @@ export default function SystemTimersPage() {
     }
 
     setFilteredSettings(filtered);
-  }, [timerSettings, activeTab, selectedCategory, selectedTransactionType]);
+  }, [
+    timerSettings,
+    activeTab,
+    selectedCategory,
+    selectedTransactionType,
+    tabTypes, // Now included in dependencies
+  ]);
 
   const handleCreateNew = () => {
     setEditingTimer(null);
@@ -348,7 +358,7 @@ export default function SystemTimersPage() {
           <Card className="p-6 mb-6">
             <CardHeader className=" p-0">
               <CardTitle className="capitalize">
-                {activeTab} Time Form
+                {activeTab.replace("-", " ")} Time Form
               </CardTitle>
               <CardDescription>
                 Configure Timer Settings for {activeTab}

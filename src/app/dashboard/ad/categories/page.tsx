@@ -67,30 +67,23 @@ const initialCategories: Category[] = [
 
 export default function CategoriesPage() {
   const [categories, setCategories] = useState<Category[]>(initialCategories);
-  const [filteredCategories, setFilteredCategories] =
-    useState<Category[]>(initialCategories);
+  const [filteredCategories, setFilteredCategories] = useState<Category[]>(initialCategories);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [editingCategory, setEditingCategory] = useState<Category | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
 
-  // Handle filtering
-  const handleFilterCategories = (value: string) => {
-    setSearchTerm(value);
-    if (!value.trim()) {
+  // Update filtered categories when categories or search term changes
+  useEffect(() => {
+    if (!searchTerm.trim()) {
       setFilteredCategories(categories);
     } else {
       const filtered = categories.filter(
         (category) =>
-          category.name.toLowerCase().includes(value.toLowerCase()) ||
-          category.description.toLowerCase().includes(value.toLowerCase())
+          category.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          category.description.toLowerCase().includes(searchTerm.toLowerCase())
       );
       setFilteredCategories(filtered);
     }
-  };
-
-  // Update filtered categories when categories change
-  useEffect(() => {
-    handleFilterCategories(searchTerm);
   }, [categories, searchTerm]);
 
   // Event listeners for actions triggered from the table columns
@@ -191,6 +184,10 @@ export default function CategoriesPage() {
     setEditingCategory(null);
   };
 
+  // Handle search input change
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(event.target.value);
+  };
 
   return (
     <div className="container mx-auto p-6 space-y-6">
@@ -217,7 +214,7 @@ export default function CategoriesPage() {
               <Input
                 placeholder="Search categories by name or description..."
                 value={searchTerm}
-                onChange={(event) => handleFilterCategories(event.target.value)}
+                onChange={handleSearchChange}
                 className="pl-8 max-w-sm"
               />
             </div>
@@ -226,9 +223,7 @@ export default function CategoriesPage() {
               Filter
             </Button>
           </div>
-
         </div>
-
 
         {/* Table */}
         <div className="bg-white rounded-lg border">
